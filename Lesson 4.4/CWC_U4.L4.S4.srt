@@ -1,0 +1,242 @@
+﻿1
+00:00:00,648 --> 00:00:03,148
+(upbeat tone)
+
+2
+00:00:05,470 --> 00:00:08,750
+- [Instructor] Now we can
+control the enemies spawning
+
+3
+00:00:08,750 --> 00:00:11,970
+whenever they all leave the scene.
+
+4
+00:00:11,970 --> 00:00:13,450
+So what we're gonna do is
+
+5
+00:00:13,450 --> 00:00:15,710
+actually increase the
+number of enemies every time
+
+6
+00:00:15,710 --> 00:00:17,390
+we defeat a wave.
+
+7
+00:00:17,390 --> 00:00:19,020
+So, we'll have one spawn
+
+8
+00:00:19,020 --> 00:00:20,280
+and then we can have two spawn
+
+9
+00:00:20,280 --> 00:00:21,623
+and three, and so on.
+
+10
+00:00:23,200 --> 00:00:26,870
+In our Spawn Manager
+Script we're going to use
+
+11
+00:00:26,870 --> 00:00:29,980
+a variable to control the actual
+
+12
+00:00:29,980 --> 00:00:32,440
+number of enemies in the wave.
+
+13
+00:00:32,440 --> 00:00:34,400
+So, we'll make a Public Variable
+
+14
+00:00:34,400 --> 00:00:36,690
+so we can see what it does again,
+
+15
+00:00:36,690 --> 00:00:41,690
+make it an Integer, and then
+we'll call it Wave Number,
+
+16
+00:00:43,390 --> 00:00:46,290
+and we'll set it to one in the beginning,
+
+17
+00:00:46,290 --> 00:00:49,680
+and then we'll actually use
+this wave number to dictate
+
+18
+00:00:49,680 --> 00:00:52,220
+how many enemies should spawn after
+
+19
+00:00:52,220 --> 00:00:53,650
+we defeat every enemy.
+
+20
+00:00:53,650 --> 00:00:56,210
+In our If Statement, since
+this is where we know
+
+21
+00:00:56,210 --> 00:00:58,560
+when enemies are defeated,
+
+22
+00:00:58,560 --> 00:01:01,780
+this is actually where we'll
+increment our wave number.
+
+23
+00:01:01,780 --> 00:01:05,820
+So we'll change our spawn enemy wave
+
+24
+00:01:05,820 --> 00:01:07,893
+and start to be wave number,
+
+25
+00:01:08,770 --> 00:01:12,240
+so this will spawn one
+enemy at the beginning.
+
+26
+00:01:12,240 --> 00:01:14,560
+Now, when we've defeated
+all of the enemies
+
+27
+00:01:14,560 --> 00:01:17,440
+we'll set wave number and
+
+28
+00:01:17,440 --> 00:01:20,180
+we'll use that plus plus, this time.
+
+29
+00:01:20,180 --> 00:01:22,920
+So now when the enemies are all defeated,
+
+30
+00:01:22,920 --> 00:01:25,230
+it will increase wave number by one,
+
+31
+00:01:25,230 --> 00:01:27,280
+so now wave number should be two.
+
+32
+00:01:27,280 --> 00:01:30,980
+And then if we change the
+enemies to spawn parameter,
+
+33
+00:01:30,980 --> 00:01:33,130
+to be a wave number here,
+
+34
+00:01:33,130 --> 00:01:35,823
+so then it should spawn
+two enemies afterwards.
+
+35
+00:01:36,760 --> 00:01:38,573
+So, now if we test our game,
+
+36
+00:01:39,950 --> 00:01:42,530
+we should see one enemy
+spawn; there we go.
+
+37
+00:01:42,530 --> 00:01:46,790
+And then if we hit this
+enemy off, two enemies spawn.
+
+38
+00:01:46,790 --> 00:01:48,260
+Then see if we can hit both.
+
+39
+00:01:48,260 --> 00:01:49,413
+Oh, we have one.
+
+40
+00:01:51,780 --> 00:01:53,470
+And the last one
+
+41
+00:01:53,470 --> 00:01:56,000
+will go off and then do we get three?
+
+42
+00:01:56,000 --> 00:01:56,933
+And there you go.
+
+43
+00:01:59,330 --> 00:02:02,400
+So, now in your spawn manager script,
+
+44
+00:02:02,400 --> 00:02:05,320
+you're going to add another variable
+
+45
+00:02:05,320 --> 00:02:07,573
+to keep track of the wave number.
+
+46
+00:02:08,640 --> 00:02:09,720
+So we'll set it to one
+
+47
+00:02:09,720 --> 00:02:12,810
+and we'll make it public so
+we can see what it's doing.
+
+48
+00:02:12,810 --> 00:02:16,940
+In our Start Method, change
+enemy wave to wave number
+
+49
+00:02:18,970 --> 00:02:20,370
+and then in our Update Method,
+
+50
+00:02:20,370 --> 00:02:21,600
+where we can actually keep track
+
+51
+00:02:21,600 --> 00:02:24,210
+of when we hit the point
+where all the enemies
+
+52
+00:02:24,210 --> 00:02:27,060
+are off the scene and we create a new one,
+
+53
+00:02:27,060 --> 00:02:30,170
+we'll increment wave number
+by one here and then we'll
+
+54
+00:02:30,170 --> 00:02:35,060
+spawn a new enemy wave using
+the incremented number.
+
+55
+00:02:35,060 --> 00:02:36,828
+Now it's your turn.
+
+56
+00:02:36,828 --> 00:02:39,328
+(upbeat tone)
+

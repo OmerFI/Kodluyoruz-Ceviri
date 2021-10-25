@@ -1,0 +1,176 @@
+﻿1
+00:00:05,890 --> 00:00:07,640
+- All of the pieces of our prototype
+
+2
+00:00:07,640 --> 00:00:09,430
+are functioning perfectly.
+
+3
+00:00:09,430 --> 00:00:11,810
+The player, the enemy, the power up.
+
+4
+00:00:11,810 --> 00:00:13,690
+All flawless.
+
+5
+00:00:13,690 --> 00:00:14,960
+The problem is that we can
+
+6
+00:00:14,960 --> 00:00:18,460
+only experience this
+functionality very briefly,
+
+7
+00:00:18,460 --> 00:00:20,890
+because as soon as you
+knock the first enemy off,
+
+8
+00:00:20,890 --> 00:00:21,990
+that's it.
+
+9
+00:00:21,990 --> 00:00:23,290
+The game's over.
+
+10
+00:00:23,290 --> 00:00:24,353
+The player wins.
+
+11
+00:00:25,390 --> 00:00:28,170
+If I know these enemy
+spheres like I think I do,
+
+12
+00:00:28,170 --> 00:00:30,223
+they shouldn't go down without a fight,
+
+13
+00:00:31,260 --> 00:00:33,030
+so by the end of this lesson,
+
+14
+00:00:33,030 --> 00:00:35,540
+whenever all enemies are destroyed,
+
+15
+00:00:35,540 --> 00:00:37,690
+a new wave of enemies will spawn
+
+16
+00:00:37,690 --> 00:00:40,540
+with one more enemy than the wave before,
+
+17
+00:00:40,540 --> 00:00:42,963
+gradually increasing
+the game's difficulty.
+
+18
+00:00:44,310 --> 00:00:46,750
+In order to spawn all of these enemies,
+
+19
+00:00:46,750 --> 00:00:49,170
+we'll have to call the instantiate method
+
+20
+00:00:49,170 --> 00:00:51,440
+a whole bunch of times.
+
+21
+00:00:51,440 --> 00:00:53,680
+What you could do is just
+write that line of code
+
+22
+00:00:53,680 --> 00:00:55,810
+over and over again,
+
+23
+00:00:55,810 --> 00:00:57,700
+but as you probably guessed,
+
+24
+00:00:57,700 --> 00:00:59,350
+that's not the best way to do it.
+
+25
+00:01:00,940 --> 00:01:03,433
+Instead, we'll use
+something called a for-loop,
+
+26
+00:01:04,850 --> 00:01:07,680
+which will loop through some code
+
+27
+00:01:07,680 --> 00:01:10,093
+for as many times as we specify.
+
+28
+00:01:10,980 --> 00:01:13,150
+The really great thing about for-loops,
+
+29
+00:01:13,150 --> 00:01:15,560
+as opposed to just writing
+the same line of code
+
+30
+00:01:15,560 --> 00:01:17,630
+over and over again,
+
+31
+00:01:17,630 --> 00:01:19,330
+is that you can use a variable
+
+32
+00:01:19,330 --> 00:01:22,850
+to dynamically change the number of times
+
+33
+00:01:22,850 --> 00:01:24,770
+the for-loop will run.
+
+34
+00:01:24,770 --> 00:01:26,590
+So in the first wave,
+
+35
+00:01:26,590 --> 00:01:29,890
+we'll make the for-loop run
+once to create one enemy.
+
+36
+00:01:29,890 --> 00:01:30,850
+In the second wave,
+
+37
+00:01:30,850 --> 00:01:33,940
+it will run twice to spawn two enemies.
+
+38
+00:01:33,940 --> 00:01:34,960
+In the third wave,
+
+39
+00:01:34,960 --> 00:01:36,640
+we can have it run three times
+
+40
+00:01:36,640 --> 00:01:38,853
+to spawn three enemies and so on.
+
+41
+00:01:39,980 --> 00:01:41,450
+So to make all that happen,
+
+42
+00:01:41,450 --> 00:01:42,713
+I'll see you in Unity.
+

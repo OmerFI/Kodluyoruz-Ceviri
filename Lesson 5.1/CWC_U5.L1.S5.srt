@@ -1,0 +1,350 @@
+﻿1
+00:00:00,520 --> 00:00:03,353
+(electronic tone)
+
+2
+00:00:05,650 --> 00:00:07,420
+- [Instructor] We have
+all of our prefab set up
+
+3
+00:00:07,420 --> 00:00:09,980
+so they're randomly spawned
+in different positions.
+
+4
+00:00:09,980 --> 00:00:11,700
+They have different forces applied to them
+
+5
+00:00:11,700 --> 00:00:13,423
+so that they fly up the screen.
+
+6
+00:00:15,390 --> 00:00:17,910
+Now we're going to use
+a list to keep track
+
+7
+00:00:17,910 --> 00:00:20,540
+of all of these objects to spawn them.
+
+8
+00:00:20,540 --> 00:00:22,300
+But instead of using a spawn manager,
+
+9
+00:00:22,300 --> 00:00:24,890
+we're actually going to
+create a game manager,
+
+10
+00:00:24,890 --> 00:00:27,620
+since we're also going
+to use the game manager
+
+11
+00:00:27,620 --> 00:00:30,340
+to control the states of our game later.
+
+12
+00:00:30,340 --> 00:00:35,340
+In your project hierarchy, if
+you click the create button
+
+13
+00:00:36,090 --> 00:00:40,320
+and create an empty for
+creating an empty game object,
+
+14
+00:00:40,320 --> 00:00:43,763
+we'll rename the scheme
+object as game manager.
+
+15
+00:00:45,210 --> 00:00:47,830
+And then we need a game manager script
+
+16
+00:00:47,830 --> 00:00:49,810
+to be able to actually use it.
+
+17
+00:00:49,810 --> 00:00:52,360
+So in our scripts folder,
+if we right-click,
+
+18
+00:00:52,360 --> 00:00:56,153
+create a C# script and
+call it game manager.
+
+19
+00:00:57,270 --> 00:00:59,810
+We'll now apply our game manager script
+
+20
+00:00:59,810 --> 00:01:01,823
+to our game manager object,
+
+21
+00:01:02,900 --> 00:01:04,600
+and you can see that it's applied.
+
+22
+00:01:05,930 --> 00:01:07,460
+A cool thing you might notice is
+
+23
+00:01:07,460 --> 00:01:11,010
+that on the script, instead
+of having the little C# icon
+
+24
+00:01:11,010 --> 00:01:13,100
+on it, it actually has a gear icon.
+
+25
+00:01:13,100 --> 00:01:15,640
+So in Unity, it actually tries to help you
+
+26
+00:01:15,640 --> 00:01:17,800
+in a lot of ways, and in this case,
+
+27
+00:01:17,800 --> 00:01:19,830
+because game manager is a script
+
+28
+00:01:19,830 --> 00:01:22,220
+that people use very often,
+
+29
+00:01:22,220 --> 00:01:25,710
+Unity actually creates a
+special icon just for it,
+
+30
+00:01:25,710 --> 00:01:28,950
+so then that way, you know
+that this is actually something
+
+31
+00:01:28,950 --> 00:01:31,880
+that we'll use to control
+the different settings
+
+32
+00:01:31,880 --> 00:01:33,090
+for our game.
+
+33
+00:01:33,090 --> 00:01:36,200
+If we open up the game manager script,
+
+34
+00:01:36,200 --> 00:01:38,280
+now we're going to do something similar
+
+35
+00:01:38,280 --> 00:01:41,720
+in our game manager script to get the list
+
+36
+00:01:41,720 --> 00:01:43,350
+of all the objects we're gonna use.
+
+37
+00:01:43,350 --> 00:01:47,090
+So we're going to public so
+we can apply the references.
+
+38
+00:01:47,090 --> 00:01:49,940
+But instead of using an array,
+
+39
+00:01:49,940 --> 00:01:54,450
+we can use a very similar
+data structure called a list.
+
+40
+00:01:54,450 --> 00:01:56,790
+And then with a list, we actually need
+
+41
+00:01:56,790 --> 00:01:59,010
+to give it the type of something,
+
+42
+00:01:59,010 --> 00:02:03,880
+so we'll create game object
+and we'll call this targets.
+
+43
+00:02:03,880 --> 00:02:06,090
+Now a list is extremely similar
+
+44
+00:02:06,090 --> 00:02:10,470
+to an array, so if we were
+to create our own array,
+
+45
+00:02:10,470 --> 00:02:15,470
+we could call it game
+object and then targets two.
+
+46
+00:02:18,940 --> 00:02:22,623
+And you can see I actually
+misspelled game objects.
+
+47
+00:02:23,560 --> 00:02:28,060
+So the notation is very similar,
+but with the list itself,
+
+48
+00:02:28,060 --> 00:02:32,110
+we can actually pass it in the
+type of thing that we want,
+
+49
+00:02:32,110 --> 00:02:36,040
+versus with an array, we
+have to tell the array
+
+50
+00:02:36,040 --> 00:02:39,746
+what that thing is before
+we make the array itself.
+
+51
+00:02:39,746 --> 00:02:43,970
+Lists and arrays have slightly
+different functionality
+
+52
+00:02:43,970 --> 00:02:45,992
+in terms of the ways that they work.
+
+53
+00:02:45,992 --> 00:02:48,457
+Overall, lists and arrays have
+
+54
+00:02:48,457 --> 00:02:52,650
+slightly different
+functionality, so there are times
+
+55
+00:02:52,650 --> 00:02:55,590
+where a list is more useful than an array,
+
+56
+00:02:55,590 --> 00:02:57,810
+but for the purpose of this project,
+
+57
+00:02:57,810 --> 00:02:59,130
+we'll just use a list for now
+
+58
+00:02:59,130 --> 00:03:00,410
+so that we can kind of get used to it
+
+59
+00:03:00,410 --> 00:03:03,030
+and see how it works
+and how similar it is.
+
+60
+00:03:03,030 --> 00:03:06,820
+Now when we save, when we go into Unity,
+
+61
+00:03:06,820 --> 00:03:09,540
+you can see our game manager script.
+
+62
+00:03:09,540 --> 00:03:11,630
+It has the name of the targets.
+
+63
+00:03:11,630 --> 00:03:14,570
+We can create a size, very similar
+
+64
+00:03:14,570 --> 00:03:16,440
+to how made a size for our array.
+
+65
+00:03:16,440 --> 00:03:17,773
+So we'll set this to four.
+
+66
+00:03:18,970 --> 00:03:21,120
+And we have four elements
+that we can give it.
+
+67
+00:03:21,120 --> 00:03:23,523
+So we'll give it the bad object,
+
+68
+00:03:24,560 --> 00:03:29,560
+the good object, the second
+one, and the third one.
+
+69
+00:03:31,060 --> 00:03:35,600
+So what you're gonna do, is
+in your project hierarchy,
+
+70
+00:03:35,600 --> 00:03:38,840
+you're going to create a new empty object,
+
+71
+00:03:38,840 --> 00:03:40,450
+call it game manager.
+
+72
+00:03:40,450 --> 00:03:44,000
+You're going to create a new
+script called game manager,
+
+73
+00:03:44,000 --> 00:03:47,600
+apply that script to
+the game manager object.
+
+74
+00:03:47,600 --> 00:03:52,040
+In your game manager script,
+create a new public list
+
+75
+00:03:52,040 --> 00:03:55,340
+of game objects, and then
+in your game manager,
+
+76
+00:03:55,340 --> 00:03:57,870
+just make sure that you apply the prefabs
+
+77
+00:03:57,870 --> 00:03:59,670
+onto each of the different elements.
+
+78
+00:04:01,760 --> 00:04:02,710
+Now it's your turn.
+
+79
+00:04:03,621 --> 00:04:06,454
+(electronic tone)
+

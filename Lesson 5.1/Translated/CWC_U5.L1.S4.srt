@@ -1,0 +1,454 @@
+﻿1
+00:00:00,499 --> 00:00:03,499
+(futuristic noises)
+
+2
+00:00:05,610 --> 00:00:09,330
+- [Narrator] So we have our
+script for our target set up.
+
+3
+00:00:09,330 --> 00:00:11,360
+We're just gonna do a
+little bit of clean-up
+
+4
+00:00:11,360 --> 00:00:14,940
+just because we have a lot
+of these different methods,
+
+5
+00:00:14,940 --> 00:00:17,240
+and we have a lot of
+different hard values,
+
+6
+00:00:17,240 --> 00:00:20,490
+so we're going to make our
+code just a bit more readable.
+
+7
+00:00:20,490 --> 00:00:23,630
+So we have values for our Speed,
+
+8
+00:00:23,630 --> 00:00:26,980
+we have values for our Torque
+that we're gonna apply.
+
+9
+00:00:26,980 --> 00:00:29,080
+We have a Range for x position,
+
+10
+00:00:29,080 --> 00:00:31,220
+and we have our Spawn position,
+
+11
+00:00:31,220 --> 00:00:33,630
+so we'll just create a
+bunch of those variables.
+
+12
+00:00:33,630 --> 00:00:38,630
+So we'll make a private
+float for our minSpeed,
+
+13
+00:00:39,280 --> 00:00:41,200
+our minimum speed.
+
+14
+00:00:41,200 --> 00:00:45,223
+And we'll set this to 12 for now.
+
+15
+00:00:46,630 --> 00:00:49,140
+We'll make another float for our max
+
+16
+00:00:50,650 --> 00:00:53,110
+and this will be 16.
+
+17
+00:00:53,110 --> 00:00:57,510
+For our Torque, we'll
+make a torque variable
+
+18
+00:00:57,510 --> 00:00:59,693
+and we'll set this to be 10.
+
+19
+00:01:00,930 --> 00:01:05,170
+And then we have a Range
+that our x can spawn in
+
+20
+00:01:09,280 --> 00:01:11,293
+and we have a position for our y.
+
+21
+00:01:16,390 --> 00:01:19,600
+Now, we'll go in and replace
+all these values really quick
+
+22
+00:01:19,600 --> 00:01:23,590
+so in our Random.Range for our AddForce,
+
+23
+00:01:23,590 --> 00:01:26,240
+we're going to change our
+12 to be the minimum speed
+
+24
+00:01:26,240 --> 00:01:28,913
+that we want our objects to move.
+
+25
+00:01:29,770 --> 00:01:32,630
+And then we'll change the
+16 to the maximum speed
+
+26
+00:01:33,920 --> 00:01:35,860
+across our Random.Range.
+
+27
+00:01:35,860 --> 00:01:38,450
+For our Torque, we'll apply our max torque
+
+28
+00:01:38,450 --> 00:01:40,310
+for the negative values
+
+29
+00:01:41,220 --> 00:01:42,713
+and the positive values.
+
+30
+00:01:49,240 --> 00:01:51,783
+So this way, it's just using maxTorque
+
+31
+00:01:54,200 --> 00:01:55,600
+to see the Range that it should
+
+32
+00:01:55,600 --> 00:01:58,753
+be creating random numbers at.
+
+33
+00:02:10,480 --> 00:02:13,960
+And then finally, for our position,
+
+34
+00:02:13,960 --> 00:02:18,290
+we'll change the Range
+that our object spawns at
+
+35
+00:02:18,290 --> 00:02:23,290
+to our xRange between
+negative four and four
+
+36
+00:02:23,410 --> 00:02:25,750
+and then we can just
+remove the negative six
+
+37
+00:02:25,750 --> 00:02:27,883
+so we'll make this the actual ySpawnPos.
+
+38
+00:02:29,260 --> 00:02:31,940
+Now, if we wanted to make our code
+
+39
+00:02:31,940 --> 00:02:33,120
+a little bit more readable,
+
+40
+00:02:33,120 --> 00:02:36,780
+we could create random variables
+for the x Random Torque,
+
+41
+00:02:36,780 --> 00:02:39,930
+y Random Torque, and z Random Torque.
+
+42
+00:02:39,930 --> 00:02:42,870
+That doesn't really save us
+any lines of code really,
+
+43
+00:02:42,870 --> 00:02:46,320
+so it's not entirely useful to do.
+
+44
+00:02:46,320 --> 00:02:47,900
+But what we can do is since we have
+
+45
+00:02:47,900 --> 00:02:49,450
+all of these different lines
+
+46
+00:02:49,450 --> 00:02:52,000
+that are each doing one specific task,
+
+47
+00:02:52,000 --> 00:02:55,360
+we can put these into methods
+to make it a bit easier
+
+48
+00:02:55,360 --> 00:02:57,470
+for when we need to use them.
+
+49
+00:02:57,470 --> 00:03:02,470
+So, we'll make a new Vector3 method
+
+50
+00:03:02,550 --> 00:03:04,900
+so that way we can return to Vector3.
+
+51
+00:03:04,900 --> 00:03:07,143
+And this will be for our RandomForce,
+
+52
+00:03:08,100 --> 00:03:10,150
+so here' where we'll
+calculate a RandomForce
+
+53
+00:03:10,150 --> 00:03:11,870
+and then send it back to us.
+
+54
+00:03:11,870 --> 00:03:14,630
+And then in fact, we
+can just have it return
+
+55
+00:03:14,630 --> 00:03:17,970
+this entire line of code in our AddForce.
+
+56
+00:03:17,970 --> 00:03:21,510
+So we'll cut that with Ctrl or Command X,
+
+57
+00:03:21,510 --> 00:03:24,823
+paste it down in RandomForce
+with Ctrl or Command V,
+
+58
+00:03:25,750 --> 00:03:27,490
+and now in our AddForce method,
+
+59
+00:03:27,490 --> 00:03:30,253
+we can actually just call
+our RandomForce method.
+
+60
+00:03:32,070 --> 00:03:35,920
+We can do the same thing for the Torque,
+
+61
+00:03:35,920 --> 00:03:38,160
+since Random just returns a float,
+
+62
+00:03:38,160 --> 00:03:41,730
+we'll use our float,
+call this RandomTorque
+
+63
+00:03:41,730 --> 00:03:45,073
+so it generates a different
+Torque value every time.
+
+64
+00:03:46,290 --> 00:03:48,593
+Could actually just take our Random.Range,
+
+65
+00:03:49,590 --> 00:03:52,940
+have it return that Random.Range
+
+66
+00:03:52,940 --> 00:03:55,217
+and then we can just call RandomTorque.
+
+67
+00:04:06,910 --> 00:04:10,020
+And then, if we just cut
+out all the random ranges,
+
+68
+00:04:10,020 --> 00:04:12,380
+then we'll just paste
+our RandomTorque method
+
+69
+00:04:12,380 --> 00:04:15,210
+into each of those different parameters.
+
+70
+00:04:15,210 --> 00:04:16,390
+And then, last but not least,
+
+71
+00:04:16,390 --> 00:04:18,470
+since we're creating a
+random spawn position,
+
+72
+00:04:18,470 --> 00:04:21,070
+we can just use a method to do that too.
+
+73
+00:04:21,070 --> 00:04:24,010
+So, again, we'll create another Vector3,
+
+74
+00:04:24,010 --> 00:04:25,423
+since we're using a Vector3.
+
+75
+00:04:27,280 --> 00:04:29,150
+We could take where we create
+
+76
+00:04:29,150 --> 00:04:32,350
+our actual random spawn position,
+
+77
+00:04:32,350 --> 00:04:35,253
+if we cut that out of our start method.
+
+78
+00:04:36,300 --> 00:04:39,140
+In our Vector3 we return and then we paste
+
+79
+00:04:39,140 --> 00:04:41,470
+that entire line of code.
+
+80
+00:04:41,470 --> 00:04:42,740
+Now, one thing you might notice
+
+81
+00:04:42,740 --> 00:04:45,210
+between our RandomSpawnPos method,
+
+82
+00:04:45,210 --> 00:04:49,550
+that returns Vector3, and
+RandomForce that returns Vector3,
+
+83
+00:04:49,550 --> 00:04:54,500
+is that our RandomForce does
+not use the new keyword,
+
+84
+00:04:54,500 --> 00:04:57,760
+versus our RandomSpawnPos, which does.
+
+85
+00:04:57,760 --> 00:05:00,660
+That's because, with RandomForce,
+
+86
+00:05:00,660 --> 00:05:05,660
+because we're multiplying a
+Vector3 that already exists,
+
+87
+00:05:06,020 --> 00:05:08,550
+and multiplying it by values,
+
+88
+00:05:08,550 --> 00:05:11,310
+we can return that Vector3 immediately.
+
+89
+00:05:11,310 --> 00:05:13,840
+In our RandomSpawnPos,
+
+90
+00:05:13,840 --> 00:05:16,883
+because we're actually
+creating a new Vector3,
+
+91
+00:05:17,870 --> 00:05:20,610
+we actually need to use the new keyword
+
+92
+00:05:20,610 --> 00:05:24,610
+to create a new Vector3 variable
+
+93
+00:05:24,610 --> 00:05:26,793
+with values that we can then use.
+
+94
+00:05:28,220 --> 00:05:30,110
+And then in our transform.position,
+
+95
+00:05:30,110 --> 00:05:32,393
+we can just call RandomSpawnPos.
+
+96
+00:05:33,880 --> 00:05:37,320
+So, now our code is a lot more clean
+
+97
+00:05:37,320 --> 00:05:38,770
+in the places where we're really
+
+98
+00:05:38,770 --> 00:05:41,640
+using our different methods.
+
+99
+00:05:41,640 --> 00:05:44,250
+It's much easier to
+read, we have variables
+
+100
+00:05:44,250 --> 00:05:46,823
+so we can change them whenever we need to.
+
+101
+00:05:47,770 --> 00:05:50,113
+And then, in our different helper methods,
+
+102
+00:05:51,230 --> 00:05:54,267
+we're doing different things
+like calculating a RandomForce
+
+103
+00:05:54,267 --> 00:05:56,830
+so that we can use it, or a RandomTorque,
+
+104
+00:05:56,830 --> 00:05:58,800
+or a RandomPos.
+
+105
+00:05:58,800 --> 00:05:59,750
+Now it's your turn.
+

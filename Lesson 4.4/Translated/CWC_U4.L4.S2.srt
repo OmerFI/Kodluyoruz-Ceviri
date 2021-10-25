@@ -1,0 +1,360 @@
+﻿1
+00:00:00,440 --> 00:00:03,690
+(tech-sounding chimes)
+
+2
+00:00:05,720 --> 00:00:06,900
+- [Instructor] We've
+got a for-loop set up,
+
+3
+00:00:06,900 --> 00:00:09,070
+so now when we press play,
+
+4
+00:00:09,070 --> 00:00:12,293
+you can see the three different
+enemies spawning around.
+
+5
+00:00:14,530 --> 00:00:16,280
+If we're going to increase the number
+
+6
+00:00:16,280 --> 00:00:18,314
+of enemies that spawn in our game,
+
+7
+00:00:18,314 --> 00:00:21,070
+we'll actually need to be
+able to pass information
+
+8
+00:00:21,070 --> 00:00:22,943
+to our method using parameters.
+
+9
+00:00:23,826 --> 00:00:25,750
+In our spawn manager script,
+
+10
+00:00:25,750 --> 00:00:28,750
+we have our SpawnEnemyWave method.
+
+11
+00:00:28,750 --> 00:00:31,330
+Now, how do we actually add parameters
+
+12
+00:00:31,330 --> 00:00:32,770
+to our method, so that way
+
+13
+00:00:32,770 --> 00:00:34,760
+we can tell it numbers of enemies
+
+14
+00:00:34,760 --> 00:00:36,530
+that we want to spawn over time?
+
+15
+00:00:36,530 --> 00:00:38,240
+In fact, it's fairly easy.
+
+16
+00:00:38,240 --> 00:00:40,150
+What we can do is, we can type in
+
+17
+00:00:41,601 --> 00:00:42,513
+int enemiesToSpawn,
+
+18
+00:00:45,210 --> 00:00:48,530
+and now this creates an
+enemiesToSpawn variable
+
+19
+00:00:48,530 --> 00:00:50,910
+that we can then use throughout our code.
+
+20
+00:00:50,910 --> 00:00:54,820
+So, instead of ending
+or for-loop when i < 3,
+
+21
+00:00:54,820 --> 00:00:56,240
+we can end our for-loop
+
+22
+00:00:56,240 --> 00:00:57,627
+when i < enemiesToSpawn .
+
+23
+00:01:00,040 --> 00:01:02,910
+We've been using
+parameters the entire time
+
+24
+00:01:02,910 --> 00:01:04,490
+with a lot of our methods,
+
+25
+00:01:04,490 --> 00:01:06,180
+to be able to pass in information
+
+26
+00:01:06,180 --> 00:01:10,330
+like enemyPrefab, or transform.rotation,
+
+27
+00:01:10,330 --> 00:01:13,300
+and in this case, we can use something
+
+28
+00:01:13,300 --> 00:01:16,270
+as simple as a integer variable
+
+29
+00:01:16,270 --> 00:01:17,990
+to pass in the number of enemies
+
+30
+00:01:17,990 --> 00:01:19,320
+that we want to spawn,
+
+31
+00:01:19,320 --> 00:01:21,450
+every time we call this method.
+
+32
+00:01:21,450 --> 00:01:22,320
+One thing you'll notice
+
+33
+00:01:22,320 --> 00:01:24,430
+is our SpawnEnemyWave method
+
+34
+00:01:24,430 --> 00:01:25,560
+at our Start method
+
+35
+00:01:25,560 --> 00:01:27,810
+is pretty angry with us right now,
+
+36
+00:01:27,810 --> 00:01:29,930
+because it actually needs
+a number to start with.
+
+37
+00:01:29,930 --> 00:01:32,170
+So, we can press 3,
+
+38
+00:01:32,170 --> 00:01:33,460
+and now when we play our game,
+
+39
+00:01:33,460 --> 00:01:36,393
+we should just see three
+enemies spawn once again.
+
+40
+00:01:40,930 --> 00:01:43,370
+So, you can see that adding parameters
+
+41
+00:01:43,370 --> 00:01:45,880
+to our methods can be
+a fairly easy process.
+
+42
+00:01:45,880 --> 00:01:47,710
+Then, if we wanted to, we could just use
+
+43
+00:01:47,710 --> 00:01:49,390
+something as simple as a comma,
+
+44
+00:01:49,390 --> 00:01:51,230
+and state another random thing
+
+45
+00:01:51,230 --> 00:01:55,350
+to be able to use a second variable.
+
+46
+00:01:55,350 --> 00:01:57,890
+And, we can add in as many
+parameters as we want,
+
+47
+00:01:57,890 --> 00:01:59,670
+but it's best to keep the parameters
+
+48
+00:01:59,670 --> 00:02:01,280
+to as minimum as possible
+
+49
+00:02:01,280 --> 00:02:02,560
+so that way you're not using
+
+50
+00:02:02,560 --> 00:02:05,040
+too many things, if you don't need to.
+
+51
+00:02:05,040 --> 00:02:06,769
+One other point to mention here,
+
+52
+00:02:06,769 --> 00:02:10,190
+you can see that here
+in our SpawnEnemyWave,
+
+53
+00:02:10,190 --> 00:02:12,280
+we have a "void" method,
+
+54
+00:02:12,280 --> 00:02:14,040
+and then in our GenerateSpawnPosition,
+
+55
+00:02:14,040 --> 00:02:16,320
+we have a "Vector3".
+
+56
+00:02:16,320 --> 00:02:17,740
+So, you can see here
+
+57
+00:02:17,740 --> 00:02:19,480
+the difference in when
+you would really use
+
+58
+00:02:19,480 --> 00:02:22,660
+a "void" method, versus a
+method that returns something.
+
+59
+00:02:22,660 --> 00:02:24,860
+Where with our GenerateSpawnPosition,
+
+60
+00:02:24,860 --> 00:02:26,590
+we want it to give us information
+
+61
+00:02:26,590 --> 00:02:29,420
+on a random position
+that we want to generate,
+
+62
+00:02:29,420 --> 00:02:32,930
+versus our SpawnEnemyWave
+method is just doing something.
+
+63
+00:02:32,930 --> 00:02:34,810
+In this case, doing the task
+
+64
+00:02:34,810 --> 00:02:37,210
+of creating different numbers of enemies,
+
+65
+00:02:37,210 --> 00:02:39,830
+based on how many enemies we want.
+
+66
+00:02:39,830 --> 00:02:41,410
+In this case too,
+
+67
+00:02:41,410 --> 00:02:44,580
+we need a parameter to tell SpawnEnemyWave
+
+68
+00:02:44,580 --> 00:02:46,430
+how many enemies we want to spawn,
+
+69
+00:02:46,430 --> 00:02:48,350
+but, in our GenerateSpawnPosition,
+
+70
+00:02:48,350 --> 00:02:50,330
+we don't need any parameters
+
+71
+00:02:50,330 --> 00:02:51,800
+because it's already doing
+
+72
+00:02:51,800 --> 00:02:54,320
+all the calculations inside of the method.
+
+73
+00:02:54,320 --> 00:02:56,870
+So, what you're gonna do is,
+
+74
+00:02:56,870 --> 00:02:59,100
+in your SpawnEnemyWave method,
+
+75
+00:02:59,100 --> 00:03:02,200
+you're going to add a parameter,
+
+76
+00:03:02,200 --> 00:03:06,730
+which is a int of the
+number of enemiesToSpawn.
+
+77
+00:03:06,730 --> 00:03:08,630
+You're going to replace the 3
+
+78
+00:03:08,630 --> 00:03:11,200
+in i < 3 of your for-loop,
+
+79
+00:03:11,200 --> 00:03:13,730
+with the enemiesToSpawn variable,
+
+80
+00:03:13,730 --> 00:03:15,040
+and then in your "Start" method,
+
+81
+00:03:15,040 --> 00:03:17,640
+just make sure that in SpawnEnemyWave,
+
+82
+00:03:17,640 --> 00:03:19,300
+you add an integer in there
+
+83
+00:03:19,300 --> 00:03:21,558
+to tell the method how many enemies
+
+84
+00:03:21,558 --> 00:03:23,010
+you want to spawn.
+
+85
+00:03:23,010 --> 00:03:24,435
+Now it's your turn.
+
+86
+00:03:24,435 --> 00:03:27,685
+(tech-sounding chimes)
+
