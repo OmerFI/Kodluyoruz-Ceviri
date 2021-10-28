@@ -1,242 +1,242 @@
-ï»¿1
+1
 00:00:00,648 --> 00:00:03,148
-(upbeat tone)
+(iyimser ton)
 
 2
 00:00:05,470 --> 00:00:08,750
-- [Instructor] Now we can
-control the enemies spawning
+- [Eðitmen] Artýk düþmanlarýn hepsi
+sahneden düþtüðünde
 
 3
 00:00:08,750 --> 00:00:11,970
-whenever they all leave the scene.
+oluþan düþmanlarý kontrol edebiliyoruz.
 
 4
 00:00:11,970 --> 00:00:13,450
-So what we're gonna do is
+Yani yapacaðýmýz þey,
 
 5
 00:00:13,450 --> 00:00:15,710
-actually increase the
-number of enemies every time
+bir düþman dalgasýný her atlattýðýmýzda
 
 6
 00:00:15,710 --> 00:00:17,390
-we defeat a wave.
+düþman sayýsýný artýrmak.
 
 7
 00:00:17,390 --> 00:00:19,020
-So, we'll have one spawn
+Öncelikle bir tane oluþturacaðýz,
 
 8
 00:00:19,020 --> 00:00:20,280
-and then we can have two spawn
+sonra 2 tane
 
 9
 00:00:20,280 --> 00:00:21,623
-and three, and so on.
+sonra 3 tane, ve böyle devam edecek.
 
 10
 00:00:23,200 --> 00:00:26,870
-In our Spawn Manager
-Script we're going to use
+SpawnManager scriptimizde,
 
 11
 00:00:26,870 --> 00:00:29,980
-a variable to control the actual
+mevcut düþman dalgasýndaki
+mevcut düþman sayýsýný
 
 12
 00:00:29,980 --> 00:00:32,440
-number of enemies in the wave.
+kontrol etmek için
+bir deðiþken kullanacaðýz.
 
 13
 00:00:32,440 --> 00:00:34,400
-So, we'll make a Public Variable
+Public bir deðiþken oluþturacaðýz böylece
 
 14
 00:00:34,400 --> 00:00:36,690
-so we can see what it does again,
+kendisindeki deðiþimi tekrardan
+görebiliyor olacaðýz.
 
 15
 00:00:36,690 --> 00:00:41,690
-make it an Integer, and then
-we'll call it Wave Number,
+int yapalým, ve waveNumber
+(dalga numarasý) olarak isimlendirelim,
 
 16
 00:00:43,390 --> 00:00:46,290
-and we'll set it to one in the beginning,
+ve deðerini baþlangýçta 1 olarak atayalým.
 
 17
 00:00:46,290 --> 00:00:49,680
-and then we'll actually use
-this wave number to dictate
+Bu waveNumber'ý (dalga numarasýný),
 
 18
 00:00:49,680 --> 00:00:52,220
-how many enemies should spawn after
+her düþmaný yendikten sonra
+kaç tane düþmanýn
 
 19
 00:00:52,220 --> 00:00:53,650
-we defeat every enemy.
+oluþturulacaðýný belirlemek
+için kullanacaðýz.
 
 20
 00:00:53,650 --> 00:00:56,210
-In our If Statement, since
-this is where we know
+If ifademizde, düþmanlarýn
+ne zaman kaybettiðini
 
 21
 00:00:56,210 --> 00:00:58,560
-when enemies are defeated,
+bildiðimiz yer burasý olduðundan dolayý,
 
 22
 00:00:58,560 --> 00:01:01,780
-this is actually where we'll
-increment our wave number.
+waveNumber'ýmýzý (dalga numarasýný)
+artýracaðýmýz yer burasýdýr.
 
 23
 00:01:01,780 --> 00:01:05,820
-So we'll change our spawn enemy wave
+Bu yüzden SpawnEnemyWave metodumuzun
 
 24
 00:01:05,820 --> 00:01:07,893
-and start to be wave number,
+waveNumber'dan baþlamasýný saðlayacaðýz.
 
 25
 00:01:08,770 --> 00:01:12,240
-so this will spawn one
-enemy at the beginning.
+Bu, en baþta bir tane oluþturacak.
 
 26
 00:01:12,240 --> 00:01:14,560
-Now, when we've defeated
-all of the enemies
+Tüm düþmanlarýmýzý yendiðimiz zaman,
 
 27
 00:01:14,560 --> 00:01:17,440
-we'll set wave number and
+waveNumber deðiþkenimizi
 
 28
 00:01:17,440 --> 00:01:20,180
-we'll use that plus plus, this time.
+++ kullanarak bir artýracaðýz.
 
 29
 00:01:20,180 --> 00:01:22,920
-So now when the enemies are all defeated,
+Artýk, tüm düþmanlarýmýz yenildiði zaman,
 
 30
 00:01:22,920 --> 00:01:25,230
-it will increase wave number by one,
+waveNumber'ýn deðeri 1 artacak,
 
 31
 00:01:25,230 --> 00:01:27,280
-so now wave number should be two.
+bu yüzden deðeri 2 olacak.
 
 32
 00:01:27,280 --> 00:01:30,980
-And then if we change the
-enemies to spawn parameter,
+Eðer enemiesToSpawn parametresini
 
 33
 00:01:30,980 --> 00:01:33,130
-to be a wave number here,
+waveNumber olarak deðiþtirecek olursak,
 
 34
 00:01:33,130 --> 00:01:35,823
-so then it should spawn
-two enemies afterwards.
+daha sonra 2 düþman oluþturacaktýr.
 
 35
 00:01:36,760 --> 00:01:38,573
-So, now if we test our game,
+Eðer oyunumuzu test edecek olursak,
 
 36
 00:01:39,950 --> 00:01:42,530
-we should see one enemy
-spawn; there we go.
+1 düþman oluþtuðunu görmeliyiz;
+iþte bu.
 
 37
 00:01:42,530 --> 00:01:46,790
-And then if we hit this
-enemy off, two enemies spawn.
+Eðer bu düþmaný sahne dýþýna atarsak,
+2 düþman oluþmalý
 
 38
 00:01:46,790 --> 00:01:48,260
-Then see if we can hit both.
+O zaman ikisini de
+vurabilecek miyiz bakalým.
 
 39
 00:01:48,260 --> 00:01:49,413
-Oh, we have one.
+1 tane kaldý.
 
 40
 00:01:51,780 --> 00:01:53,470
-And the last one
+Ve bu sonuncusu
 
 41
 00:01:53,470 --> 00:01:56,000
-will go off and then do we get three?
+düþecek ama 3 tane oluþucak mý?
 
 42
 00:01:56,000 --> 00:01:56,933
-And there you go.
+Ýþte þimdi oldu.
 
 43
 00:01:59,330 --> 00:02:02,400
-So, now in your spawn manager script,
+Dolayýsýyla þimdi, SpawnManager
+scriptiniz içerisinde
 
 44
 00:02:02,400 --> 00:02:05,320
-you're going to add another variable
+dalga numarasýný (Wave Number)
+takip etmek için
 
 45
 00:02:05,320 --> 00:02:07,573
-to keep track of the wave number.
+bir deðiþken oluþturacaksýnýz,
 
 46
 00:02:08,640 --> 00:02:09,720
-So we'll set it to one
+deðerini 1 olarak atayýp
+ne yaptýðýný görebilmek için
 
 47
 00:02:09,720 --> 00:02:12,810
-and we'll make it public so
-we can see what it's doing.
+public olarak ayarlayacaðýz.
 
 48
 00:02:12,810 --> 00:02:16,940
-In our Start Method, change
-enemy wave to wave number
+Start metodumuz içerisinde, mevcut düþman
+dalgasýný waveNumber olarak deðiþtirin.
 
 49
 00:02:18,970 --> 00:02:20,370
-and then in our Update Method,
+Tüm düþmanlarýn sahneden
+düþmelerinin ele alýndýðý
 
 50
 00:02:20,370 --> 00:02:21,600
-where we can actually keep track
+noktaya geldiðimizde ve yeni bir tane
 
 51
 00:02:21,600 --> 00:02:24,210
-of when we hit the point
-where all the enemies
+düþman oluþturduðumuzda takip edebileceðimiz
 
 52
 00:02:24,210 --> 00:02:27,060
-are off the scene and we create a new one,
+Update metodumuzda, burada
+waveNumber'ý (dalga numarasýný)
 
 53
 00:02:27,060 --> 00:02:30,170
-we'll increment wave number
-by one here and then we'll
+birer birer artýracaðýz ve sonra
 
 54
 00:02:30,170 --> 00:02:35,060
-spawn a new enemy wave using
-the incremented number.
+yeni bir düþman oluþturacaðýz.
 
 55
 00:02:35,060 --> 00:02:36,828
-Now it's your turn.
+Þimdi sizin sýranýz.
 
 56
 00:02:36,828 --> 00:02:39,328
-(upbeat tone)
+(iyimser ton)
 
