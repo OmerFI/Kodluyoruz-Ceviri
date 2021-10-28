@@ -1,440 +1,442 @@
-ï»¿1
+1
 00:00:00,472 --> 00:00:03,805
-(computerized chirping)
+(bilgisayarlaþtýrýlmýþ cývýltý)
 
 2
 00:00:05,530 --> 00:00:07,570
-- [Narrator] So, we're
-using loops to control
+- [Anlatýcý] Tüm düþmanlarýmýzýn
+oluþturulmasýný
 
 3
 00:00:07,570 --> 00:00:09,920
-all of the spawning of our enemies
+kontrol etmek için döngüler kullanýyoruz,
 
 4
 00:00:09,920 --> 00:00:11,350
-but one of the things that we have to do,
+ancak tüm düþmanlar
 
 5
 00:00:11,350 --> 00:00:12,440
-is we actually need to make it
+düþse bile
 
 6
 00:00:12,440 --> 00:00:13,880
-so when all of these enemies fall off,
+sahneden eksilmediði için
 
 7
 00:00:13,880 --> 00:00:16,980
-you can see they still exist in our scene.
+yapmamýz gereken þeylerden biri,
 
 8
 00:00:16,980 --> 00:00:18,870
-So actually, I need to remove them
+onlarý silmek.
 
 9
 00:00:18,870 --> 00:00:20,500
-and then we'll add in some functionality
+Ve ardýndan yeni dalgalarýn oluþmasý için
 
 10
 00:00:20,500 --> 00:00:22,503
-to spawn new waves.
+yeni iþlevsellik ekleyeceðiz.
 
 11
 00:00:23,580 --> 00:00:25,840
-First what we're gonna do
-is in our enemy script,
+Ýlk önce, Enemy scriptimizde
+yapacaðýmýz þey,
 
 12
 00:00:25,840 --> 00:00:28,310
-we're going to remove the enemies
+düþmanlarý sahneden düþtüklerinde,
 
 13
 00:00:28,310 --> 00:00:30,730
-when they fall off the scene.
+kaldýracaðýz.
 
 14
 00:00:30,730 --> 00:00:32,210
-So we'll do that in our Update method
+Bunu Update metodumuzda yapacaðýz,
 
 15
 00:00:32,210 --> 00:00:34,870
-so we can always check their position.
+böylece konumlarýný her zaman
+kontrol edebiliriz.
 
 16
 00:00:34,870 --> 00:00:38,730
-So, if the enemy's current position
+eðer düþmanýn y üzerindeki mevcut konumu
 
 17
 00:00:38,730 --> 00:00:42,350
-on the y becomes less than negative 10,
+eksi 10'dan az olursa,
 
 18
 00:00:42,350 --> 00:00:46,040
-so if it falls below
-plane of our platform,
+yani platformumuzun düzleminin
+altýna düþerse,
 
 19
 00:00:46,040 --> 00:00:50,650
-then we'll destroy the
-current game object, cool?
+mevcut oyun nesnesini yok edeceðiz,
+harika
 
 20
 00:00:50,650 --> 00:00:53,420
-So now, in our SpawnManager,
+Þimdi, SpawnManager içerisinde,
 
 21
 00:00:53,420 --> 00:00:56,880
-since we know that our
-enemies will be destroyed
+düþmanlarýmýzýn platformdan düþtüklerinde
 
 22
 00:00:56,880 --> 00:00:58,853
-when they leave the platform,
+yok edileceðini bildiðimiz için,
 
 23
 00:01:00,010 --> 00:01:01,740
-we actually want to
-keep track of the number
+sahip olduðumuz düþman sayýsýný
 
 24
 00:01:01,740 --> 00:01:03,030
-of enemies that we have.
+takip etmek istiyoruz.
 
 25
 00:01:03,030 --> 00:01:05,600
-So, we're going to make
-a public variable for now
+Bu yüzden, ekrandaki düþmanlarýn sayýsýný
 
 26
 00:01:05,600 --> 00:01:07,780
-so we can see the numbers of enemies
+görebilmemiz için
 
 27
 00:01:07,780 --> 00:01:09,370
-that are the screen.
+þimdilik public bir deðiþken yapacaðýz.
 
 28
 00:01:09,370 --> 00:01:10,400
-We'll make it an int
+Bunu int yapacaðýz ve sonra
 
 29
 00:01:10,400 --> 00:01:12,174
-and then we'll just call it enemyCount
+ondaki deðiþimi takip edebilmemiz için
 
 30
 00:01:12,174 --> 00:01:13,760
-so we can keep track.
+enemyCount olarak adlandýracaðýz.
 
 31
 00:01:13,760 --> 00:01:14,870
-In our Update method,
+Update metodumuz,
 
 32
 00:01:14,870 --> 00:01:17,930
-is actually where we're
-going to be keeping the count
+tüm düþmanlarýmýzýn sayýsýný
 
 33
 00:01:17,930 --> 00:01:19,170
-of all of our enemies.
+tutacaðýmýz yerdir.
 
 34
 00:01:19,170 --> 00:01:23,030
-They will be deleted at
-different points in time,
+Düþmanlar zaman içinde
+farklý noktalarda silinecekler,
 
 35
 00:01:23,030 --> 00:01:28,030
-so we use enemyCount and we'll
-set this using a new method
+bu yüzden enemyCount kullanýyoruz,
+ve bunun deðerini, sahnedeki
 
 36
 00:01:28,920 --> 00:01:31,870
-to find all of the enemies in the scene.
+tüm düþmanlarý bulmayý saðlayan
+bir metodun sonucuna eþitliyoruz.
 
 37
 00:01:31,870 --> 00:01:34,243
-So, if we use FindObjectsOfType.
+FindObjectsOfType kullanýyoruz.
 
 38
 00:01:36,670 --> 00:01:40,150
-So, in this case, this
-method will be looking for
+Bu durumda, bu metod sahnemizdeki
 
 39
 00:01:40,150 --> 00:01:42,700
-all of the different objects in our scene,
+tüm farklý nesneleri arayacaktýr,
 
 40
 00:01:42,700 --> 00:01:45,440
-but now we can actually use our script
+bunun sayesinde tüm bu nesneleri
 
 41
 00:01:45,440 --> 00:01:48,800
-to be able to find all of those objects.
+bulabilmek için kendi
+scriptimizi kullanabiliriz.
 
 42
 00:01:48,800 --> 00:01:50,270
-So we'll actually use the Enemy script,
+Bu yüzden Enemy scriptimizi kullanacaðýz
 
 43
 00:01:50,270 --> 00:01:51,980
-since all of our enemies will be spawning
+çünkü tüm oluþturulan düþmanlarýmýzda
 
 44
 00:01:51,980 --> 00:01:53,120
-with that script on it.
+Enemy scripti bulunmakta.
 
 45
 00:01:53,120 --> 00:01:55,960
-So, similar to how you use GetComponent
+Bu nedenle, GetComponent ve
+typeof component'a
 
 46
 00:01:55,960 --> 00:01:58,160
-and that type of component.
+benzer þekilde,
 
 47
 00:01:58,160 --> 00:02:01,110
-With FindObjectsOfType,
-you can use the name
+FindObjectsOfType ile,
+bu objeleri bulmak için
 
 48
 00:02:01,110 --> 00:02:03,940
-of the scripts applied
-to those game objects
+bu gameobjectlere uygulanan
 
 49
 00:02:03,940 --> 00:02:05,720
-to find those objects.
+scriptin adýný kullanabilirsiniz.
 
 50
 00:02:05,720 --> 00:02:09,860
-And now, you can see
-we have a problem here.
+Ve þimdi, burada bir sorunumuz
+olduðunu görebilirsiniz.
 
 51
 00:02:09,860 --> 00:02:12,690
-So, this is actually a really useful part
+Bu aslýnda return ve void'in
+arasýndaki farký
 
 52
 00:02:12,690 --> 00:02:16,653
-of knowing the difference
-between return and void now.
+bilmenin yararlý bir etkisi.
 
 53
 00:02:17,970 --> 00:02:22,020
-So actually, if we hover
-over FindObjectsOfType,
+eðer FindObjectsOfType'ýn
+üzerine gelirsek,
 
 54
 00:02:22,020 --> 00:02:25,870
-you can see that first
-word says it returns
+ilk kelimenin bir dizi düþman döndürdüðünü
 
 55
 00:02:25,870 --> 00:02:28,780
-an array of enemies and the problem here
+söylediðini görebilirsiniz,
+buradaki problem,
 
 56
 00:02:28,780 --> 00:02:32,110
-is that it can't actually
-set an array of enemies
+bir Enemy dizisini (array)
 
 57
 00:02:32,110 --> 00:02:33,240
-to an integer.
+bir tamsayýya (int) ayarlayamamasý.
 
 58
 00:02:33,240 --> 00:02:36,100
-You need an integer to set an integer.
+Bir tamsayýyý (int) atamak için
+yine tamsayýya (int) ihtiyacýnýz var.
 
 59
 00:02:36,100 --> 00:02:38,500
-So actually, because this is an array,
+Yani aslýnda, bu bir
+dizi (array) olduðundan,
 
 60
 00:02:38,500 --> 00:02:42,060
-we can actually use the Length method.
+Length metodunu kullanabiliriz.
 
 61
 00:02:42,060 --> 00:02:46,280
-And so now length will
-actually return the number
+Ve þimdi bu, sahnemizdeki
 
 62
 00:02:46,280 --> 00:02:48,930
-of enemy objects in our scene.
+enemy gameobjectlerinin sayýsýný dönecek.
 
 63
 00:02:48,930 --> 00:02:52,190
-So now that we can keep track
-of all the different enemies,
+Artýk tüm farklý düþmanlarý
+takip edebildiðimize göre,
 
 64
 00:02:52,190 --> 00:02:54,480
-we'll need to know when we
-should spawn more enemies.
+ne zaman daha fazla düþman oluþturmamýz
+gerektiðini bilmemiz gerekecek.
 
 65
 00:02:54,480 --> 00:02:56,950
-So, we'll use an if statement
+Bu nedenle, bu koþulu izlemek için
+bir if ifadesi kullanacaðýz,
 
 66
 00:02:56,950 --> 00:03:01,950
-to track that condition, so
-if the enemyCount ever becomes
+enemyCount (düþman sayýsý) 0 olursa,
 
 67
 00:03:02,800 --> 00:03:05,690
-or, using our comparison operator here
+buradaki karþýlaþtýrma
+operatörümüzü kullanarak
 
 68
 00:03:05,690 --> 00:03:08,510
-with the two equal signs, zero,
+iki eþittir iþaretiyle sýfýr olursa,
 
 69
 00:03:08,510 --> 00:03:11,670
-then we should spawn more enemies.
+o zaman daha fazla düþman oluþturmalýyýz.
 
 70
 00:03:11,670 --> 00:03:13,690
-And just to see and make sure it works,
+sadece görmek ve iþe yaradýðýndan
+emin olmak için
 
 71
 00:03:13,690 --> 00:03:15,470
-I'll set this to one for now.
+bunu þimdilik bir (1) olarak ayarlayacaðým.
 
 72
 00:03:15,470 --> 00:03:18,530
-So after all three of our
-enemies fall off the scene,
+düþmanlarýmýzýn üçü de sahneden
+düþtükten sonra,
 
 73
 00:03:18,530 --> 00:03:19,920
-our Enemy Count should hit zero
+enemyCount (düþman sayýsý) sýfýra ulaþmalý
 
 74
 00:03:19,920 --> 00:03:22,670
-and then it will spawn one more enemy.
+ve ardýndan bir düþman daha oluþmalý.
 
 75
 00:03:22,670 --> 00:03:26,120
-So now in Unity, if I
-select our Spawn Manager
+Þimdi Unity'de, projenin Hierarchy kýsmýnda
 
 76
 00:03:26,120 --> 00:03:27,700
-in our project hierarchy you can see
+SpawnManager'ýmýzý seçersek eðer,
+görebileceðiniz üzere
 
 77
 00:03:27,700 --> 00:03:29,583
-that the current Enemy Count is zero.
+þuanki Enemy Count (düþman sayýsý)
+sýfýra (0) eþit bulunmakta.
 
 78
 00:03:30,640 --> 00:03:31,853
-When I play our game,
+Oyunumuzu oynadýðýmda,
 
 79
 00:03:33,250 --> 00:03:35,670
-you can see three enemies
-spawn, I pick up the power-up,
+3 düþmanýn oluþtuðunu görebilirsiniz,
+ben güçlendirmeyi alýyorum,
 
 80
 00:03:35,670 --> 00:03:39,680
-one enemy falls off, two
-enemies, three enemies fall off,
+bir düþman sahneden düþüyor, 2 düþman, ve
 
 81
 00:03:39,680 --> 00:03:42,670
-get set to zero, and then
-it sets it back to one
+3 düþman da düþtü, 0'a eþitleniyor
+ve ardýndan tekrardan 1'e
 
 82
 00:03:42,670 --> 00:03:44,210
-because it spawns a new enemy.
+eþitleniyor çünkü yaptýklarýmýz
+yeni bir düþman oluþturuyor.
 
 83
 00:03:44,210 --> 00:03:49,050
-So, what you're gonna do
-is in your enemy script,
+Yani Enemy scriptinizde
+yapmanýz gereken þey,
 
 84
 00:03:49,050 --> 00:03:51,870
-you're going to add some lines of code
+Update metodumuzda, bir düþmanýn
 
 85
 00:03:51,870 --> 00:03:55,440
-just to detect when an
-enemy falls off the scene
+yok edilmek üzere
+sahneden düþtüðünü
 
 86
 00:03:55,440 --> 00:03:57,873
-to be destroyed, in our Update method.
+tespit etmek için birkaç
+kod satýrý ekleyeceksiniz.
 
 87
 00:03:59,860 --> 00:04:01,920
-In our SpawnManager script,
+SpawnManager scriptimiz içerisinde,
 
 88
 00:04:01,920 --> 00:04:04,260
-you're going to create a new variable.
+yeni bir deðiþken oluþturacaksýnýz.
 
 89
 00:04:04,260 --> 00:04:06,810
-We'll make it public for
-now so we can see it change.
+Ve ondaki deðiþimi görebilmek için
+þimdilik onu public yapacaksýnýz
 
 90
 00:04:06,810 --> 00:04:09,050
-We'll make it an integer
-called enemyCount.
+onu enemyCount isimli bir
+int deðiþken yapacaðýz.
 
 91
 00:04:09,050 --> 00:04:12,830
-In our Update method, we're
-going to set enemyCount
+Update metodumuz içerisinde,
 
 92
 00:04:12,830 --> 00:04:16,800
-by finding ObjectsOfType,
-and the type we're gonna use
+enemyCount'un deðerini
+FindObjectsOfType metodunun
 
 93
 00:04:16,800 --> 00:04:18,660
-is actually the enemy script.
+sonucuna - ki burada kullanacaðamýz type,
+Enemy scriptimizdir - eþitleyeceðiz.
 
 94
 00:04:18,660 --> 00:04:20,360
-And then we need to get the Length
+Ve sonra, aslýnda bize bir
+dizi verdiði ve
 
 95
 00:04:21,440 --> 00:04:23,970
-of what that returns
-because it actually gives us
+sadece bir sayýya ihtiyacýmýz olduðu için,
+bunun sonucunun
 
 96
 00:04:23,970 --> 00:04:26,490
-an array and we just need a number.
+Length'ini (uzunluðunu) almamýz gerekiyor.
 
 97
 00:04:26,490 --> 00:04:28,970
-Then we're gonna create
-a new if statement,
+Ardýndan enemyCount'ý kullanarak
 
 98
 00:04:28,970 --> 00:04:30,414
-using the enemyCount.
+yeni bir if ifadesi oluþturacaðýz.
 
 99
 00:04:30,414 --> 00:04:32,910
-And when enemyCount becomes zero,
+Ve enemyCount sýfýr olduðunda,
+bir düþman içeren
 
 100
 00:04:32,910 --> 00:04:37,520
-then we'll spawn a new
-enemy wave with one enemy.
+yeni bir düþman dalgasý oluþturacaðýz.
 
 101
 00:04:37,520 --> 00:04:38,913
-So, now it's your turn.
+Þimdi sizin sýranýz.
 
