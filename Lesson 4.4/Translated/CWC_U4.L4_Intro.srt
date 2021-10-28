@@ -30,17 +30,14 @@ alan dýþýna atar atmaz
 
 8
 00:00:20,890 --> 00:00:21,990
-that's it.
 buraya kadar.
 
 9
 00:00:21,990 --> 00:00:23,290
-The game's over.
 Oyun biter.
 
 10
 00:00:23,290 --> 00:00:24,353
-The player wins.
 Oyuncu kazanýr.
 
 11
