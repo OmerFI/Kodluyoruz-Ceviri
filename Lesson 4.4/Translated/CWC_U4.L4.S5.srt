@@ -1,300 +1,291 @@
-ï»¿1
+1
 00:00:00,691 --> 00:00:03,524
-(unity signature)
+(unity imzasý)
 
 2
 00:00:05,700 --> 00:00:08,240
-- [Instructor] Our game
-is almost complete now.
+- [Eðitmen] Oyunumuz
+neredeyse tamamlandý.
 
 3
 00:00:08,240 --> 00:00:10,740
-So, when we pick up
-the powerup, we can hit
+Günçlendirme (Powerup) aldýðýmýz zaman, düþmaný
 
 4
 00:00:10,740 --> 00:00:13,450
-the enemy off the scene and then
+sahnenin dýþýna atabiliriz ve ardýndan
 
 5
 00:00:13,450 --> 00:00:16,740
-it will generate new
-enemies, but the problem is,
+yeni düþmanlar oluþturulur.
+Ancak sorun þu ki,
 
 6
 00:00:16,740 --> 00:00:19,950
-we only have one powerup and
-so when our powerup goes away
+sadece bir güçlendirmemiz var,
+bu yüzden
 
 7
 00:00:19,950 --> 00:00:23,050
-we have no way of actually
-defeating these enemies unless
+eðer güçlendirmemiz giderse,
+tüm düþmanlarý
 
 8
 00:00:23,050 --> 00:00:25,420
-we outsmart them by getting them
+sahne dýþýna atmayý
+akýl etmekten baþka
 
 9
 00:00:25,420 --> 00:00:27,293
-to fall off of the platform.
+yenmemizin herhangi bir yolu yok.
 
 10
 00:00:28,150 --> 00:00:31,260
-So we're going to create
-a new powerup every time
+Bu yüzden her yeni bir dalga baþlattýðýmýzda
 
 11
 00:00:31,260 --> 00:00:32,900
-we start a new wave.
+yeni bir güçlendirme (powerup) oluþturacaðýz.
 
 12
 00:00:32,900 --> 00:00:36,660
-In our spawn manager script,
-we're actually going to declare
+SpawnManager scriptimiz içerisinde,
+güçlendirmemiz (powerup) için
 
 13
 00:00:36,660 --> 00:00:39,333
-a new public game object for our powerup.
+yeni bir public gameobject tanýmlayacaðýz.
 
 14
 00:00:41,070 --> 00:00:44,120
-And now we need to make sure
-that this reference is assigned
+Ve þimdi bu referansýn
+editörümüz üzerinde atandýðýndan
 
 15
 00:00:44,120 --> 00:00:45,900
-in our editor.
+emin olmamýz gerekiyor.
 
 16
 00:00:45,900 --> 00:00:50,900
-So now in Unity, if we select
-our spawn manager, you can see
+Þimdi Unity üzerinde, eðer
+Spawn Manager'ý seçecek olursak,
 
 17
 00:00:50,960 --> 00:00:54,640
-that we have an empty game
-object for our powerup prefab
+bizim powerupPrefab'imiz için
+boþ bir slot olduðunu görebiliriz,
 
 18
 00:00:54,640 --> 00:00:58,890
-so make sure you go down to
-your project window under Assets
+bu yüzden Project > Assets > Prefabs kýsmýný
 
 19
 00:00:58,890 --> 00:01:00,470
-in your Prefabs folder.
+açtýðýnýzdan emin olun.
 
 20
 00:01:00,470 --> 00:01:03,160
-Drag the power up into
-that slot instead of using
+Sahnedekini kullanmak yerine,
+Powerup'ý sürükleyip boþ slota býrakýn
 
 21
 00:01:03,160 --> 00:01:06,000
-the one in the scene and then back
+ve tekrardan SpawnManager scriptimize dönün.
 
 22
 00:01:06,000 --> 00:01:11,000
-in our spawn manager script,
-in our line of code where
+tüm düþmanlarýmýz gittiðinde ve
 
 23
 00:01:11,100 --> 00:01:14,360
-we keep track of when all
-of the enemies are gone
+yeni düþman oluþturduðumuzda
 
 24
 00:01:14,360 --> 00:01:17,490
-and create new enemies, we'll instantiate
+takip ettiðimiz bu kod satýrlarýnda,
 
 25
 00:01:17,490 --> 00:01:19,760
-a new powerup prefab.
+yeni bir powerupPrefab'i oluþturacaðýz.
 
 26
 00:01:19,760 --> 00:01:23,360
-Fortunately, we created a
-method to generate random spawn
+Neyse ki, rastgele oluþma konumunu
+ayarlamak için bir metod oluþturmuþtuk,
 
 27
 00:01:23,360 --> 00:01:25,540
-positions so we can just use that again
+bu yüzden onu tekrardan kullanabiliriz,
 
 28
 00:01:26,490 --> 00:01:28,940
-and then we'll just make
-sure to set the rotation
+ve powerupPrefab'in rotation'ýný
 
 29
 00:01:29,800 --> 00:01:31,293
-of our powerup prefab.
+ayarladýðýmýzdan emin oluyoruz
 
 30
 00:01:34,130 --> 00:01:36,080
-One thing that you could
-do just to clean this up
+Bunun biraz daha temiz gözükmesi
+için yapabileceðiniz bir þey,
 
 31
 00:01:36,080 --> 00:01:40,120
-a bit more is you could just
-make a spawn powerup method
+bir spawnPowerup metodu oluþturabilirsiniz
 
 32
 00:01:40,120 --> 00:01:43,710
-if you wanted to and then
-every time you wanted to create
+ve ardýndan her yeni bir powerup
+(güçlendirme) oluþturmak istediðinizde,
 
 33
 00:01:43,710 --> 00:01:46,890
-a new powerup, you can just
-call that method instead,
+bunun yerine sadece
+bu metodu çaðýrabilirsiniz,
 
 34
 00:01:46,890 --> 00:01:49,680
-but, for now, this one
-line of code is fine.
+ancak þimdilik, bu
+tek satýrlýk kod gayet iyi.
 
 35
 00:01:49,680 --> 00:01:51,520
-And then just to test and see
+Güçlendirmemizi oluþturma iþlemlerinin
+düzgün çalýþtýðýný
 
 36
 00:01:51,520 --> 00:01:55,650
-that our powerup spawning
-works properly, we'll delete
+test etmek ve görmek için, Powerup'ý
+(güçlendirmemizi) sahneden silelim,
 
 37
 00:01:55,650 --> 00:02:00,650
-our powerup from the scene,
-play our game, and now we spawn
+oyunumuzu oynayalým,
 
 38
 00:02:01,840 --> 00:02:06,760
-the enemy, and we didn't spawn a powerup
+yeni düþman oluþturulu...
 
 39
 00:02:06,760 --> 00:02:07,593
-so that's a problem.
+hayýr oluþmuyor, demekki bir sorun var
 
 40
 00:02:07,593 --> 00:02:09,820
-I actually have -- well
-that's pretty lucky
+Aslýnda þuan bir tane var,
+ancak bu tamamen þansa oldu,
 
 41
 00:02:09,820 --> 00:02:13,610
-but that wasn't exactly
-what we wanted to do.
+bu bizim yapmak istediðimiz deðildi.
 
 42
 00:02:13,610 --> 00:02:16,950
-Let's see what we did
-wrong in our spawn manager.
+SpawnManager'da neyi yanlýþ
+yaptýðýmýza bir bakalým.
 
 43
 00:02:16,950 --> 00:02:20,240
-Ahh, so when we start the game,
-we create a new enemy wave
+Ahaa, burasý yüzünden, oyunumuzu
+baþlattýðýmýz zaman yeni bir düþman dalgasý
 
 44
 00:02:20,240 --> 00:02:23,720
-but we don't actually create a new powerup
+oluþturuyoruz ancak yeni bir
+güçlendirme oluþturmuyoruz
 
 45
 00:02:23,720 --> 00:02:26,880
-so we'll take this line
-of code and we'll copy it
+bu yüzden, bu kod satýrýný kopyalýyoruz.
 
 46
 00:02:28,410 --> 00:02:30,660
-so that in our start method we also create
+Artýk powerupPrefab'imiz için
 
 47
 00:02:30,660 --> 00:02:33,780
-a new random position
-for our powerup prefab.
+yeni rastgele bir konum oluþturuyoruz.
 
 48
 00:02:33,780 --> 00:02:35,103
-So now in our game,
+Dolayýsýyla oyunumuza gelip
 
 49
 00:02:37,430 --> 00:02:40,093
-if we try and get to our powerup.
+eðer güçlendirmemizi almayý denersek
 
 50
 00:02:41,360 --> 00:02:43,363
-Let's see, can we make it.
+yapabilip yapamadýðýmýzý test edelim.
 
 51
 00:02:44,400 --> 00:02:46,350
-Enemy fell off anyways, got the powerup.
+Düþman sahneden düþtü, sorun deðil.
+Güçlendirmeyi aldýk,
 
 52
 00:02:46,350 --> 00:02:49,193
-Another powerup spawns and there you go.
+yeni güçlendirme oluþturuldu,
+þimdi oldu
 
 53
 00:02:50,280 --> 00:02:52,600
-And then both enemies fall.
+Ve iki düþman da düþüyor
 
 54
 00:02:52,600 --> 00:02:54,723
-And then three enemies and two powerups.
+Ve 3 düþman ve 2 güçlendirme oluþtu.
 
 55
 00:02:56,500 --> 00:03:00,080
-So, what you're gonna do is
-in your spawn manager script
+Dolayýsýyla, yapmanýz gereken þey,
 
 56
 00:03:00,080 --> 00:03:02,410
-you're going to create
-a new public game object
+SpawnManager scriptinizde,
+Powerup Prefabininz için
 
 57
 00:03:02,410 --> 00:03:04,170
-for your powerup prefab.
+yeni bir public gameobject oluþturacaksýnýz.
 
 58
 00:03:04,170 --> 00:03:07,220
-In your start method,
-you're going to instantiate
+Start metodunuzda, yeni bir powerupPrefab
 
 59
 00:03:07,220 --> 00:03:09,880
-a new powerup prefab and you're gonna use
+Instantiate edeceksiniz ve powerup'ýmýz için
 
 60
 00:03:09,880 --> 00:03:12,340
-the generate spawn position
-method once again so we get
+GenerateSpawnPosition metodunu
 
 61
 00:03:12,340 --> 00:03:15,770
-a random position for
-our powerup and then also
+bir kez daha kullanacaksýnýz ve ayrýca
 
 62
 00:03:15,770 --> 00:03:19,000
-in our update method when
-we create a new enemy wave
+Update metodumuz içerisinde, yeni bir
+düþman dalgasý oluþturduðumuz yerde
 
 63
 00:03:19,000 --> 00:03:21,410
-we'll create another
-powerup so that we can use
+ayný þekilde yeni bir
+güçlendirme de oluþturacaksýnýz,
 
 64
 00:03:21,410 --> 00:03:22,760
-it in case we need it.
+böylece ihtiyacýmýz olduðunda
+onu kullanabiliyor olacaðýz.
 
 65
 00:03:22,760 --> 00:03:24,936
-So, now it's your turn.
+Þimdi sizin sýranýz.
 
 66
 00:03:24,936 --> 00:03:27,769
-(unity signature)
+(unity imzasý)
 
