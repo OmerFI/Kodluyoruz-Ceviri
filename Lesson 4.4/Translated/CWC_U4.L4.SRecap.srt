@@ -1,234 +1,236 @@
-ï»¿1
+1
 00:00:05,490 --> 00:00:07,380
-- We've got a lot of great functionality
+- Artýk bu oyunda, bu prototip için
 
 2
 00:00:07,380 --> 00:00:09,210
-in this game now for this prototype.
+çok sayýda harika iþlevselliðe sahibiz.
 
 3
 00:00:09,210 --> 00:00:11,460
-So we have the player that spawns.
+Oluþturulan bir oyuncumuz var.
 
 4
 00:00:11,460 --> 00:00:12,470
-We have our enemy.
+Düþmanýmýz var.
 
 5
 00:00:12,470 --> 00:00:14,358
-We have the power-up that we can pick up.
+Alabileceðimiz güçlendirme var.
 
 6
 00:00:14,358 --> 00:00:16,520
-We have the indicator and then
+Göstergeye ve
 
 7
 00:00:16,520 --> 00:00:18,070
-we have the timer that counts down,
+geri sayan bir zamanlayýcýmýz var.
 
 8
 00:00:18,070 --> 00:00:20,710
-so we bounce off of all of these enemies.
+Tüm düþmanlarý sektirebiliyoruz.
 
 9
 00:00:20,710 --> 00:00:22,840
-And with every new enemy wave we spawn
+Ve her yeni düþman dalgasýyla birlikte
 
 10
 00:00:22,840 --> 00:00:23,763
-new power-ups.
+yeni güçlendirme oluþturuyoruz.
 
 11
 00:00:24,970 --> 00:00:27,560
-On top of that we learned
-some really useful
+Bunun da ötesinde, faydalý bazý kodlama
 
 12
 00:00:27,560 --> 00:00:28,900
-coding concepts.
+kavramlarý öðrendik.
 
 13
 00:00:28,900 --> 00:00:31,140
-We learned about For-loops
+Bir þeyin kaç kez
+çalýþtýrýlmasýný istediðimizi
 
 14
 00:00:31,140 --> 00:00:33,910
-to keep control over the number of times
+kontrol etmek için
 
 15
 00:00:33,910 --> 00:00:36,110
-we want something to execute.
+For-döngülerini öðrendik.
 
 16
 00:00:36,110 --> 00:00:38,420
-In this case our instantiate method
+Þuanki durumda bunu Instantiate metodu
 
 17
 00:00:38,420 --> 00:00:41,650
-so that we can spawn
-different numbers of enemies
+için kullandýk böylece oyuncu
+her düþmaný yendiðinde
 
 18
 00:00:41,650 --> 00:00:43,990
-every time the player defeats one.
+farklý sayýda düþman oluþturuluyor oldu.
 
 19
 00:00:43,990 --> 00:00:47,060
-In order to actually increment the number
+Oluþturmak istediðimiz düþman sayýsýný
 
 20
 00:00:47,060 --> 00:00:49,190
-of enemies we want to spawn,
+artýrmak için,
 
 21
 00:00:49,190 --> 00:00:51,720
-we learned how to use the (++) or
+(++) veya incrementental operatörünü
 
 22
 00:00:51,720 --> 00:00:53,800
-incremental operator,
+nasýl kullanacaðýmýzý öðrendik,
 
 23
 00:00:53,800 --> 00:00:56,010
-so then that way we
-can increase I plus one
+böylece bu For-Loop her çalýþtýðýnda
 
 24
 00:00:56,010 --> 00:00:58,530
-every time this For-Loop runs.
+i'nin deðerini bir artýrabiliriz.
 
 25
 00:00:58,530 --> 00:01:00,770
-We also created our own custom method.
+Ayrýca, bir parametre iletebileceðimiz
 
 26
 00:01:00,770 --> 00:01:03,240
-This time with a parameter to pass in,
+kendi özel metodumuzu da oluþturduk.
 
 27
 00:01:03,240 --> 00:01:05,090
-so then that way we could keep track of
+böylece, dalga numarasýna (wave number)
 
 28
 00:01:05,090 --> 00:01:07,220
-the number of enemies to spawn
+baðlý olarak kaç tane düþman
 
 29
 00:01:07,220 --> 00:01:09,380
-based on our wave number.
+oluþturmak istediðimizi
+kontrol edebilir olduk.
 
 30
 00:01:09,380 --> 00:01:10,750
-And then in our update method
+Sonra Update metodumuzda
 
 31
 00:01:10,750 --> 00:01:13,690
-we learned how to use FindObjectsOfType
+FindObjectsOfType'ýn nasýl
+kullanýlacaðýný öðrendik,
 
 32
 00:01:13,690 --> 00:01:15,620
-so that we could get any object
+böylece Enemy scriptimizi içeren
 
 33
 00:01:15,620 --> 00:01:18,040
-with a type of our enemies script.
+herhangi bir objeyi alabiliyor olduk.
 
 34
 00:01:18,040 --> 00:01:19,270
-So then we could actually get the
+Böylece sahnemizdeki düþman sayýsýný
 
 35
 00:01:19,270 --> 00:01:22,440
-number of enemies that are in our scene.
+elde edebiliyoruz.
 
 36
 00:01:22,440 --> 00:01:24,820
-Last but not least with
-the end of the prototype
+Son olarak, bu prototipin sonunda,
 
 37
 00:01:24,820 --> 00:01:28,000
-we've learned a lot of
-really useful things,
+gerçekten yararlý
 
 38
 00:01:28,000 --> 00:01:31,070
-like using I enumerators and co-routines
+birçok þey öðrendik,
 
 39
 00:01:31,070 --> 00:01:34,180
-so in that way we can actually
-have a countdown timer
+IEnumerator'lar ve co-routine'leri
 
 40
 00:01:34,180 --> 00:01:35,340
-for our power-up
+kullanmak gibi.
 
 41
 00:01:35,340 --> 00:01:37,193
-so then eventually it goes away.
+Böylece azalan bir
+geri sayým sayacýmýz oldu.
 
 42
 00:01:38,460 --> 00:01:40,310
-We learned how to use physical materials
+Fiziksel materyallerin (physical materials)
+nasýl kullanýldýðýný öðrendik,
 
 43
 00:01:40,310 --> 00:01:42,870
-so that way we can have a bouncy effect
+bu þekilde, çarptýðý zaman
 
 44
 00:01:42,870 --> 00:01:45,520
-so when these different spheres run into
+sekme efekti yapabiliyor olduk,
 
 45
 00:01:45,520 --> 00:01:47,140
-each other they'll
-bounce off of each other
+bunun sayesinde bu küreler
+birbirlerine çarptýklarý zaman
 
 46
 00:01:47,140 --> 00:01:47,973
-even more.
+daha da fazla sekiyorlar
 
 47
 00:01:50,198 --> 00:01:52,483
-We learned how to really
-use camera control.
+Kamerayý nasýl kontrol
+edebileceðimizi öðrendik.
 
 48
 00:01:54,620 --> 00:01:56,910
-And learned about child game objects to
+Ve bu kamerayý sahnemizdeki
+bir odak noktasý etrafýnda
 
 49
 00:01:56,910 --> 00:01:58,760
-control this camera around a focal point
+kontrol etmek için alt öge oyun nesneleri
+(child gameobjects) hakkýnda
 
 50
 00:01:58,760 --> 00:02:00,410
-in our scene.
+bilgi edindik.
 
 51
 00:02:00,410 --> 00:02:02,410
-And then we learned how to use vector math
+Sonra, bu düþmanlarýn hareket ettiði
 
 52
 00:02:02,410 --> 00:02:03,990
-to actually control the direction that
+yönü kontrol etmek için
 
 53
 00:02:03,990 --> 00:02:05,810
-these enemies are moving towards
+vektör matematiðini nasýl
+kullanacaðýmýzý öðrendik,
 
 54
 00:02:05,810 --> 00:02:08,170
-so that they eventually
-run into the player.
+böylece, sonunda oyuncuya doðru
+hareket ediyor hale geldiler.
 
 55
 00:02:08,170 --> 00:02:11,070
-With that we've made it to
-the end of our prototype
+Bununla prototipimizin sonuna geldik.
 
 56
 00:02:11,070 --> 00:02:12,970
-and we'll see you in the next project.
+Bir sonraki projede görüþmek üzere.
 
