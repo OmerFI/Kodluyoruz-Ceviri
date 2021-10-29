@@ -1,0 +1,1081 @@
+﻿1
+00:00:00,306 --> 00:00:03,306
+(electronic chimes)
+
+2
+00:00:05,780 --> 00:00:07,300
+- [Instructor] Now that
+we have the vehicle
+
+3
+00:00:07,300 --> 00:00:09,180
+in a semi-drivable state,
+
+4
+00:00:09,180 --> 00:00:13,310
+let's display the speed
+on our user interface.
+
+5
+00:00:13,310 --> 00:00:17,060
+In order to do so, we
+need to add a TextMeshPro
+
+6
+00:00:17,060 --> 00:00:20,193
+object to our scene, much like
+we did with projects before.
+
+7
+00:00:21,340 --> 00:00:23,780
+So in the hierarchy,
+I'm going to right click
+
+8
+00:00:23,780 --> 00:00:26,000
+in the empty space,
+
+9
+00:00:26,000 --> 00:00:27,450
+go down to UI,
+
+10
+00:00:27,450 --> 00:00:30,333
+and go to Text - TextMeshPro.
+
+11
+00:00:32,120 --> 00:00:35,170
+Since I haven't added TextMeshPro
+to this project before,
+
+12
+00:00:35,170 --> 00:00:36,570
+I'm gonna need to import it.
+
+13
+00:00:38,900 --> 00:00:41,840
+Now that it's imported, I can exit out,
+
+14
+00:00:41,840 --> 00:00:44,780
+so now we can see in our
+scene we have our vehicle,
+
+15
+00:00:44,780 --> 00:00:46,530
+but we can see the white outlines
+
+16
+00:00:46,530 --> 00:00:49,220
+of this TextMeshPro canvas,
+
+17
+00:00:49,220 --> 00:00:51,540
+so I'm actually going
+to select that canvas,
+
+18
+00:00:51,540 --> 00:00:55,680
+and press F, so now it zooms
+out to I can actually see,
+
+19
+00:00:55,680 --> 00:00:57,820
+very far zoomed out.
+
+20
+00:00:57,820 --> 00:01:00,280
+So if we get our canvas
+in frame here, you can see
+
+21
+00:01:00,280 --> 00:01:03,100
+our little game world here in the corner,
+
+22
+00:01:03,100 --> 00:01:06,670
+then we have our TextMeshPro canvas here,
+
+23
+00:01:06,670 --> 00:01:09,270
+so if I press play you should
+see that little New Text
+
+24
+00:01:09,270 --> 00:01:11,680
+pop up, probably on the
+bottom right about there.
+
+25
+00:01:11,680 --> 00:01:13,920
+So that doesn't look good at all,
+
+26
+00:01:13,920 --> 00:01:16,200
+so we're gonna have to
+actually adjust that.
+
+27
+00:01:16,200 --> 00:01:19,640
+So first what we're gonna
+do is with the actual text,
+
+28
+00:01:19,640 --> 00:01:21,943
+we're gonna rename this
+to our Speedometer,
+
+29
+00:01:25,420 --> 00:01:28,220
+and we want our speedometer to have
+
+30
+00:01:28,220 --> 00:01:29,870
+probably a position on the top left,
+
+31
+00:01:29,870 --> 00:01:33,110
+where our player can see
+how fast they're going,
+
+32
+00:01:33,110 --> 00:01:34,620
+so first I'm actually going to change
+
+33
+00:01:34,620 --> 00:01:36,883
+the anchors to be the top left,
+
+34
+00:01:38,580 --> 00:01:40,130
+and now I'm going to move
+
+35
+00:01:40,970 --> 00:01:43,653
+the text over to that corner,
+
+36
+00:01:44,560 --> 00:01:46,120
+right about there,
+
+37
+00:01:46,120 --> 00:01:50,053
+and then for the text, I'll
+just say "Speed" for now.
+
+38
+00:01:51,330 --> 00:01:52,960
+Now if I press play, we should see
+
+39
+00:01:52,960 --> 00:01:55,210
+speed in the top left corner,
+
+40
+00:01:55,210 --> 00:01:56,970
+cool, so that looks pretty good.
+
+41
+00:01:56,970 --> 00:01:59,350
+Not gonna change any of the text for now,
+
+42
+00:01:59,350 --> 00:02:00,720
+for the fonts or anything like that,
+
+43
+00:02:00,720 --> 00:02:02,233
+I'm just gonna leave it as is.
+
+44
+00:02:03,630 --> 00:02:07,730
+In this case, since we just
+want to see our speed working,
+
+45
+00:02:07,730 --> 00:02:10,100
+we're not gonna use a Game Manager script,
+
+46
+00:02:10,100 --> 00:02:12,330
+I'm actually just going to use
+my PlayerController script,
+
+47
+00:02:12,330 --> 00:02:14,710
+since that's where I can
+actually see the speed
+
+48
+00:02:14,710 --> 00:02:16,110
+that our player's moving at.
+
+49
+00:02:17,610 --> 00:02:20,260
+So in the PlayerController
+script, I actually need to
+
+50
+00:02:20,260 --> 00:02:24,800
+create a variable for
+that TextMeshPro text,
+
+51
+00:02:24,800 --> 00:02:28,150
+so in fact I actually need
+to import that library first,
+
+52
+00:02:28,150 --> 00:02:32,380
+so at the top of my script,
+I add a using statement,
+
+53
+00:02:32,380 --> 00:02:33,993
+for using TMPro.
+
+54
+00:02:37,500 --> 00:02:40,363
+So now I can find the TextMeshPro library,
+
+55
+00:02:41,670 --> 00:02:45,890
+I'm going to create another
+serialized variable,
+
+56
+00:02:45,890 --> 00:02:46,940
+like this GameObject,
+
+57
+00:02:52,660 --> 00:02:55,163
+this time I actually need the actual text,
+
+58
+00:02:59,040 --> 00:03:01,763
+so I'll get the TextMeshProUGUI,
+
+59
+00:03:03,110 --> 00:03:05,117
+and call it speedometerText,
+
+60
+00:03:08,500 --> 00:03:10,293
+so now that I have this variable,
+
+61
+00:03:11,450 --> 00:03:13,420
+in Unity I need to make
+sure that I actually
+
+62
+00:03:13,420 --> 00:03:16,570
+attach this text to the speedometer text,
+
+63
+00:03:16,570 --> 00:03:19,010
+so I'm just going to click
+and drag on Speedometer
+
+64
+00:03:19,010 --> 00:03:20,120
+and drop it in there.
+
+65
+00:03:20,120 --> 00:03:21,600
+So now we have a reference, and I can
+
+66
+00:03:21,600 --> 00:03:23,150
+change the text when I need to.
+
+67
+00:03:24,010 --> 00:03:25,740
+Now the question is, how do we actually
+
+68
+00:03:25,740 --> 00:03:28,683
+calculate the speed of our vehicle?
+
+69
+00:03:29,640 --> 00:03:31,700
+Once again we'll head
+over to the internet,
+
+70
+00:03:31,700 --> 00:03:33,630
+and see if anybody has
+any questions for us
+
+71
+00:03:33,630 --> 00:03:36,317
+so I looked up "calculate vehicle speed,"
+
+72
+00:03:37,310 --> 00:03:41,020
+and one of the first answers
+is "how to get car speed,"
+
+73
+00:03:41,020 --> 00:03:42,870
+that seems like what I'm looking for.
+
+74
+00:03:44,370 --> 00:03:46,960
+So let's see, this person
+has a car that can move,
+
+75
+00:03:46,960 --> 00:03:48,510
+and they want to get the speed,
+
+76
+00:03:52,020 --> 00:03:53,190
+'K, so...
+
+77
+00:03:54,510 --> 00:03:59,510
+Says here so for a car,
+speed, in kilometers per hour,
+
+78
+00:03:59,970 --> 00:04:04,023
+is Speed, so I guess we
+need a speed variable again,
+
+79
+00:04:05,890 --> 00:04:08,750
+we set that to the magnitude,
+
+80
+00:04:08,750 --> 00:04:10,400
+so we can actually get the velocity
+
+81
+00:04:10,400 --> 00:04:13,490
+that our rigidbody is moving,
+so that's very helpful,
+
+82
+00:04:13,490 --> 00:04:17,480
+and then in this case
+they multiply by 3.6.
+
+83
+00:04:17,480 --> 00:04:20,790
+That's a pretty good start, so
+we can actually just use this
+
+84
+00:04:20,790 --> 00:04:23,510
+rigidbody.velocity.magnitude,
+
+85
+00:04:23,510 --> 00:04:26,750
+and velocity will actually
+get us the actual velocity,
+
+86
+00:04:26,750 --> 00:04:29,500
+the speed that our vehicle is moving,
+
+87
+00:04:29,500 --> 00:04:31,390
+and the magnitude gives us the number.
+
+88
+00:04:31,390 --> 00:04:32,980
+So that was pretty helpful,
+
+89
+00:04:32,980 --> 00:04:35,160
+I did notice as I was
+going through the results
+
+90
+00:04:35,160 --> 00:04:38,040
+that there is another result
+
+91
+00:04:38,040 --> 00:04:40,200
+about a car with wheel colliders,
+
+92
+00:04:40,200 --> 00:04:41,870
+we do have wheel colliders so let's
+
+93
+00:04:41,870 --> 00:04:43,573
+just see what this person says.
+
+94
+00:04:44,697 --> 00:04:48,340
+"Making a simple car driving
+game," with a guiText,
+
+95
+00:04:48,340 --> 00:04:50,287
+cool, that's exactly
+what we're trying to do,
+
+96
+00:04:50,287 --> 00:04:53,650
+"speed displayed doesn't
+seem very realistic."
+
+97
+00:04:53,650 --> 00:04:56,223
+this person has this little formula here.
+
+98
+00:04:57,320 --> 00:04:58,563
+See what the reply is.
+
+99
+00:04:59,417 --> 00:05:01,590
+"Simply get the speed
+by using" there's that
+
+100
+00:05:01,590 --> 00:05:04,257
+rigidbody.velocity.magnitude again,
+
+101
+00:05:04,257 --> 00:05:07,460
+oh, so it returns the
+speed in meters per second.
+
+102
+00:05:07,460 --> 00:05:10,253
+That's what you get when
+you're using velocity.
+
+103
+00:05:11,270 --> 00:05:14,273
+So to get the speed,
+in kilometers per hour,
+
+104
+00:05:15,470 --> 00:05:19,973
+oh, so you multiply by 3.6,
+so that's why 3.6 was there.
+
+105
+00:05:21,120 --> 00:05:22,610
+If you want to get it in miles per hour,
+
+106
+00:05:22,610 --> 00:05:26,630
+multiply by 2.237, oh okay.
+
+107
+00:05:26,630 --> 00:05:29,970
+So because, when you're
+going from meters per second
+
+108
+00:05:29,970 --> 00:05:32,480
+to kilometers per hour, you have to do
+
+109
+00:05:32,480 --> 00:05:35,060
+a little bit of math to
+get the proper number,
+
+110
+00:05:35,060 --> 00:05:38,680
+of how to convert meters per
+second to kilometers per hour,
+
+111
+00:05:38,680 --> 00:05:41,187
+or miles per hour so that's
+actually what those numbers are.
+
+112
+00:05:41,187 --> 00:05:43,560
+"You don't need to do calculations
+using wheelcolliders."
+
+113
+00:05:43,560 --> 00:05:45,343
+Okay, cool, that's pretty helpful!
+
+114
+00:05:46,230 --> 00:05:49,540
+So since it said we needed to
+make speed variable before,
+
+115
+00:05:49,540 --> 00:05:52,823
+I'm actually going to
+un-comment-out our speed variable,
+
+116
+00:05:54,650 --> 00:05:56,870
+I'm actually going to turn this
+
+117
+00:05:56,870 --> 00:05:59,353
+into a serialized variable as well.
+
+118
+00:06:03,980 --> 00:06:06,250
+Since our speed is actually
+being calculated now,
+
+119
+00:06:06,250 --> 00:06:09,440
+I don't actually need
+to set it when I start.
+
+120
+00:06:09,440 --> 00:06:14,440
+Now, in my update method, I
+probably want to calculate
+
+121
+00:06:14,460 --> 00:06:17,280
+my speed after I apply that force,
+
+122
+00:06:17,280 --> 00:06:22,280
+so if I do speed equals player rigidbody,
+
+123
+00:06:24,437 --> 00:06:28,260
+.velocity.magnitude,
+
+124
+00:06:28,260 --> 00:06:32,140
+then we want to times it
+by I think it was, 2.237f,
+
+125
+00:06:35,050 --> 00:06:38,320
+that way our program knows
+that that number's a float.
+
+126
+00:06:38,320 --> 00:06:40,110
+Just for our own sake
+if we wanna change it
+
+127
+00:06:40,110 --> 00:06:45,110
+to kilometers per hour, so
+"For kilometers per hour,
+
+128
+00:06:45,497 --> 00:06:50,497
+"change to 2.237 to 3.6," okay.
+
+129
+00:06:51,440 --> 00:06:53,920
+So now we're getting that actual speed,
+
+130
+00:06:53,920 --> 00:06:55,840
+so now we just need to actually
+
+131
+00:06:55,840 --> 00:06:57,520
+set the text for our speedometer.
+
+132
+00:06:57,520 --> 00:07:00,270
+So if we do speedometerText.SetText,
+
+133
+00:07:03,830 --> 00:07:05,580
+we need to make a string so we can
+
+134
+00:07:05,580 --> 00:07:09,750
+say that this is the speed,
+and then we concatenate
+
+135
+00:07:11,040 --> 00:07:14,020
+the actual speed that we're calculating,
+
+136
+00:07:14,020 --> 00:07:15,630
+and then just as a nice touch we'll add
+
+137
+00:07:15,630 --> 00:07:19,623
+another string at the end
+to say miles per hour.
+
+138
+00:07:21,580 --> 00:07:24,290
+So now if I save this, hopefully,
+
+139
+00:07:24,290 --> 00:07:27,970
+now our speed should
+update in the top left
+
+140
+00:07:27,970 --> 00:07:29,223
+when we play our game.
+
+141
+00:07:31,210 --> 00:07:33,633
+Okay, well that's very weird, uh.
+
+142
+00:07:35,530 --> 00:07:38,750
+My speed is moving very
+fast, I think I actually
+
+143
+00:07:38,750 --> 00:07:41,510
+still have my vehicle
+set to be very heavy,
+
+144
+00:07:41,510 --> 00:07:43,060
+change that really quick.
+
+145
+00:07:43,060 --> 00:07:45,663
+Up 2000, I believe it was 1000 before.
+
+146
+00:07:47,950 --> 00:07:49,743
+Let's see, so now we play,
+
+147
+00:07:50,840 --> 00:07:52,393
+and we can move down the road,
+
+148
+00:07:53,800 --> 00:07:56,370
+and there you go, so you
+can see it's changing,
+
+149
+00:07:56,370 --> 00:07:59,610
+there's a lot of numbers
+after the decimal point,
+
+150
+00:07:59,610 --> 00:08:01,233
+and in fact when we press play,
+
+151
+00:08:02,690 --> 00:08:06,080
+you can see that, it actually starts
+
+152
+00:08:06,080 --> 00:08:08,130
+giving us a number value,
+
+153
+00:08:08,130 --> 00:08:09,880
+because it's falling to the ground.
+
+154
+00:08:11,130 --> 00:08:12,910
+So that doesn't look great,
+also it's kind of small,
+
+155
+00:08:12,910 --> 00:08:14,570
+we should probably make
+that a little bit larger,
+
+156
+00:08:14,570 --> 00:08:16,570
+but let's fix this problem first,
+
+157
+00:08:16,570 --> 00:08:19,423
+'cause this looks very weird,
+just all these decimals.
+
+158
+00:08:21,730 --> 00:08:24,170
+So how do we get rid of these decimals?
+
+159
+00:08:24,170 --> 00:08:26,930
+Well, the decimals happen because
+
+160
+00:08:26,930 --> 00:08:28,253
+this number is a float,
+
+161
+00:08:29,660 --> 00:08:32,623
+and to get a round number
+we actually need an integer.
+
+162
+00:08:33,490 --> 00:08:35,723
+So how do we get an integer from a float?
+
+163
+00:08:37,070 --> 00:08:40,370
+So let's head back over to the internet
+
+164
+00:08:40,370 --> 00:08:42,727
+and see what it has to say, I looked up
+
+165
+00:08:42,727 --> 00:08:46,550
+"how to convert float to integer unity,"
+
+166
+00:08:46,550 --> 00:08:50,560
+the first result that popped
+up is this Mathf.RoundToInt,
+
+167
+00:08:52,220 --> 00:08:55,667
+so "returns f", so that's the float,
+
+168
+00:08:55,667 --> 00:08:58,373
+"rounded to the nearest
+integer," let's see.
+
+169
+00:09:00,100 --> 00:09:03,603
+Ah, so float f, so that's
+the number we're passing in,
+
+170
+00:09:04,600 --> 00:09:07,853
+and then it gives you back f
+rounded to the nearest integer.
+
+171
+00:09:09,610 --> 00:09:12,673
+Okay, so it looks like this
+is how you would use it, so,
+
+172
+00:09:14,450 --> 00:09:17,450
+Mathf.RoundToInt, so then
+you put in the float,
+
+173
+00:09:17,450 --> 00:09:19,573
+and then it gives you 10.
+
+174
+00:09:20,920 --> 00:09:22,270
+Okay, hmm.
+
+175
+00:09:22,270 --> 00:09:24,020
+So MathF.RoundToInt.
+
+176
+00:09:25,450 --> 00:09:27,510
+Well, let's see if that works on this
+
+177
+00:09:27,510 --> 00:09:29,190
+little formula that we have here,
+
+178
+00:09:29,190 --> 00:09:30,980
+so I'm actually just going to
+
+179
+00:09:31,950 --> 00:09:35,563
+apply this here, so let's
+see, MathF.RoundToInt.
+
+180
+00:09:42,986 --> 00:09:46,760
+Then I guess we just wanna put
+this entire number in here?
+
+181
+00:09:46,760 --> 00:09:49,200
+So now if we save,
+
+182
+00:09:49,200 --> 00:09:52,000
+so now, we should just get whole numbers,
+
+183
+00:09:52,000 --> 00:09:55,010
+there you go, just says
+zero, could probably
+
+184
+00:09:55,010 --> 00:09:56,760
+make that text box a little
+bigger, there you go,
+
+185
+00:09:56,760 --> 00:09:58,570
+now it's just whole round numbers,
+
+186
+00:09:58,570 --> 00:10:00,370
+so that's good, so that works great.
+
+187
+00:10:01,760 --> 00:10:05,173
+We'll fix that issue with the
+size later, but that works.
+
+188
+00:10:06,680 --> 00:10:10,200
+For a fun little fact, if you
+remember, a few lessons ago,
+
+189
+00:10:10,200 --> 00:10:12,860
+we were talking about different
+keywords you could use
+
+190
+00:10:12,860 --> 00:10:17,820
+on variables, things like
+const, read only, and static,
+
+191
+00:10:17,820 --> 00:10:18,653
+you can actually see we have a
+
+192
+00:10:18,653 --> 00:10:20,560
+const variable here, for our turn speed,
+
+193
+00:10:20,560 --> 00:10:23,370
+and this is actually, down here,
+
+194
+00:10:23,370 --> 00:10:25,060
+where we're calculating our speed,
+
+195
+00:10:25,060 --> 00:10:30,060
+a case where you can
+actually see a static class.
+
+196
+00:10:30,630 --> 00:10:32,933
+Actually in fact, up here as well.
+
+197
+00:10:34,150 --> 00:10:38,280
+And so if you remember, in
+cases like our rigidbody,
+
+198
+00:10:38,280 --> 00:10:42,310
+we have to actually create a
+variable for that rigidbody,
+
+199
+00:10:42,310 --> 00:10:43,923
+and then assign it to something,
+
+200
+00:10:45,130 --> 00:10:47,550
+but for things like input or for math,
+
+201
+00:10:47,550 --> 00:10:50,470
+we don't actually need
+to instantiate anything
+
+202
+00:10:50,470 --> 00:10:52,370
+to use these classes.
+
+203
+00:10:52,370 --> 00:10:54,430
+That's because they're actually static.
+
+204
+00:10:54,430 --> 00:10:58,090
+And so static allows us
+to use different classes
+
+205
+00:10:58,090 --> 00:11:00,100
+without having to create an instance,
+
+206
+00:11:00,100 --> 00:11:02,810
+like playerRb for our rigidbody.
+
+207
+00:11:02,810 --> 00:11:06,130
+So what we're gonna do is in Prototype 1,
+
+208
+00:11:06,130 --> 00:11:10,350
+you're going to add a new
+TextMeshPro text to your project
+
+209
+00:11:10,350 --> 00:11:12,430
+by right clicking in the hierarchy,
+
+210
+00:11:12,430 --> 00:11:15,763
+going down to UI, create
+a Text - TextMeshPro,
+
+211
+00:11:16,850 --> 00:11:19,470
+it'll prompt you if you
+want to import TextMeshPro
+
+212
+00:11:19,470 --> 00:11:21,950
+because we haven't used
+it in this project yet,
+
+213
+00:11:21,950 --> 00:11:24,830
+once you import that just go to your text,
+
+214
+00:11:24,830 --> 00:11:26,880
+rename it Speedometer so
+we know what it's used for,
+
+215
+00:11:26,880 --> 00:11:29,230
+you can ever change the placeholder text,
+
+216
+00:11:29,230 --> 00:11:31,930
+reposition it so it's in the top left,
+
+217
+00:11:31,930 --> 00:11:34,340
+and after you've set up your text,
+
+218
+00:11:34,340 --> 00:11:36,650
+go into your PlayerController script,
+
+219
+00:11:36,650 --> 00:11:39,320
+you're going to add a new line at the top
+
+220
+00:11:39,320 --> 00:11:42,000
+to use the TextMeshPro library,
+
+221
+00:11:42,000 --> 00:11:45,320
+you can un-comment-out
+your speed variable,
+
+222
+00:11:45,320 --> 00:11:49,150
+and you can actually just
+make it a serialized field,
+
+223
+00:11:49,150 --> 00:11:51,730
+without any value assigned to it,
+
+224
+00:11:51,730 --> 00:11:53,610
+you're going to create another variable
+
+225
+00:11:53,610 --> 00:11:56,540
+for the speedometer text itself,
+
+226
+00:11:56,540 --> 00:11:58,360
+and then in your update method,
+
+227
+00:11:58,360 --> 00:12:01,550
+you're going to write
+two new lines of code,
+
+228
+00:12:01,550 --> 00:12:03,940
+one to set the speed
+
+229
+00:12:03,940 --> 00:12:08,810
+to a rounded value from float to int,
+
+230
+00:12:08,810 --> 00:12:11,860
+by calculating the actual velocity
+
+231
+00:12:12,860 --> 00:12:16,020
+that the player is moving,
+and then you have to
+
+232
+00:12:16,020 --> 00:12:21,020
+multiply it by this 2.237f,
+for the actual miles per hour.
+
+233
+00:12:21,370 --> 00:12:24,170
+So once you've calculated
+that entire thing,
+
+234
+00:12:24,170 --> 00:12:26,800
+you're just going to
+set the speedometer text
+
+235
+00:12:28,220 --> 00:12:31,290
+so that it actually tells
+you what the speed is.
+
+236
+00:12:31,290 --> 00:12:33,940
+After you set that text, just make sure to
+
+237
+00:12:33,940 --> 00:12:37,680
+pop back into Unity,
+on your player object,
+
+238
+00:12:37,680 --> 00:12:39,820
+make sure you drag that speedometer text
+
+239
+00:12:39,820 --> 00:12:42,800
+down to the speedometer text here
+
+240
+00:12:42,800 --> 00:12:44,970
+in your PlayerController script,
+
+241
+00:12:44,970 --> 00:12:47,110
+so that when you play your game,
+
+242
+00:12:47,110 --> 00:12:50,073
+you should see that the
+speed starts updating.
+
+243
+00:12:52,330 --> 00:12:53,280
+Now it's your turn!
+
+244
+00:12:54,911 --> 00:12:57,911
+(electronic chimes)
+

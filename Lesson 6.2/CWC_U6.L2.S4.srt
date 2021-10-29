@@ -1,0 +1,597 @@
+﻿1
+00:00:05,660 --> 00:00:06,820
+- [Instructor] Another cool feature
+
+2
+00:00:06,820 --> 00:00:09,030
+that a lot of car simulators have
+
+3
+00:00:09,030 --> 00:00:11,299
+is a display of the RPM,
+
+4
+00:00:11,299 --> 00:00:13,730
+or revolutions per minute.
+
+5
+00:00:13,730 --> 00:00:16,700
+The tricky part is figuring
+out how to calculate it.
+
+6
+00:00:16,700 --> 00:00:19,100
+First, what we need to do is create
+
+7
+00:00:19,100 --> 00:00:23,630
+a new text area for our RPM,
+
+8
+00:00:23,630 --> 00:00:26,050
+so in my canvas,
+
+9
+00:00:26,050 --> 00:00:28,850
+if I left click on that
+little dropdown arrow,
+
+10
+00:00:28,850 --> 00:00:30,790
+so we have the speedometer here,
+
+11
+00:00:30,790 --> 00:00:32,663
+I need to right click on Canvas,
+
+12
+00:00:33,630 --> 00:00:35,580
+and I'll create another UI TextMeshPro.
+
+13
+00:00:38,650 --> 00:00:40,180
+Now, it's somewhere off in the distance.
+
+14
+00:00:40,180 --> 00:00:42,190
+Let's see if we can get...
+
+15
+00:00:43,283 --> 00:00:44,116
+There we go.
+
+16
+00:00:45,070 --> 00:00:48,730
+So, you can see it's in the
+center of our canvas here,
+
+17
+00:00:48,730 --> 00:00:52,210
+and we need to actually
+move it to the top left.
+
+18
+00:00:52,210 --> 00:00:54,640
+About here.
+
+19
+00:00:54,640 --> 00:00:56,230
+I'm actually going to set the anchor first
+
+20
+00:00:56,230 --> 00:00:59,260
+so it's in the top left, then let's see.
+
+21
+00:00:59,260 --> 00:01:03,020
+What line is that at on the Y?
+
+22
+00:01:03,020 --> 00:01:06,610
+X is 135, so I think if we just
+
+23
+00:01:06,610 --> 00:01:08,730
+move this over, there you
+go, so it's all lined up,
+
+24
+00:01:08,730 --> 00:01:10,550
+so that looks nice and clean.
+
+25
+00:01:10,550 --> 00:01:13,450
+And, here, we'll change this to RPM.
+
+26
+00:01:13,450 --> 00:01:14,570
+To avoid that problem we had
+
+27
+00:01:14,570 --> 00:01:16,810
+with the speed before with Wrapping,
+
+28
+00:01:16,810 --> 00:01:18,653
+we're going to set this to Disabled,
+
+29
+00:01:20,350 --> 00:01:22,920
+and now we can get our RPM.
+
+30
+00:01:22,920 --> 00:01:27,870
+Let me make sure that I rename
+this element to be "RPM."
+
+31
+00:01:27,870 --> 00:01:31,290
+Now, I need to actually create
+another variable for this,
+
+32
+00:01:31,290 --> 00:01:33,410
+so in my PlayerController script,
+
+33
+00:01:33,410 --> 00:01:35,420
+right after the SpeedometerText,
+
+34
+00:01:35,420 --> 00:01:39,990
+I will create a new
+SeralizeField: TextMeshProUGUI.
+
+35
+00:01:43,230 --> 00:01:44,720
+We'll call this RPMText,
+
+36
+00:01:46,493 --> 00:01:50,700
+and I need to make sure that
+I set the RPM as a reference,
+
+37
+00:01:53,180 --> 00:01:55,550
+so in Unity, if I select my player,
+
+38
+00:01:55,550 --> 00:01:57,970
+we'll drop this RPMText element down
+
+39
+00:01:57,970 --> 00:01:59,750
+into the Rpm Text.
+
+40
+00:01:59,750 --> 00:02:02,880
+So, now, we have the RPM text,
+
+41
+00:02:02,880 --> 00:02:05,897
+but we need to actually calculate the RPM,
+
+42
+00:02:05,897 --> 00:02:08,880
+so let's see what we can do.
+
+43
+00:02:08,880 --> 00:02:11,900
+So, the Internet will be
+another helpful resource
+
+44
+00:02:11,900 --> 00:02:14,440
+here once again so, here,
+
+45
+00:02:14,440 --> 00:02:18,950
+we need to calculate the
+RPM of our vehicle in Unity,
+
+46
+00:02:18,950 --> 00:02:21,230
+so we have all of these different options.
+
+47
+00:02:21,230 --> 00:02:23,430
+We'll check out this
+Unity Answers question.
+
+48
+00:02:25,650 --> 00:02:28,660
+So, this person is making a speed limiter,
+
+49
+00:02:28,660 --> 00:02:32,410
+wants to do this through
+wheelcollider.rpm.
+
+50
+00:02:32,410 --> 00:02:35,420
+Hmm, that could be interesting.
+
+51
+00:02:35,420 --> 00:02:36,530
+Problem is we would have to
+
+52
+00:02:36,530 --> 00:02:39,610
+get a reference to one
+of our wheel colliders
+
+53
+00:02:39,610 --> 00:02:41,040
+and then see what that does.
+
+54
+00:02:41,040 --> 00:02:43,460
+Let's see what this person says.
+
+55
+00:02:43,460 --> 00:02:45,170
+If you want to get the speed,
+
+56
+00:02:45,170 --> 00:02:49,110
+you should know the
+circumference of your wheel,
+
+57
+00:02:49,110 --> 00:02:52,040
+multiply it, okay...
+
+58
+00:02:52,040 --> 00:02:54,090
+Let's see, what are they doing down here?
+
+59
+00:02:55,370 --> 00:02:59,280
+Speedometer, wheel radius...
+
+60
+00:02:59,280 --> 00:03:01,330
+This seems a little too complicated.
+
+61
+00:03:01,330 --> 00:03:04,010
+We're just going to maybe do a bit simpler
+
+62
+00:03:04,010 --> 00:03:06,990
+of a whole calculation than this,
+
+63
+00:03:06,990 --> 00:03:09,240
+but this is a generally helpful start.
+
+64
+00:03:09,240 --> 00:03:11,340
+You can see they're actually
+doing the conversions
+
+65
+00:03:11,340 --> 00:03:14,668
+from the RPM to the speed,
+which is kinda cool.
+
+66
+00:03:14,668 --> 00:03:18,660
+So, in order to get our RPM,
+
+67
+00:03:18,660 --> 00:03:21,220
+I'll make another variable,
+
+68
+00:03:21,220 --> 00:03:23,470
+and just so we can see what it's doing,
+
+69
+00:03:23,470 --> 00:03:28,470
+we will make it a serialized
+variable called "float rpm."
+
+70
+00:03:28,990 --> 00:03:31,160
+So, now, we actually have
+to do some calculations
+
+71
+00:03:31,160 --> 00:03:33,830
+for our RPM in our Update method.
+
+72
+00:03:33,830 --> 00:03:36,960
+So, that person used RPM to get to speed,
+
+73
+00:03:36,960 --> 00:03:40,910
+so we can use our speed to get to our RPM,
+
+74
+00:03:40,910 --> 00:03:43,323
+so we'll make our RPM variable,
+
+75
+00:03:45,080 --> 00:03:48,850
+and RPM is generally pretty large number
+
+76
+00:03:48,850 --> 00:03:51,670
+compared to our actual speed,
+
+77
+00:03:51,670 --> 00:03:54,630
+so if you're going somewhere around,
+
+78
+00:03:54,630 --> 00:03:56,040
+I don't know, like 80 miles per hour,
+
+79
+00:03:56,040 --> 00:03:59,350
+maybe get like 3,000 RPM or so,
+
+80
+00:03:59,350 --> 00:04:00,973
+so we'll just say speed,
+
+81
+00:04:02,150 --> 00:04:06,040
+and, in this case, we'll just
+create our own little formula,
+
+82
+00:04:06,040 --> 00:04:09,760
+and just kind of show you a
+cool symbol that you can use,
+
+83
+00:04:09,760 --> 00:04:13,410
+so if I type Shift on the number five,
+
+84
+00:04:13,410 --> 00:04:15,130
+I get this percent symbol,
+
+85
+00:04:15,130 --> 00:04:18,360
+and just for the sake of
+seeing what it looks like,
+
+86
+00:04:18,360 --> 00:04:20,980
+so "speed percent 30."
+
+87
+00:04:20,980 --> 00:04:25,530
+So, the percent symbol is a
+special kind of operator in C#,
+
+88
+00:04:25,530 --> 00:04:29,820
+and in programming in general,
+called the modulus operator,
+
+89
+00:04:29,820 --> 00:04:32,550
+or what you may be more familiar with,
+
+90
+00:04:32,550 --> 00:04:34,450
+the remainder operator.
+
+91
+00:04:34,450 --> 00:04:36,440
+And so, this means that we are actually
+
+92
+00:04:36,440 --> 00:04:38,870
+dividing speed by 30
+
+93
+00:04:38,870 --> 00:04:42,940
+and then it will actually
+give us the remainder value,
+
+94
+00:04:42,940 --> 00:04:46,090
+so if speed were to be 30,
+
+95
+00:04:46,090 --> 00:04:48,960
+and then we divide by 30,
+we actually get a zero.
+
+96
+00:04:48,960 --> 00:04:52,690
+If we divide speed, which is 31,
+
+97
+00:04:52,690 --> 00:04:55,380
+divide that by 30, we actually get a one.
+
+98
+00:04:55,380 --> 00:04:56,850
+And so, this is just kind of a cool way
+
+99
+00:04:56,850 --> 00:04:59,040
+that we can kind of wrap
+our numbers all the way
+
+100
+00:04:59,040 --> 00:05:02,370
+from zero to 29.
+
+101
+00:05:02,370 --> 00:05:04,560
+So let's save, and in fact,
+
+102
+00:05:04,560 --> 00:05:06,887
+we actually need to set this RPM
+
+103
+00:05:06,887 --> 00:05:10,102
+and our RPM text, so we do "RPMText.
+
+104
+00:05:10,102 --> 00:05:11,019
+"SetText...
+
+105
+00:05:13,597 --> 00:05:14,430
+"RPM...
+
+106
+00:05:17,467 --> 00:05:19,427
+"Plus RPM."
+
+107
+00:05:20,320 --> 00:05:24,360
+So, now, we save, let's
+check out our project.
+
+108
+00:05:24,360 --> 00:05:26,070
+See what happens when we press Play.
+
+109
+00:05:26,070 --> 00:05:29,020
+So, now, we should just
+see it go from zero
+
+110
+00:05:29,020 --> 00:05:32,530
+to 29 and then it goes
+back, so that's cool.
+
+111
+00:05:32,530 --> 00:05:37,530
+However, 29 is definitely
+not a very high RPM,
+
+112
+00:05:37,580 --> 00:05:39,500
+so we'll make this a little bit cleaner.
+
+113
+00:05:39,500 --> 00:05:44,500
+We'll actually just wrap
+this entire little equation
+
+114
+00:05:44,600 --> 00:05:47,680
+with parentheses so, that way,
+this operation happens first,
+
+115
+00:05:47,680 --> 00:05:50,230
+and then we multiply this times 40.
+
+116
+00:05:50,230 --> 00:05:53,190
+Let's save, now let's see.
+
+117
+00:05:53,190 --> 00:05:54,990
+Let's see what kinda numbers we get.
+
+118
+00:05:55,860 --> 00:05:56,693
+Okay.
+
+119
+00:06:00,770 --> 00:06:03,390
+It's kinda as if like
+when you're going through
+
+120
+00:06:03,390 --> 00:06:04,570
+each of the different speeds.
+
+121
+00:06:04,570 --> 00:06:07,670
+You're actually kind of
+shifting gears in a way,
+
+122
+00:06:07,670 --> 00:06:12,670
+resetting the RPM back
+down every time, cool.
+
+123
+00:06:15,100 --> 00:06:17,410
+So what you're gonna do is create
+
+124
+00:06:17,410 --> 00:06:20,550
+a new Text Object for the RPM.
+
+125
+00:06:20,550 --> 00:06:22,830
+Make sure to position it in the top left.
+
+126
+00:06:22,830 --> 00:06:24,930
+Make sure to disable Wrapping.
+
+127
+00:06:24,930 --> 00:06:27,300
+And then, in your PlayerController script,
+
+128
+00:06:27,300 --> 00:06:31,510
+make sure to create a
+new RPMText variable,
+
+129
+00:06:31,510 --> 00:06:33,203
+as well as an RPM variable.
+
+130
+00:06:34,040 --> 00:06:35,610
+Head down to your Update method
+
+131
+00:06:35,610 --> 00:06:39,380
+where you're going to create
+this little formula here,
+
+132
+00:06:39,380 --> 00:06:42,670
+this little equation to calculate the RPM,
+
+133
+00:06:42,670 --> 00:06:47,060
+and then just make sure to set
+RPMText to have that value,
+
+134
+00:06:47,060 --> 00:06:49,980
+so that, when you test your game in Unity,
+
+135
+00:06:49,980 --> 00:06:51,790
+you should see that the
+RPM goes all the way
+
+136
+00:06:51,790 --> 00:06:54,930
+to about 1200 and then
+it resets back down,
+
+137
+00:06:54,930 --> 00:06:56,790
+and then it goes back up to 1200 again
+
+138
+00:06:56,790 --> 00:06:58,190
+as if you're changing gears.
+
+139
+00:06:59,070 --> 00:07:00,070
+Now, it's your turn.
+

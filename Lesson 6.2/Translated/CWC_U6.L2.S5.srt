@@ -1,0 +1,771 @@
+﻿1
+00:00:00,528 --> 00:00:03,861
+(computerized chirping)
+
+2
+00:00:05,690 --> 00:00:07,970
+- [Narrator] Now that we have
+a mostly functional vehicle,
+
+3
+00:00:07,970 --> 00:00:10,510
+there is one other big
+bug we should try to fix.
+
+4
+00:00:10,510 --> 00:00:12,960
+The car can still
+accelerate and decelerate,
+
+5
+00:00:12,960 --> 00:00:16,860
+turn and increase in
+speed and RPM in mid-air.
+
+6
+00:00:16,860 --> 00:00:19,320
+So how do we make it so
+the vehicle only moves
+
+7
+00:00:19,320 --> 00:00:21,530
+when it's on the ground?
+
+8
+00:00:21,530 --> 00:00:23,520
+Once again, we'll head
+over to the internet
+
+9
+00:00:23,520 --> 00:00:25,300
+to see if there's any solutions.
+
+10
+00:00:25,300 --> 00:00:27,520
+So I looked up how to test
+
+11
+00:00:27,520 --> 00:00:31,210
+if wheels are on the ground in Unity.
+
+12
+00:00:31,210 --> 00:00:33,880
+And there's a couple of options
+here, there's Unity Answers,
+
+13
+00:00:33,880 --> 00:00:36,550
+which is from a few years ago, could work.
+
+14
+00:00:36,550 --> 00:00:39,430
+There's one from 2005, there's
+the official documentation.
+
+15
+00:00:39,430 --> 00:00:41,520
+We'll take a look at the
+documentation for now.
+
+16
+00:00:41,520 --> 00:00:44,480
+So it says that there's just
+WheelCollider.isGrounded,
+
+17
+00:00:44,480 --> 00:00:47,420
+it's a Boolean that says if it's grounded.
+
+18
+00:00:47,420 --> 00:00:49,330
+Indicates whether the
+wheel currently collides
+
+19
+00:00:49,330 --> 00:00:50,163
+with something.
+
+20
+00:00:50,163 --> 00:00:53,040
+That seems like it's good
+enough to get the job done.
+
+21
+00:00:53,040 --> 00:00:54,940
+So first what we need to
+do is we actually need
+
+22
+00:00:54,940 --> 00:00:57,730
+to get all of our wheels as references,
+
+23
+00:00:57,730 --> 00:00:59,960
+so we can actually track them.
+
+24
+00:00:59,960 --> 00:01:04,960
+So, I'm going to create a
+new list of wheel colliders
+
+25
+00:01:05,530 --> 00:01:07,690
+in my PlayerController script.
+
+26
+00:01:07,690 --> 00:01:10,010
+So I need to actually
+assign these variables,
+
+27
+00:01:10,010 --> 00:01:12,930
+so I'll serialize this.
+
+28
+00:01:12,930 --> 00:01:14,663
+We'll call it a list.
+
+29
+00:01:16,070 --> 00:01:19,437
+We need to make it a type of WheelCollider
+
+30
+00:01:20,950 --> 00:01:23,240
+and we can name it allWheels,
+
+31
+00:01:23,240 --> 00:01:25,890
+so we can keep track of all of our wheels.
+
+32
+00:01:25,890 --> 00:01:28,440
+So now that we've added that list
+
+33
+00:01:28,440 --> 00:01:31,533
+to our PlayerController script,
+
+34
+00:01:32,790 --> 00:01:36,650
+we do actually need to
+set the size of this list.
+
+35
+00:01:36,650 --> 00:01:38,140
+In this case we have four wheels,
+
+36
+00:01:38,140 --> 00:01:40,780
+so we need to set the size to four
+
+37
+00:01:40,780 --> 00:01:44,060
+and now, we drag in each of our wheels
+
+38
+00:01:44,060 --> 00:01:46,200
+as different elements.
+
+39
+00:01:46,200 --> 00:01:48,560
+So, that's the front left wheel,
+
+40
+00:01:48,560 --> 00:01:50,283
+this is the front right wheel,
+
+41
+00:01:51,880 --> 00:01:55,853
+this is the rear left, and
+this is the rear right.
+
+42
+00:01:57,520 --> 00:02:01,453
+So now that we've assigned
+references to all of our wheels,
+
+43
+00:02:02,380 --> 00:02:04,700
+we'll need to create a new variable
+
+44
+00:02:06,780 --> 00:02:10,100
+just to see how many
+wheels are on the ground.
+
+45
+00:02:10,100 --> 00:02:12,100
+We need to keep track
+of the number of wheels,
+
+46
+00:02:12,100 --> 00:02:15,000
+so we actually need an integer,
+
+47
+00:02:15,000 --> 00:02:19,173
+so we'll say int and then
+we'll call it wheelsOnGround,
+
+48
+00:02:20,860 --> 00:02:23,240
+so that we can keep track of the number
+
+49
+00:02:23,240 --> 00:02:24,890
+of wheels that are on the ground.
+
+50
+00:02:25,890 --> 00:02:28,820
+After our Update method,
+we'll create a new method,
+
+51
+00:02:28,820 --> 00:02:31,640
+in fact, to keep track
+of the number of wheels,
+
+52
+00:02:31,640 --> 00:02:33,745
+so, call it void and we'll just call it
+
+53
+00:02:33,745 --> 00:02:37,023
+the count of our wheels.
+
+54
+00:02:38,420 --> 00:02:40,120
+So we need to keep track of
+
+55
+00:02:40,120 --> 00:02:44,320
+the count of our wheels on the ground,
+
+56
+00:02:44,320 --> 00:02:48,150
+so we use wheelsOnGround,
+we set this to zero
+
+57
+00:02:48,150 --> 00:02:51,750
+because we'll assume that there
+are no wheels on the ground.
+
+58
+00:02:51,750 --> 00:02:55,290
+Now, a cool thing that
+we can do with lists
+
+59
+00:02:55,290 --> 00:02:57,490
+is something similar to the way
+
+60
+00:02:57,490 --> 00:03:01,310
+that we used for-loops to
+iterate through something before.
+
+61
+00:03:01,310 --> 00:03:05,210
+So with for-loops you
+could set the end condition
+
+62
+00:03:05,210 --> 00:03:07,380
+of when the for-loop would stop.
+
+63
+00:03:07,380 --> 00:03:12,063
+With lists we can actually
+use the for-each loop.
+
+64
+00:03:13,220 --> 00:03:14,493
+So we type foreach,
+
+65
+00:03:16,190 --> 00:03:19,230
+and then we actually use parentheses.
+
+66
+00:03:19,230 --> 00:03:22,080
+Now in our for-each we need to tell it
+
+67
+00:03:22,080 --> 00:03:25,340
+what we're trying to find in our list.
+
+68
+00:03:25,340 --> 00:03:28,480
+So, we're trying to find WheelColliders,
+
+69
+00:03:28,480 --> 00:03:31,610
+we need to give a name
+to that WheelCollider,
+
+70
+00:03:31,610 --> 00:03:34,633
+so we'll just call each
+wheel that we go through.
+
+71
+00:03:35,660 --> 00:03:37,370
+And now we need to give it the list
+
+72
+00:03:37,370 --> 00:03:40,327
+that it's actually gonna go
+through, so in allWheels.
+
+73
+00:03:42,500 --> 00:03:45,070
+Then after this we put curly braces,
+
+74
+00:03:45,070 --> 00:03:48,800
+so now, we're in our for-each loop.
+
+75
+00:03:48,800 --> 00:03:53,110
+So what we're gonna do is, if each wheel,
+
+76
+00:03:53,110 --> 00:03:56,623
+and now we can use the
+isGrounded attribute.
+
+77
+00:03:57,869 --> 00:04:00,286
+So, if our wheel is grounded,
+
+78
+00:04:02,660 --> 00:04:06,840
+wheelsOnGround, plus, plus.
+
+79
+00:04:06,840 --> 00:04:09,690
+So, just to think about
+how this will work,
+
+80
+00:04:09,690 --> 00:04:12,560
+when we call the count
+wheels method it will
+
+81
+00:04:12,560 --> 00:04:16,530
+go through each wheel
+in our list of wheels,
+
+82
+00:04:16,530 --> 00:04:19,710
+so the front left, front right,
+
+83
+00:04:19,710 --> 00:04:22,010
+rear left, and rear right wheel.
+
+84
+00:04:22,010 --> 00:04:25,330
+So, maybe it goes through the front left,
+
+85
+00:04:25,330 --> 00:04:29,070
+that wheel is not grounded,
+it will not add a number
+
+86
+00:04:29,070 --> 00:04:30,400
+to the wheelsOnGround.
+
+87
+00:04:30,400 --> 00:04:33,890
+Front right that is
+grounded, so it will add one
+
+88
+00:04:33,890 --> 00:04:35,700
+to wheelsOnGround.
+
+89
+00:04:35,700 --> 00:04:39,420
+Rear right also grounded,
+so it'll add another one.
+
+90
+00:04:39,420 --> 00:04:42,370
+Rear left not grounded,
+so it will not add one.
+
+91
+00:04:42,370 --> 00:04:45,563
+So then we're left with
+two wheelsOnGround,
+
+92
+00:04:46,529 --> 00:04:49,203
+the right side wheels, but
+not the left side wheels.
+
+93
+00:04:50,100 --> 00:04:53,320
+Now this could be useful, however,
+
+94
+00:04:53,320 --> 00:04:56,380
+what we're actually looking
+for is to know when our wheels
+
+95
+00:04:56,380 --> 00:04:57,330
+are on the ground.
+
+96
+00:04:57,330 --> 00:04:58,770
+We don't just want to keep track
+
+97
+00:04:58,770 --> 00:05:00,480
+of the wheels on the ground,
+
+98
+00:05:00,480 --> 00:05:03,830
+we actually want to know when our vehicle
+
+99
+00:05:03,830 --> 00:05:05,730
+is entirely on the ground.
+
+100
+00:05:05,730 --> 00:05:08,280
+So I'm actually going to change
+this method a little bit.
+
+101
+00:05:08,280 --> 00:05:12,290
+So, void doesn't actually
+give us any value back,
+
+102
+00:05:12,290 --> 00:05:14,670
+so we actually need to return a value
+
+103
+00:05:14,670 --> 00:05:17,310
+and we'll actually return a bool.
+
+104
+00:05:18,740 --> 00:05:22,440
+And instead of CountWheels,
+we can just say IsOnGround.
+
+105
+00:05:23,700 --> 00:05:26,860
+So now if I call the IsOnGround method,
+
+106
+00:05:26,860 --> 00:05:29,690
+it should give us back a true or false.
+
+107
+00:05:29,690 --> 00:05:32,070
+True if all four wheels are on the ground,
+
+108
+00:05:32,070 --> 00:05:34,820
+false if none of the
+wheels are the ground,
+
+109
+00:05:34,820 --> 00:05:36,930
+if less than four wheels
+are on the ground.
+
+110
+00:05:36,930 --> 00:05:38,780
+So now we're keeping
+track of how many wheels
+
+111
+00:05:38,780 --> 00:05:40,300
+are on the ground.
+
+112
+00:05:40,300 --> 00:05:42,570
+So we can actually just
+use another if statement.
+
+113
+00:05:42,570 --> 00:05:44,810
+So if the wheelsOnGround
+
+114
+00:05:46,450 --> 00:05:47,970
+is equal to four,
+
+115
+00:05:47,970 --> 00:05:50,240
+if all of the wheels are on the ground,
+
+116
+00:05:50,240 --> 00:05:55,000
+we return true and keep doing
+whatever we want it to do,
+
+117
+00:05:55,000 --> 00:05:58,160
+else, we return false.
+
+118
+00:05:58,160 --> 00:06:01,470
+So if less than four
+wheels are on the ground,
+
+119
+00:06:01,470 --> 00:06:04,050
+then we don't want our vehicle to move.
+
+120
+00:06:04,050 --> 00:06:06,480
+So now that we are keeping track of
+
+121
+00:06:06,480 --> 00:06:08,760
+whether our vehicle's
+on the ground or not.
+
+122
+00:06:08,760 --> 00:06:12,000
+In our Update method, we
+should actually prevent
+
+123
+00:06:12,000 --> 00:06:14,620
+the player from being able
+to move when they're not
+
+124
+00:06:14,620 --> 00:06:15,600
+on the ground.
+
+125
+00:06:15,600 --> 00:06:18,680
+So, in fact I can actually
+just wrap this entire statement
+
+126
+00:06:18,680 --> 00:06:20,840
+here in an if statement,
+
+127
+00:06:20,840 --> 00:06:22,680
+so if IsOnGround,
+
+128
+00:06:24,470 --> 00:06:25,853
+parentheses here,
+
+129
+00:06:26,930 --> 00:06:30,970
+delete this, put all
+of this in parentheses,
+
+130
+00:06:30,970 --> 00:06:33,230
+in brackets I should say.
+
+131
+00:06:33,230 --> 00:06:38,160
+So, if IsOnGround, returns true,
+
+132
+00:06:38,160 --> 00:06:40,010
+because all of our
+wheels are on the ground,
+
+133
+00:06:40,010 --> 00:06:42,800
+then it will update our forces,
+
+134
+00:06:42,800 --> 00:06:46,420
+rotate our vehicle and give us the RPM.
+
+135
+00:06:46,420 --> 00:06:49,630
+Otherwise, it will return
+false and we won't be able
+
+136
+00:06:49,630 --> 00:06:51,290
+to move our vehicle.
+
+137
+00:06:51,290 --> 00:06:55,143
+So if I save this, pop back
+into Unity and press play,
+
+138
+00:06:56,580 --> 00:06:58,263
+now I can move the vehicle.
+
+139
+00:07:00,400 --> 00:07:03,700
+And then you can see that
+my speed and my RPM stop,
+
+140
+00:07:03,700 --> 00:07:05,870
+because I left the ground.
+
+141
+00:07:05,870 --> 00:07:09,700
+So, what you're gonna do is in
+your PlayerController script,
+
+142
+00:07:09,700 --> 00:07:12,410
+you're going to create a
+list of wheel colliders
+
+143
+00:07:12,410 --> 00:07:13,707
+called allWheels.
+
+144
+00:07:14,830 --> 00:07:17,640
+In Unity, in your Player Object,
+
+145
+00:07:17,640 --> 00:07:19,680
+under the PlayerController script,
+
+146
+00:07:19,680 --> 00:07:22,400
+an allWheels variable should appear,
+
+147
+00:07:22,400 --> 00:07:24,460
+make sure to set the size to four
+
+148
+00:07:24,460 --> 00:07:27,280
+and then make sure to
+drag each different wheel
+
+149
+00:07:27,280 --> 00:07:28,390
+into each element.
+
+150
+00:07:28,390 --> 00:07:32,310
+So the front left, front right,
+rear left, and rear right.
+
+151
+00:07:32,310 --> 00:07:35,830
+Once you've done that, create
+another variable to keep track
+
+152
+00:07:35,830 --> 00:07:39,510
+of how many wheels are on
+the ground as an integer.
+
+153
+00:07:39,510 --> 00:07:42,320
+You're then going to create a new method
+
+154
+00:07:42,320 --> 00:07:46,840
+that returns a boolean
+value called IsOnGround,
+
+155
+00:07:46,840 --> 00:07:48,560
+where you'll set the wheels on the ground
+
+156
+00:07:48,560 --> 00:07:50,730
+to zero, initially.
+
+157
+00:07:50,730 --> 00:07:54,340
+You will then loop through
+the allWheels list,
+
+158
+00:07:54,340 --> 00:07:58,510
+by using a for-each loop and
+you need to use the syntax
+
+159
+00:07:58,510 --> 00:08:03,310
+for each wheel collider
+wheel in the allWheels list.
+
+160
+00:08:03,310 --> 00:08:05,610
+Inside of that for-each
+loop, just do a check
+
+161
+00:08:05,610 --> 00:08:07,890
+to make sure that the wheel is grounded
+
+162
+00:08:07,890 --> 00:08:12,400
+and if it is, to increase
+wheelsOnGround by one.
+
+163
+00:08:12,400 --> 00:08:14,740
+So that way, if the
+wheels are on the ground,
+
+164
+00:08:14,740 --> 00:08:16,550
+all four of them, you return true,
+
+165
+00:08:16,550 --> 00:08:18,440
+otherwise you return false.
+
+166
+00:08:18,440 --> 00:08:20,580
+And then in your Update
+method you're going
+
+167
+00:08:20,580 --> 00:08:23,980
+to wrap your place in your
+code where you apply forces,
+
+168
+00:08:23,980 --> 00:08:27,940
+rotate the vehicle, and set
+the RPM into an if statement
+
+169
+00:08:27,940 --> 00:08:30,530
+that checks if the
+vehicle is on the ground,
+
+170
+00:08:30,530 --> 00:08:32,420
+then you can do all these things.
+
+171
+00:08:32,420 --> 00:08:35,100
+So then you can pop into
+Unity and test your game
+
+172
+00:08:35,100 --> 00:08:38,550
+and see if your script worked.
+
+173
+00:08:38,550 --> 00:08:39,613
+Now it's your turn.
+

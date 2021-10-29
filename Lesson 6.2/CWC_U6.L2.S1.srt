@@ -1,0 +1,967 @@
+﻿1
+00:00:00,533 --> 00:00:03,533
+(electronic noises)
+
+2
+00:00:05,520 --> 00:00:06,530
+- [Instructor] In this lesson,
+
+3
+00:00:06,530 --> 00:00:09,730
+you'll attempt to add a
+speedometer and RPM display,
+
+4
+00:00:09,730 --> 00:00:12,150
+for your vehicle, in Prototype 1.
+
+5
+00:00:12,150 --> 00:00:14,660
+And, in doing so, you'll learn the process
+
+6
+00:00:14,660 --> 00:00:16,260
+of doing online research,
+
+7
+00:00:16,260 --> 00:00:18,090
+when trying to implement new features,
+
+8
+00:00:18,090 --> 00:00:20,830
+and troubleshoot bugs in your projects.
+
+9
+00:00:20,830 --> 00:00:22,910
+As you'll find out, adding a new feature
+
+10
+00:00:22,910 --> 00:00:26,980
+is very rarely as simple
+as it initially seems.
+
+11
+00:00:26,980 --> 00:00:30,280
+You inevitably run into
+unexpected complications
+
+12
+00:00:30,280 --> 00:00:34,710
+and errors that usually require
+a little online research.
+
+13
+00:00:34,710 --> 00:00:37,190
+So, in this lesson, we'll learn how to do
+
+14
+00:00:37,190 --> 00:00:40,090
+some online research, so
+that we can do it on our own,
+
+15
+00:00:40,090 --> 00:00:41,960
+for our projects.
+
+16
+00:00:41,960 --> 00:00:44,490
+Now, one thing that'll
+set our driving game
+
+17
+00:00:44,490 --> 00:00:46,800
+apart from our driving simulator,
+
+18
+00:00:46,800 --> 00:00:49,210
+is by adding something like a speedometer,
+
+19
+00:00:49,210 --> 00:00:51,930
+to be able to actually track
+the speed of our vehicle,
+
+20
+00:00:51,930 --> 00:00:54,173
+much like you would see in a car itself.
+
+21
+00:00:55,220 --> 00:00:57,170
+If we're going to implement a speedometer,
+
+22
+00:00:57,170 --> 00:01:00,430
+the first thing we have to do
+is make the vehicle accelerate
+
+23
+00:01:00,430 --> 00:01:03,260
+and decelerate more like a real car,
+
+24
+00:01:03,260 --> 00:01:07,030
+which uses forces, as opposed
+to the translate method.
+
+25
+00:01:07,030 --> 00:01:08,830
+Because of the fact that translate
+
+26
+00:01:08,830 --> 00:01:11,560
+will actually move our
+vehicle at a constant speed,
+
+27
+00:01:11,560 --> 00:01:14,870
+we'll need to use forces and
+rigid bodies on our vehicle,
+
+28
+00:01:14,870 --> 00:01:17,490
+to make it move at different speeds,
+
+29
+00:01:17,490 --> 00:01:19,820
+by applying different
+forces onto the vehicle,
+
+30
+00:01:19,820 --> 00:01:22,000
+to make it speed up and slow down.
+
+31
+00:01:22,000 --> 00:01:24,540
+So, open up your Prototype 1 project.
+
+32
+00:01:24,540 --> 00:01:26,640
+And when Prototype 1 is open,
+
+33
+00:01:26,640 --> 00:01:28,570
+we're going to make a
+backup of our project,
+
+34
+00:01:28,570 --> 00:01:31,200
+because we're going to
+change some of our code.
+
+35
+00:01:31,200 --> 00:01:35,730
+So, in the top left of Unity,
+go to the Assets dropdown,
+
+36
+00:01:35,730 --> 00:01:37,173
+and Export Package.
+
+37
+00:01:40,930 --> 00:01:42,840
+Now, I'm going to export this package
+
+38
+00:01:42,840 --> 00:01:45,930
+directly to my Create with Code folder.
+
+39
+00:01:45,930 --> 00:01:48,853
+So, I'll call this Prototype 1 Complete.
+
+40
+00:01:52,090 --> 00:01:53,490
+Now, I'll make sure to save.
+
+41
+00:01:55,100 --> 00:01:58,460
+So, now that we've saved our Prototype 1,
+
+42
+00:01:58,460 --> 00:02:02,240
+if you remember, on our player object,
+
+43
+00:02:02,240 --> 00:02:04,660
+we have this Player Controller Script.
+
+44
+00:02:04,660 --> 00:02:07,290
+Which is how we actually move our vehicle
+
+45
+00:02:07,290 --> 00:02:09,640
+through the scene, using
+that translate method.
+
+46
+00:02:11,000 --> 00:02:13,650
+So, I need to actually go
+into my Scripts folder,
+
+47
+00:02:13,650 --> 00:02:15,720
+and open up PlayerController.
+
+48
+00:02:15,720 --> 00:02:17,620
+Now, in my PlayerController script,
+
+49
+00:02:17,620 --> 00:02:20,500
+I have the transform.Translate method,
+
+50
+00:02:20,500 --> 00:02:22,050
+where I move the vehicle.
+
+51
+00:02:22,050 --> 00:02:24,620
+But I need to use physics
+and forces to do so.
+
+52
+00:02:24,620 --> 00:02:27,030
+Instead of using transform.Translate.
+
+53
+00:02:27,030 --> 00:02:31,280
+So, I'm actually going
+to create a new variable
+
+54
+00:02:31,280 --> 00:02:32,363
+for our rigidbody.
+
+55
+00:02:37,810 --> 00:02:40,320
+And now I need to actually
+assign that rigidbody
+
+56
+00:02:40,320 --> 00:02:41,483
+when our game starts.
+
+57
+00:02:53,330 --> 00:02:57,490
+So, now, in our start
+method, our playerRB variable
+
+58
+00:02:57,490 --> 00:03:00,560
+is set to the RigidBody component,
+
+59
+00:03:00,560 --> 00:03:04,020
+that we have on our actual vehicle.
+
+60
+00:03:04,020 --> 00:03:06,120
+Now, one thing I wanna do is
+
+61
+00:03:06,120 --> 00:03:08,200
+I want to actually comment out the speed.
+
+62
+00:03:08,200 --> 00:03:10,730
+Because I'm going to
+create a different variable
+
+63
+00:03:10,730 --> 00:03:12,670
+for applying the actual force.
+
+64
+00:03:12,670 --> 00:03:14,380
+So, in case I want to use speed,
+
+65
+00:03:14,380 --> 00:03:16,380
+and I want to use this translate method,
+
+66
+00:03:17,820 --> 00:03:19,600
+I'll comment both of those lines out.
+
+67
+00:03:19,600 --> 00:03:24,203
+So, instead of speed,
+I'll make a private float,
+
+68
+00:03:25,080 --> 00:03:30,080
+called horsePower, and we'll
+set that zero, for now.
+
+69
+00:03:30,260 --> 00:03:33,270
+Since I actually want to
+interact with this variable,
+
+70
+00:03:33,270 --> 00:03:36,453
+I'm going to add that
+SerializeField attribute.
+
+71
+00:03:42,490 --> 00:03:44,920
+So, now I can actually play
+around with this variable,
+
+72
+00:03:44,920 --> 00:03:47,490
+in Unity, even though it's private.
+
+73
+00:03:47,490 --> 00:03:49,430
+And then, in my update method,
+
+74
+00:03:49,430 --> 00:03:52,917
+I'm going to use that rigidbody.
+
+75
+00:03:54,310 --> 00:03:57,223
+I'm going to apply a force,
+using the AddForce method.
+
+76
+00:03:58,150 --> 00:04:01,083
+We want to apply that force
+in the forward direction.
+
+77
+00:04:03,000 --> 00:04:05,850
+We don't actually need
+to use Time.deltaTime,
+
+78
+00:04:05,850 --> 00:04:07,040
+since we're applying forces,
+
+79
+00:04:07,040 --> 00:04:08,750
+instead of translating something.
+
+80
+00:04:08,750 --> 00:04:12,653
+I'll multiply it by the
+horsePower that we have.
+
+81
+00:04:13,780 --> 00:04:16,010
+And then we need to
+actually control that force.
+
+82
+00:04:16,010 --> 00:04:17,360
+So, we'll use vertialInput.
+
+83
+00:04:19,270 --> 00:04:21,400
+So, this line of code
+isn't entirely different
+
+84
+00:04:21,400 --> 00:04:23,600
+from our original line.
+
+85
+00:04:23,600 --> 00:04:24,790
+In some of our past projects,
+
+86
+00:04:24,790 --> 00:04:27,313
+we were using AddForces to move things.
+
+87
+00:04:28,420 --> 00:04:32,930
+So, now is a good opportunity
+to try using AddForce again.
+
+88
+00:04:32,930 --> 00:04:34,343
+So, I make sure I save.
+
+89
+00:04:35,450 --> 00:04:38,990
+Now, in Unity, you can see
+that my PlayerController script
+
+90
+00:04:38,990 --> 00:04:41,273
+has updated on the Inspector.
+
+91
+00:04:43,090 --> 00:04:44,490
+So, I'll select that player.
+
+92
+00:04:45,490 --> 00:04:47,000
+And Horse Power is set to zero.
+
+93
+00:04:47,000 --> 00:04:48,140
+So, what I'll actually do is
+
+94
+00:04:48,140 --> 00:04:49,430
+I'm gonna test out this variable.
+
+95
+00:04:49,430 --> 00:04:51,633
+So, I'm gonna enter Play mode.
+
+96
+00:04:53,140 --> 00:04:55,370
+And we know zero's not
+gonna move it, at all.
+
+97
+00:04:55,370 --> 00:04:59,793
+So, let's try 10, since
+we have about 20 before.
+
+98
+00:05:01,030 --> 00:05:04,423
+So, we're not really moving,
+but we can turn still.
+
+99
+00:05:05,690 --> 00:05:08,010
+See, what if I just move it to about 100.
+
+100
+00:05:08,010 --> 00:05:09,683
+Does it move anywhere, no?
+
+101
+00:05:11,410 --> 00:05:13,353
+Okay, maybe we need more force.
+
+102
+00:05:13,353 --> 00:05:14,223
+1,000?
+
+103
+00:05:17,140 --> 00:05:20,273
+Still nothing, let's go even more, 10,000.
+
+104
+00:05:23,920 --> 00:05:25,375
+Very little movement.
+
+105
+00:05:25,375 --> 00:05:29,353
+Okay, let's just do, let's say, 20,000.
+
+106
+00:05:31,840 --> 00:05:33,160
+Oh, there you go.
+
+107
+00:05:33,160 --> 00:05:34,510
+So, our vehicle moves forward,
+
+108
+00:05:34,510 --> 00:05:36,240
+but it doesn't actually
+move in the direction
+
+109
+00:05:36,240 --> 00:05:37,860
+that we turn it in.
+
+110
+00:05:37,860 --> 00:05:39,010
+So, that's frustrating.
+
+111
+00:05:40,830 --> 00:05:42,860
+Let me make sure that I
+actually set this variable,
+
+112
+00:05:42,860 --> 00:05:44,270
+now that I'm out of Play mode.
+
+113
+00:05:44,270 --> 00:05:46,353
+And let's try that again
+and see what happens.
+
+114
+00:05:52,980 --> 00:05:55,020
+Yeah, so, the vehicle doesn't move
+
+115
+00:05:55,020 --> 00:05:56,470
+in the right direction, at all.
+
+116
+00:05:56,470 --> 00:05:57,750
+It's just always moving forward.
+
+117
+00:05:57,750 --> 00:06:01,030
+Which could look really cool,
+
+118
+00:06:01,030 --> 00:06:03,270
+if you're making a drifting game.
+
+119
+00:06:03,270 --> 00:06:06,370
+But we still want to be
+able to turn that vehicle.
+
+120
+00:06:06,370 --> 00:06:08,773
+So, what did we do wrong?
+
+121
+00:06:10,170 --> 00:06:12,890
+To help conceptualize the problem here.
+
+122
+00:06:12,890 --> 00:06:17,890
+So, you can see, right
+now, we have the arrows,
+
+123
+00:06:17,910 --> 00:06:19,113
+for that Move tool.
+
+124
+00:06:20,370 --> 00:06:22,100
+And, right now, our Move tool
+
+125
+00:06:22,100 --> 00:06:24,880
+is actually locked into
+Global coordinates.
+
+126
+00:06:24,880 --> 00:06:26,780
+So, we can use this
+toggle, in the top left,
+
+127
+00:06:26,780 --> 00:06:28,990
+to switch between Global and Local.
+
+128
+00:06:28,990 --> 00:06:31,470
+And so, now, Local should actually turn,
+
+129
+00:06:31,470 --> 00:06:32,430
+as we turn the vehicle.
+
+130
+00:06:32,430 --> 00:06:36,710
+So, with the Global coordinates
+set up on our Rotation tool,
+
+131
+00:06:36,710 --> 00:06:39,720
+if I actually rotate this
+vehicle left to right,
+
+132
+00:06:39,720 --> 00:06:43,410
+you can see that it actually is always
+
+133
+00:06:43,410 --> 00:06:44,883
+still pointing down the road.
+
+134
+00:06:46,130 --> 00:06:47,830
+If I switch to Local coordinates,
+
+135
+00:06:47,830 --> 00:06:50,370
+you can actually see, as
+I rotate this vehicle,
+
+136
+00:06:50,370 --> 00:06:55,370
+now the arrow is pointing
+wherever the vehicle points.
+
+137
+00:06:55,940 --> 00:07:00,160
+So, we actually need to figure
+out how we can apply forces
+
+138
+00:07:00,160 --> 00:07:02,303
+according to our Local coordinates.
+
+139
+00:07:03,350 --> 00:07:06,030
+Luckily, the internet
+is our good friend here.
+
+140
+00:07:06,030 --> 00:07:08,750
+So, in Google, I actually typed in
+
+141
+00:07:08,750 --> 00:07:11,333
+Unity AddForce in local space.
+
+142
+00:07:12,170 --> 00:07:15,280
+And you can see all these
+different things popped up.
+
+143
+00:07:15,280 --> 00:07:19,100
+There's actually some Unity
+Answers questions here.
+
+144
+00:07:19,100 --> 00:07:20,620
+So, this is actually our forum,
+
+145
+00:07:20,620 --> 00:07:23,330
+where users go to ask questions.
+
+146
+00:07:23,330 --> 00:07:26,363
+And then other users will
+actually answer it for them.
+
+147
+00:07:28,130 --> 00:07:31,210
+And then we also have the Scripting API.
+
+148
+00:07:31,210 --> 00:07:34,800
+This is actually the
+official Unity documentation.
+
+149
+00:07:34,800 --> 00:07:37,870
+So, you can see here, we
+have that AddForce method.
+
+150
+00:07:37,870 --> 00:07:40,163
+We know that doesn't work, so, let's see.
+
+151
+00:07:42,840 --> 00:07:46,163
+If we clicked into the topmost result,
+
+152
+00:07:47,450 --> 00:07:50,800
+the question here says,
+AddForce in local space.
+
+153
+00:07:50,800 --> 00:07:53,970
+And the user asked, how
+do you change and AddForce
+
+154
+00:07:53,970 --> 00:07:55,410
+from Global to Local?
+
+155
+00:07:55,410 --> 00:07:57,570
+The top reply, from this user,
+
+156
+00:07:57,570 --> 00:08:01,313
+says to AddRelativeForce
+instead of AddForce.
+
+157
+00:08:02,240 --> 00:08:04,160
+So, we were using AddForce before.
+
+158
+00:08:04,160 --> 00:08:06,763
+But I don't know what this
+AddRelativeForce does.
+
+159
+00:08:07,640 --> 00:08:10,910
+So, you can see that the
+user was trying to point us
+
+160
+00:08:10,910 --> 00:08:13,890
+in the right direction,
+using AddRelativeForce.
+
+161
+00:08:13,890 --> 00:08:17,109
+Down in the suggestions
+for the Scripting API,
+
+162
+00:08:17,109 --> 00:08:19,100
+AddRelativeForce is
+actually one of the options
+
+163
+00:08:19,100 --> 00:08:21,040
+that we can select, as a result.
+
+164
+00:08:21,040 --> 00:08:24,660
+Or we can ask Google, once again.
+
+165
+00:08:24,660 --> 00:08:28,573
+So, Unity AddRelativeForce.
+
+166
+00:08:30,880 --> 00:08:33,090
+So, this actually brings up that result
+
+167
+00:08:33,090 --> 00:08:34,513
+for our documentation.
+
+168
+00:08:36,880 --> 00:08:40,330
+So, you can see, in our
+official documentation,
+
+169
+00:08:40,330 --> 00:08:43,320
+the Description tells
+us that it adds a force
+
+170
+00:08:43,320 --> 00:08:47,000
+to the rigidbody, relative
+to its coordinate system.
+
+171
+00:08:47,000 --> 00:08:49,850
+So, it actually, it's using
+that local coordinate system.
+
+172
+00:08:50,900 --> 00:08:53,750
+So, if I go to my PlayerController script,
+
+173
+00:08:53,750 --> 00:08:56,190
+if I go down to my update method,
+
+174
+00:08:56,190 --> 00:09:01,190
+if I just add the word Relative
+to AddForce, I can save.
+
+175
+00:09:01,290 --> 00:09:03,150
+And then I head back into Unity.
+
+176
+00:09:03,150 --> 00:09:05,767
+And I test my game out in Play mode.
+
+177
+00:09:05,767 --> 00:09:09,120
+And see, as I turn, I should be moving
+
+178
+00:09:09,120 --> 00:09:11,350
+in the direction the vehicle is pointing.
+
+179
+00:09:11,350 --> 00:09:13,393
+So, you can see that works.
+
+180
+00:09:14,400 --> 00:09:17,100
+Our vehicle is doing some
+weird things, at the moment.
+
+181
+00:09:19,400 --> 00:09:21,350
+That's fine, we'll fix that in a bit.
+
+182
+00:09:21,350 --> 00:09:22,603
+Oh, we just flipped over.
+
+183
+00:09:23,820 --> 00:09:27,570
+But, on the up side, our
+vehicle isn't just driving
+
+184
+00:09:27,570 --> 00:09:29,333
+straight down the road, as I turn.
+
+185
+00:09:31,380 --> 00:09:34,750
+So, using a little bit of
+searching, on the internet,
+
+186
+00:09:34,750 --> 00:09:37,510
+and finding the AddRelativeForce method,
+
+187
+00:09:37,510 --> 00:09:39,900
+I was able to fix a problem that I had.
+
+188
+00:09:39,900 --> 00:09:42,910
+So, what you're gonna
+do is you're going to
+
+189
+00:09:42,910 --> 00:09:45,770
+open up Prototype 1, in
+the top left of Unity.
+
+190
+00:09:45,770 --> 00:09:48,220
+If you select the Assets menu option,
+
+191
+00:09:48,220 --> 00:09:51,460
+go down to Export Package,
+you're going to export
+
+192
+00:09:51,460 --> 00:09:55,650
+a new package, to save as a
+backup for your Prototype 1,
+
+193
+00:09:55,650 --> 00:09:57,200
+since we're going to change it.
+
+194
+00:09:59,000 --> 00:10:02,530
+You're then going to open up
+your PlayerController script.
+
+195
+00:10:02,530 --> 00:10:04,280
+In your PlayerController script,
+
+196
+00:10:04,280 --> 00:10:07,660
+you can comment out the
+variable for your speed.
+
+197
+00:10:07,660 --> 00:10:09,950
+And you can comment out the line,
+
+198
+00:10:09,950 --> 00:10:13,423
+where we are moving the vehicle,
+using transform.Translate.
+
+199
+00:10:15,130 --> 00:10:18,360
+I added a new variable for our horsePower,
+
+200
+00:10:18,360 --> 00:10:20,780
+that will be applied as a force.
+
+201
+00:10:20,780 --> 00:10:23,940
+I used that new attribute, SerializeField,
+
+202
+00:10:23,940 --> 00:10:27,083
+so that I can actually
+change this value, in Unity.
+
+203
+00:10:28,870 --> 00:10:32,200
+I needed to make a new
+variable for our rigidbody.
+
+204
+00:10:32,200 --> 00:10:34,740
+And then I needed to assign that rigidbody
+
+205
+00:10:34,740 --> 00:10:37,570
+in our start method, using GetComponent,
+
+206
+00:10:37,570 --> 00:10:40,523
+to find the rigidbody
+of our current object.
+
+207
+00:10:42,420 --> 00:10:44,510
+And then, in our update method,
+
+208
+00:10:44,510 --> 00:10:46,480
+instead of using transform.Translate,
+
+209
+00:10:46,480 --> 00:10:50,073
+I used player rigidbody.AddRelativeForce,
+
+210
+00:10:52,010 --> 00:10:54,200
+to move it in the forward direction,
+
+211
+00:10:54,200 --> 00:10:57,173
+times the actual force
+that we're applying.
+
+212
+00:10:58,170 --> 00:11:00,560
+And then multiplied that
+by our actual input,
+
+213
+00:11:00,560 --> 00:11:04,980
+so we could control our vehicle
+again, using our arrow keys.
+
+214
+00:11:04,980 --> 00:11:07,100
+So, then, when you test
+out your game in Unity,
+
+215
+00:11:07,100 --> 00:11:09,240
+by entering Play mode,
+
+216
+00:11:09,240 --> 00:11:11,330
+you can move the vehicle down the road.
+
+217
+00:11:11,330 --> 00:11:14,340
+And, as you turn it, it
+will actually start moving
+
+218
+00:11:14,340 --> 00:11:15,890
+in the direction it's pointing.
+
+219
+00:11:17,830 --> 00:11:18,780
+Now it's your turn.
+
+220
+00:11:19,959 --> 00:11:22,959
+(electronic noises)
+

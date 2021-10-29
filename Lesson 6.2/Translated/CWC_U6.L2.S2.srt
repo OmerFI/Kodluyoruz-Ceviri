@@ -1,0 +1,1523 @@
+﻿1
+00:00:05,710 --> 00:00:07,620
+- [Instructor] Now that we've
+implemented real physics
+
+2
+00:00:07,620 --> 00:00:10,520
+on the vehicles, it's
+very easy to overturn.
+
+3
+00:00:10,520 --> 00:00:11,570
+We need to figure out a way
+
+4
+00:00:11,570 --> 00:00:14,210
+to make our vehicles safer to drive.
+
+5
+00:00:14,210 --> 00:00:16,550
+So if I test out my game again,
+
+6
+00:00:16,550 --> 00:00:19,140
+as I drive my vehicle down
+the road, at some point,
+
+7
+00:00:19,140 --> 00:00:20,300
+it just kind of flips over
+
+8
+00:00:20,300 --> 00:00:22,850
+and that definitely isn't
+great, oh it flipped back.
+
+9
+00:00:22,850 --> 00:00:23,683
+That's cool.
+
+10
+00:00:26,080 --> 00:00:29,370
+Oh, there you go, oh, full rotation, cool.
+
+11
+00:00:29,370 --> 00:00:30,990
+My back on the ground, so.
+
+12
+00:00:30,990 --> 00:00:32,340
+While this looks kind of cool,
+
+13
+00:00:32,340 --> 00:00:35,650
+this is not what we're
+trying to accomplish at all.
+
+14
+00:00:35,650 --> 00:00:37,970
+But how do we fix this problem?
+
+15
+00:00:37,970 --> 00:00:39,600
+We'll head back to the internet
+
+16
+00:00:39,600 --> 00:00:42,820
+and see if anybody has
+any solutions for us.
+
+17
+00:00:42,820 --> 00:00:47,320
+So, I actually Googled unity
+prevent car from flipping.
+
+18
+00:00:47,320 --> 00:00:48,650
+There's a couple of things that pop up.
+
+19
+00:00:48,650 --> 00:00:50,580
+There's some YouTube videos.
+
+20
+00:00:50,580 --> 00:00:52,290
+There's Unity Answers posts.
+
+21
+00:00:52,290 --> 00:00:54,780
+I'm just gonna check out
+this first link here.
+
+22
+00:00:54,780 --> 00:00:58,510
+This actually brings me to
+the forums on our website.
+
+23
+00:00:58,510 --> 00:01:01,023
+So, How to prevent the
+Car from tilting/flipping.
+
+24
+00:01:02,137 --> 00:01:04,507
+"I have some problems
+with the car I'm creating.
+
+25
+00:01:04,507 --> 00:01:07,497
+"I have a simple car
+that has a rigid body,
+
+26
+00:01:07,497 --> 00:01:09,020
+"four wheels, wheel colliders."
+
+27
+00:01:09,020 --> 00:01:09,853
+What is that?
+
+28
+00:01:11,087 --> 00:01:12,507
+"Using a script."
+
+29
+00:01:13,707 --> 00:01:14,540
+Let's see what are the responses.
+
+30
+00:01:14,540 --> 00:01:17,840
+"Lower the center of gravity
+of the car's rigid body."
+
+31
+00:01:17,840 --> 00:01:18,840
+What does that mean?
+
+32
+00:01:20,700 --> 00:01:21,533
+Okay.
+
+33
+00:01:22,550 --> 00:01:24,700
+Let's see if there's
+other recommendations.
+
+34
+00:01:24,700 --> 00:01:26,470
+So that first one was kind of helpful,
+
+35
+00:01:26,470 --> 00:01:28,250
+mentioned about wheel colliders.
+
+36
+00:01:28,250 --> 00:01:30,100
+Let' see what the second option says.
+
+37
+00:01:32,020 --> 00:01:34,177
+So, "Car keeps slipping over.
+
+38
+00:01:34,177 --> 00:01:37,289
+"The handling is terrible," okay,
+
+39
+00:01:37,289 --> 00:01:39,987
+"when you go through a
+corner, the car flips over."
+
+40
+00:01:41,540 --> 00:01:42,377
+Let's see what this person say.
+
+41
+00:01:42,377 --> 00:01:44,287
+"What vehicle physics are you using?
+
+42
+00:01:44,287 --> 00:01:45,720
+"Are you using wheel colliders at all?
+
+43
+00:01:45,720 --> 00:01:47,703
+So wheel colliders mentioned again.
+
+44
+00:01:48,607 --> 00:01:50,857
+"You'll need to provide more information.
+
+45
+00:01:50,857 --> 00:01:52,617
+"Make a note of centerOfMass."
+
+46
+00:01:54,530 --> 00:01:55,600
+Well, let's see, so this person
+
+47
+00:01:55,600 --> 00:01:59,010
+is recommending wheel
+colliders and centerOfMass,
+
+48
+00:01:59,010 --> 00:02:00,530
+and they provide a link.
+
+49
+00:02:00,530 --> 00:02:02,530
+Let's take a look at centerOfMass first
+
+50
+00:02:02,530 --> 00:02:04,780
+and see what this does
+since it's already linked.
+
+51
+00:02:04,780 --> 00:02:07,117
+So it says vector3 centerOfMass.
+
+52
+00:02:07,117 --> 00:02:11,837
+"The center of mass relative
+to the transforms origin.
+
+53
+00:02:11,837 --> 00:02:13,527
+"If you don't set the center of mass,
+
+54
+00:02:13,527 --> 00:02:16,447
+"it will be calculated automatically
+
+55
+00:02:16,447 --> 00:02:19,300
+"from all the colliders on the rigidbody."
+
+56
+00:02:19,300 --> 00:02:21,590
+So maybe we can use the centerOfMass.
+
+57
+00:02:21,590 --> 00:02:24,050
+I assume maybe the rigidbody
+
+58
+00:02:24,050 --> 00:02:26,430
+is setting our centerOfMass
+a little bit higher
+
+59
+00:02:26,430 --> 00:02:28,060
+than the actual center of our vehicle.
+
+60
+00:02:28,060 --> 00:02:29,560
+So we can try and change that.
+
+61
+00:02:30,560 --> 00:02:32,270
+There's a little example here.
+
+62
+00:02:32,270 --> 00:02:35,070
+Set centerOfMass this way.
+
+63
+00:02:35,070 --> 00:02:36,420
+Let me try and play around with that.
+
+64
+00:02:36,420 --> 00:02:37,770
+Let's see, so center of mass.
+
+65
+00:02:37,770 --> 00:02:39,350
+They mentioned wheel colliders.
+
+66
+00:02:39,350 --> 00:02:41,170
+So actually on the documentation,
+
+67
+00:02:41,170 --> 00:02:43,310
+I can also just search
+what I'm looking for.
+
+68
+00:02:43,310 --> 00:02:45,070
+So if I go to the top-right,
+
+69
+00:02:45,070 --> 00:02:47,380
+there's this search scripting option here.
+
+70
+00:02:47,380 --> 00:02:49,033
+I'll type in wheel collider.
+
+71
+00:02:50,300 --> 00:02:52,570
+Let's see, it's searching.
+
+72
+00:02:52,570 --> 00:02:53,403
+Oh, okay.
+
+73
+00:02:53,403 --> 00:02:55,330
+Look at that second option, WheelCollider:
+
+74
+00:02:55,330 --> 00:02:57,370
+a special collider for vehicle wheels.
+
+75
+00:02:57,370 --> 00:02:58,850
+That seems pretty useful.
+
+76
+00:02:58,850 --> 00:03:01,110
+So, "Wheel colliders are used
+to model vehicle wheels."
+
+77
+00:03:01,110 --> 00:03:03,650
+Well, that will probably help a lot.
+
+78
+00:03:03,650 --> 00:03:07,620
+So let's see what happens first.
+
+79
+00:03:07,620 --> 00:03:08,680
+So we have these wheels.
+
+80
+00:03:08,680 --> 00:03:09,810
+If I select the vehicle,
+
+81
+00:03:09,810 --> 00:03:12,150
+I can actually select
+each individual wheel
+
+82
+00:03:13,022 --> 00:03:16,600
+and you can actually see
+they're all children objects
+
+83
+00:03:16,600 --> 00:03:17,730
+of our player.
+
+84
+00:03:17,730 --> 00:03:19,650
+So I'll select this first wheel
+
+85
+00:03:19,650 --> 00:03:22,470
+and I'm going to disable
+this Mesh Collider
+
+86
+00:03:22,470 --> 00:03:23,600
+by unchecking that box
+
+87
+00:03:23,600 --> 00:03:26,923
+and now there's no collider on this wheel.
+
+88
+00:03:29,200 --> 00:03:31,010
+You see if I put it back,
+
+89
+00:03:31,010 --> 00:03:33,440
+so that looks to be a
+pretty large problem.
+
+90
+00:03:33,440 --> 00:03:36,970
+So our wheels are not perfectly circle
+
+91
+00:03:36,970 --> 00:03:39,750
+so they have these edges on them.
+
+92
+00:03:39,750 --> 00:03:42,591
+So our wheel will actually
+roll on to one of these edges
+
+93
+00:03:42,591 --> 00:03:46,760
+and these edges might actually
+catch on to the ground here.
+
+94
+00:03:46,760 --> 00:03:49,340
+So that is probably causing
+our vehicle to flip over.
+
+95
+00:03:49,340 --> 00:03:51,740
+So I'll disable this Mesh Collider
+
+96
+00:03:51,740 --> 00:03:53,620
+and I'll add a component
+
+97
+00:03:53,620 --> 00:03:55,660
+and look for a wheel collider.
+
+98
+00:03:55,660 --> 00:03:56,720
+Oh, look at that.
+
+99
+00:03:56,720 --> 00:03:59,080
+So we do have a component
+called a Wheel Collider.
+
+100
+00:03:59,080 --> 00:04:00,393
+So what if I click this?
+
+101
+00:04:01,350 --> 00:04:03,960
+Okay, so it's kind of
+like a perfect circle.
+
+102
+00:04:03,960 --> 00:04:06,120
+It's a little too large
+for what we're looking for
+
+103
+00:04:06,120 --> 00:04:10,473
+so let's see, maybe if we
+change the radius a bit.
+
+104
+00:04:11,630 --> 00:04:15,360
+Look too large, maybe
+like somewhere kinda,
+
+105
+00:04:15,360 --> 00:04:16,960
+that looks okay for now.
+
+106
+00:04:16,960 --> 00:04:18,640
+It's still off-center so that's a problem,
+
+107
+00:04:18,640 --> 00:04:22,830
+so we'll actually just change
+the Y values on the center.
+
+108
+00:04:22,830 --> 00:04:25,360
+Drag it up a little bit so that looks...
+
+109
+00:04:27,350 --> 00:04:28,210
+It could be a little smaller,
+
+110
+00:04:28,210 --> 00:04:30,500
+so I'll actually just gonna
+change this value manually,
+
+111
+00:04:30,500 --> 00:04:32,523
+so I'll type .4.
+
+112
+00:04:37,860 --> 00:04:40,340
+Still a little high.
+
+113
+00:04:40,340 --> 00:04:41,580
+Let's see.
+
+114
+00:04:41,580 --> 00:04:44,643
+If I do .39, we're just a touch smaller.
+
+115
+00:04:51,307 --> 00:04:52,140
+.14.
+
+116
+00:04:53,440 --> 00:04:54,640
+It's aa little bit off.
+
+117
+00:04:54,640 --> 00:04:57,810
+Let's see, maybe if we just
+move the Y up a little bit
+
+118
+00:04:57,810 --> 00:04:58,643
+to .15.
+
+119
+00:05:01,290 --> 00:05:02,620
+So that look's pretty good.
+
+120
+00:05:02,620 --> 00:05:04,270
+Pretty close to the wheel itself.
+
+121
+00:05:05,750 --> 00:05:08,370
+Cool, so we'll collapse
+this Mesh Collider.
+
+122
+00:05:08,370 --> 00:05:10,210
+We're not using it anyways.
+
+123
+00:05:10,210 --> 00:05:11,950
+So we have this Wheel Collider on.
+
+124
+00:05:11,950 --> 00:05:14,390
+So I'm actually just going
+to apply that Wheel Collider
+
+125
+00:05:14,390 --> 00:05:15,370
+onto all of our wheels.
+
+126
+00:05:15,370 --> 00:05:17,410
+So I select the second wheel
+
+127
+00:05:17,410 --> 00:05:20,560
+and then I Shift and
+left-click on the last wheel.
+
+128
+00:05:20,560 --> 00:05:23,140
+So now all of our wheels are selected.
+
+129
+00:05:23,140 --> 00:05:25,260
+I can disable the Mesh Collider.
+
+130
+00:05:25,260 --> 00:05:26,490
+Add a component
+
+131
+00:05:27,640 --> 00:05:29,690
+and we'll find that Wheel Collider again.
+
+132
+00:05:31,940 --> 00:05:35,290
+I believe our values were .39 on radius
+
+133
+00:05:36,570 --> 00:05:39,813
+and then .15 on center.
+
+134
+00:05:42,160 --> 00:05:45,260
+So I'll just make sure that's correct.
+
+135
+00:05:45,260 --> 00:05:48,350
+Cool, so first wheel .39, .15,
+
+136
+00:05:48,350 --> 00:05:50,973
+.39, .15, cool.
+
+137
+00:05:53,000 --> 00:05:54,420
+So let's see
+
+138
+00:05:56,610 --> 00:06:00,023
+what happens now that we
+have our new wheel colliders.
+
+139
+00:06:01,230 --> 00:06:02,063
+Look at that!
+
+140
+00:06:02,063 --> 00:06:03,330
+So out vehicle doesn't stutter anymore.
+
+141
+00:06:03,330 --> 00:06:04,460
+It's going very fast
+
+142
+00:06:04,460 --> 00:06:05,803
+and we just toppled over.
+
+143
+00:06:07,460 --> 00:06:08,843
+So it kind of works.
+
+144
+00:06:10,100 --> 00:06:13,230
+Our vehicle does a little
+bit of a swimming motion
+
+145
+00:06:14,500 --> 00:06:16,523
+and it's very easy to tip over.
+
+146
+00:06:17,530 --> 00:06:19,080
+So, at least now we
+have the movement down,
+
+147
+00:06:19,080 --> 00:06:21,993
+but we want to definitely
+change how easy it can flip.
+
+148
+00:06:23,020 --> 00:06:25,700
+Now, that flipping problem
+is actually probably caused
+
+149
+00:06:25,700 --> 00:06:28,253
+by that center of mass
+issue that we were having.
+
+150
+00:06:29,250 --> 00:06:33,130
+And we looked up in the scripting
+API in our documentation.
+
+151
+00:06:33,130 --> 00:06:35,980
+It had some tips about center of mass.
+
+152
+00:06:35,980 --> 00:06:38,530
+So if we head back to the internet
+
+153
+00:06:38,530 --> 00:06:40,230
+and I just looked up unity
+
+154
+00:06:40,230 --> 00:06:43,100
+how to lower our vehicle center of mass.
+
+155
+00:06:43,100 --> 00:06:44,670
+So we have that link
+
+156
+00:06:44,670 --> 00:06:47,440
+to the documentation that we had before,
+
+157
+00:06:47,440 --> 00:06:50,110
+but there's also this
+Unity Answers problem here.
+
+158
+00:06:50,110 --> 00:06:52,083
+So what if I select this one?
+
+159
+00:06:53,060 --> 00:06:57,753
+So it says here that
+they're making a script.
+
+160
+00:06:59,580 --> 00:07:01,000
+The driving is working,
+
+161
+00:07:01,000 --> 00:07:03,250
+but whenever they turn hard left or right,
+
+162
+00:07:03,250 --> 00:07:06,705
+it just starts going on two wheels.
+
+163
+00:07:06,705 --> 00:07:08,480
+So they don't know if
+it's the center of mass
+
+164
+00:07:08,480 --> 00:07:09,587
+or a problem with the wheel colliders.
+
+165
+00:07:09,587 --> 00:07:11,487
+"Our wheel colliders definitely work."
+
+166
+00:07:12,400 --> 00:07:15,000
+You can see here that they've
+actually posted a snippet
+
+167
+00:07:15,000 --> 00:07:16,230
+of their centerOfMass.
+
+168
+00:07:16,230 --> 00:07:17,963
+That's what the COM stands for.
+
+169
+00:07:21,250 --> 00:07:22,467
+So this person recommends,
+
+170
+00:07:22,467 --> 00:07:26,347
+"The easiest way to do this
+is add a child empty object
+
+171
+00:07:26,347 --> 00:07:28,653
+"called centerOfMass.
+
+172
+00:07:28,653 --> 00:07:32,157
+"Then in your script, set the
+empty object's local position
+
+173
+00:07:32,157 --> 00:07:34,107
+"to the rigid body's center of mass.
+
+174
+00:07:34,107 --> 00:07:36,510
+"So then we can make it adjustable
+
+175
+00:07:37,727 --> 00:07:39,717
+"and the script that sets
+
+176
+00:07:39,717 --> 00:07:41,767
+"that center of mass can be reused."
+
+177
+00:07:43,097 --> 00:07:45,290
+"Make sure to use that localPosition."
+
+178
+00:07:45,290 --> 00:07:46,363
+Okay, interesting.
+
+179
+00:07:47,320 --> 00:07:48,810
+So the thing they recommend to do
+
+180
+00:07:48,810 --> 00:07:51,390
+is actually create a centerOfMass object
+
+181
+00:07:51,390 --> 00:07:54,520
+as a child of this player, this vehicle.
+
+182
+00:07:54,520 --> 00:07:57,027
+So I'm going to right-click on Player
+
+183
+00:07:57,027 --> 00:07:59,283
+and we're going to create an empty,
+
+184
+00:08:00,600 --> 00:08:05,333
+and I'll name this game
+object, Center of Mass.
+
+185
+00:08:06,900 --> 00:08:08,970
+So now we have this empty game object
+
+186
+00:08:08,970 --> 00:08:12,610
+where we can actually
+control the center of mass.
+
+187
+00:08:12,610 --> 00:08:15,030
+Now in my PlayerController script,
+
+188
+00:08:15,030 --> 00:08:17,740
+is where I'll actually need
+to set that center of mass.
+
+189
+00:08:17,740 --> 00:08:18,813
+So I'll open that up.
+
+190
+00:08:21,330 --> 00:08:24,760
+So we already have the player's rigidbody.
+
+191
+00:08:24,760 --> 00:08:28,250
+And according to that person's suggestion,
+
+192
+00:08:28,250 --> 00:08:30,800
+we can actually just
+get the center of mass.
+
+193
+00:08:30,800 --> 00:08:33,770
+So, let's see when I start my game,
+
+194
+00:08:33,770 --> 00:08:36,057
+if I get the player rigidbody.
+
+195
+00:08:37,270 --> 00:08:39,410
+Let's see if I just type center,
+
+196
+00:08:39,410 --> 00:08:42,050
+Oh, there's centerOfMass.
+
+197
+00:08:42,050 --> 00:08:44,257
+You can reset centerOfMass.
+
+198
+00:08:45,270 --> 00:08:47,560
+So now I can actually
+get the center of mass
+
+199
+00:08:47,560 --> 00:08:48,913
+of my rigidbody
+
+200
+00:08:49,870 --> 00:08:52,060
+and I actually want to set this
+
+201
+00:08:52,060 --> 00:08:55,207
+to the centerOfMass that we have.
+
+202
+00:08:58,450 --> 00:09:01,470
+Think actually I'll need to
+get that game object first
+
+203
+00:09:01,470 --> 00:09:03,590
+so let me do this.
+
+204
+00:09:03,590 --> 00:09:06,850
+Since I need to actually
+assign this in Unity,
+
+205
+00:09:06,850 --> 00:09:08,863
+I can actually use SerializeField.
+
+206
+00:09:10,350 --> 00:09:13,500
+And in fact, I don't need
+to even use the word private
+
+207
+00:09:13,500 --> 00:09:16,890
+because all of our variables
+are private by default.
+
+208
+00:09:16,890 --> 00:09:18,260
+The cool thing with SerializeField
+
+209
+00:09:18,260 --> 00:09:21,300
+is now I can actually set a reference
+
+210
+00:09:21,300 --> 00:09:24,410
+for that centerOfMass game
+object without using public.
+
+211
+00:09:24,410 --> 00:09:26,100
+So I can just say GameObject.
+
+212
+00:09:27,806 --> 00:09:30,223
+We'll call this centerOfMass.
+
+213
+00:09:31,825 --> 00:09:33,760
+So now we have that game
+object that we're making
+
+214
+00:09:33,760 --> 00:09:38,760
+so we need to get the center
+of mass's actual position,
+
+215
+00:09:38,940 --> 00:09:42,233
+the transform.position.
+
+216
+00:09:43,270 --> 00:09:46,670
+And so now, what's happening
+is we're actually setting
+
+217
+00:09:46,670 --> 00:09:49,520
+the rigidbody's center of mass
+
+218
+00:09:49,520 --> 00:09:54,230
+to the position of the
+center of mass object
+
+219
+00:09:56,530 --> 00:09:58,223
+that we made in our game.
+
+220
+00:09:59,660 --> 00:10:01,780
+In Unity, one last thing I need to do
+
+221
+00:10:01,780 --> 00:10:03,360
+is just like that player object,
+
+222
+00:10:03,360 --> 00:10:04,470
+you can see Center of Mass.
+
+223
+00:10:04,470 --> 00:10:06,550
+There's no game object referenced.
+
+224
+00:10:06,550 --> 00:10:09,780
+You can actually take
+the child game object
+
+225
+00:10:09,780 --> 00:10:12,400
+and drop it onto the player.
+
+226
+00:10:12,400 --> 00:10:14,420
+So now if I test this out.
+
+227
+00:10:14,420 --> 00:10:17,153
+Let's see, so now our center
+of mesh will be lower.
+
+228
+00:10:18,090 --> 00:10:19,580
+Now our speed doesn't really move.
+
+229
+00:10:19,580 --> 00:10:22,910
+That doesn't really work.
+
+230
+00:10:22,910 --> 00:10:25,600
+Let's see, what if we
+just like change this,
+
+231
+00:10:25,600 --> 00:10:28,200
+I don't know, 40,000?
+
+232
+00:10:28,200 --> 00:10:29,273
+Double it again.
+
+233
+00:10:30,800 --> 00:10:32,063
+Now I press play.
+
+234
+00:10:36,410 --> 00:10:37,570
+Doesn't really move.
+
+235
+00:10:37,570 --> 00:10:38,500
+Let's see, maybe there's a problem
+
+236
+00:10:38,500 --> 00:10:40,253
+with the actual center of mass.
+
+237
+00:10:43,000 --> 00:10:44,820
+I see, the center of
+mass is in the ground.
+
+238
+00:10:44,820 --> 00:10:45,760
+That doesn't really work,
+
+239
+00:10:45,760 --> 00:10:48,290
+so let's move it to like
+the bottom of the car.
+
+240
+00:10:48,290 --> 00:10:49,870
+It's typically where the center
+
+241
+00:10:49,870 --> 00:10:51,483
+of a vehicle's mass would be.
+
+242
+00:10:53,670 --> 00:10:55,233
+Now if we press play,
+
+243
+00:10:57,310 --> 00:11:02,310
+okay, it's a little forward heavy.
+
+244
+00:11:03,370 --> 00:11:05,470
+Let's move that up a little bit
+
+245
+00:11:05,470 --> 00:11:09,103
+and move it maybe towards the back?
+
+246
+00:11:11,440 --> 00:11:12,273
+Oh, there you go.
+
+247
+00:11:12,273 --> 00:11:13,810
+That is a lot of force we're applying.
+
+248
+00:11:13,810 --> 00:11:15,460
+Oh, look at that, but we don't flip over.
+
+249
+00:11:15,460 --> 00:11:16,930
+That's cool.
+
+250
+00:11:16,930 --> 00:11:21,570
+So originally, in fact,
+if I select the Player,
+
+251
+00:11:21,570 --> 00:11:23,460
+our center of mass was
+somewhere around here,
+
+252
+00:11:23,460 --> 00:11:26,040
+actually where these
+arrows are coming from.
+
+253
+00:11:26,040 --> 00:11:28,110
+So using the center of mass game object,
+
+254
+00:11:28,110 --> 00:11:29,780
+I moved it a little to the back
+
+255
+00:11:29,780 --> 00:11:32,660
+and a little bit down to
+make it a bit more accurate
+
+256
+00:11:32,660 --> 00:11:35,370
+as to where the center of mass would be.
+
+257
+00:11:35,370 --> 00:11:37,320
+Now in our player, we're
+still moving too fast.
+
+258
+00:11:37,320 --> 00:11:41,010
+What if I sent this back to 20,000 again?
+
+259
+00:11:41,010 --> 00:11:41,843
+We test this.
+
+260
+00:11:43,920 --> 00:11:47,700
+So it doesn't really work, maybe 30,000?
+
+261
+00:11:47,700 --> 00:11:50,600
+That way, we're not
+accelerating very fast,
+
+262
+00:11:50,600 --> 00:11:52,803
+as fast as 40,000, but we're still moving.
+
+263
+00:11:55,140 --> 00:11:56,150
+There we go.
+
+264
+00:11:56,150 --> 00:11:57,490
+So it looks like there's a small issue
+
+265
+00:11:57,490 --> 00:11:59,780
+where the vehicle gets stuck.
+
+266
+00:11:59,780 --> 00:12:02,060
+Let me just, I'm just
+gonna move this vehicle.
+
+267
+00:12:02,060 --> 00:12:03,210
+So what's probably happening
+
+268
+00:12:03,210 --> 00:12:05,700
+is the wheels are actually
+clipping into the ground
+
+269
+00:12:05,700 --> 00:12:07,140
+so that's where it gets stuck.
+
+270
+00:12:07,140 --> 00:12:10,200
+So if I press play, the
+vehicle, because of gravity,
+
+271
+00:12:10,200 --> 00:12:12,640
+will fall to the ground, and there you go.
+
+272
+00:12:12,640 --> 00:12:15,793
+Now it's much smoother as I drive around.
+
+273
+00:12:16,660 --> 00:12:18,450
+And there we go flying off the screen.
+
+274
+00:12:18,450 --> 00:12:20,330
+So still too much horsepower.
+
+275
+00:12:20,330 --> 00:12:22,630
+Let's just bring it back
+down to 20,000 again.
+
+276
+00:12:25,020 --> 00:12:26,710
+And still not enough.
+
+277
+00:12:26,710 --> 00:12:29,790
+So somewhere between 20,000 and 30,000
+
+278
+00:12:29,790 --> 00:12:31,060
+is probably a good number.
+
+279
+00:12:31,060 --> 00:12:33,683
+We'll say 25,000 for now
+and see if that works.
+
+280
+00:12:36,320 --> 00:12:38,020
+So that looks a little bit better.
+
+281
+00:12:41,150 --> 00:12:42,090
+We can do a few things
+
+282
+00:12:42,090 --> 00:12:43,500
+like we could actually change the mass
+
+283
+00:12:43,500 --> 00:12:45,293
+of our vehicle to be even more.
+
+284
+00:12:46,130 --> 00:12:48,360
+So instead of 1,000, we set it 2,000
+
+285
+00:12:48,360 --> 00:12:52,210
+so that flip should
+definitely happen way less.
+
+286
+00:12:52,210 --> 00:12:53,920
+We actually applied too mass
+
+287
+00:12:53,920 --> 00:12:55,300
+so the force isn't enough to move it
+
+288
+00:12:55,300 --> 00:12:58,090
+so you can change a couple
+of different things.
+
+289
+00:12:58,090 --> 00:13:00,000
+You can change the mass.
+
+290
+00:13:00,000 --> 00:13:02,270
+You can change the horsepower
+
+291
+00:13:02,270 --> 00:13:06,810
+and you can change the actual
+location of the center of mass
+
+292
+00:13:06,810 --> 00:13:10,390
+and that will make it easier
+to move your vehicle around.
+
+293
+00:13:10,390 --> 00:13:13,240
+So play around with those
+different variables.
+
+294
+00:13:13,240 --> 00:13:15,220
+So what you're gonna do is
+
+295
+00:13:15,220 --> 00:13:18,410
+on your vehicles, you're going to select
+
+296
+00:13:18,410 --> 00:13:22,350
+all of the different wheels,
+disable those Mesh Colliders,
+
+297
+00:13:22,350 --> 00:13:25,220
+add a new component
+for the Wheel Collider,
+
+298
+00:13:25,220 --> 00:13:27,220
+make sure that radius lines up
+
+299
+00:13:27,220 --> 00:13:29,250
+with those wheels as best as possible,
+
+300
+00:13:29,250 --> 00:13:30,620
+and then maybe move the center
+
+301
+00:13:30,620 --> 00:13:33,490
+so that it's actually
+the center of the wheels.
+
+302
+00:13:33,490 --> 00:13:36,270
+You can then create a
+new empty game object
+
+303
+00:13:36,270 --> 00:13:37,250
+called centerOfMass.
+
+304
+00:13:37,250 --> 00:13:40,600
+Make sure you make it as a
+child game object of the player.
+
+305
+00:13:40,600 --> 00:13:43,010
+So you right-click on
+the Player game object
+
+306
+00:13:43,010 --> 00:13:46,640
+in the hierarchy, go down to Create Empty.
+
+307
+00:13:46,640 --> 00:13:48,180
+Then it will create the center of mass
+
+308
+00:13:48,180 --> 00:13:50,453
+right at the center of the vehicle.
+
+309
+00:13:51,360 --> 00:13:54,630
+If you head into your
+development environment,
+
+310
+00:13:54,630 --> 00:13:58,610
+you can then create a new
+variable called centerOfMass,
+
+311
+00:13:58,610 --> 00:14:01,390
+so that's the game object that we made,
+
+312
+00:14:01,390 --> 00:14:02,670
+and we'll use SerializeField
+
+313
+00:14:02,670 --> 00:14:04,760
+so we can actually inside it.
+
+314
+00:14:04,760 --> 00:14:06,950
+So in our PlayerController script,
+
+315
+00:14:06,950 --> 00:14:09,423
+we need to add that centerOfMass
+
+316
+00:14:10,480 --> 00:14:12,910
+by getting that game object.
+
+317
+00:14:12,910 --> 00:14:14,650
+We can use SerializeField
+
+318
+00:14:14,650 --> 00:14:17,040
+so that we can actually get the reference
+
+319
+00:14:17,040 --> 00:14:20,400
+of this center of mass in our inspector.
+
+320
+00:14:20,400 --> 00:14:22,670
+Then we need to actually
+assigned the rigidbody's
+
+321
+00:14:22,670 --> 00:14:25,150
+center of mass to to the same position
+
+322
+00:14:25,150 --> 00:14:28,300
+as the centerOfMass game object we made.
+
+323
+00:14:28,300 --> 00:14:32,050
+So that in Unity, when we
+select our player game object,
+
+324
+00:14:32,050 --> 00:14:33,470
+in the Player Controller Script,
+
+325
+00:14:33,470 --> 00:14:36,070
+the Center of Mass reference pops up.
+
+326
+00:14:36,070 --> 00:14:38,990
+We can just click and
+drag the center of mass
+
+327
+00:14:38,990 --> 00:14:42,210
+game object we made
+onto the center of mass,
+
+328
+00:14:42,210 --> 00:14:44,820
+and then we can play around
+with the horsepower, the mass,
+
+329
+00:14:44,820 --> 00:14:46,800
+and the actual position
+of the center of mass
+
+330
+00:14:46,800 --> 00:14:48,773
+to see how our vehicle moves.
+
+331
+00:14:50,280 --> 00:14:51,730
+One thing to take note of,
+
+332
+00:14:51,730 --> 00:14:53,330
+while we're using centerOfMass,
+
+333
+00:14:53,330 --> 00:14:55,070
+and we're using these wheel colliders,
+
+334
+00:14:55,070 --> 00:14:57,160
+this is not the proper way
+
+335
+00:14:57,160 --> 00:14:59,420
+that we should be moving these vehicles.
+
+336
+00:14:59,420 --> 00:15:02,930
+We should, in fact actually,
+be using forces and rotation
+
+337
+00:15:02,930 --> 00:15:06,220
+on the wheels themselves
+to move our vehicles.
+
+338
+00:15:06,220 --> 00:15:07,863
+So if I play my game,
+
+339
+00:15:08,710 --> 00:15:10,360
+we take a look at our scene view.
+
+340
+00:15:11,570 --> 00:15:13,210
+So if I play our game
+
+341
+00:15:13,210 --> 00:15:15,140
+and I move the vehicle down the roads,
+
+342
+00:15:15,140 --> 00:15:19,610
+not really moving, but you can
+see that the vehicle's wheels
+
+343
+00:15:19,610 --> 00:15:21,910
+aren't actually turning and rotating,
+
+344
+00:15:21,910 --> 00:15:24,350
+which is what they would
+actually do in real life.
+
+345
+00:15:24,350 --> 00:15:26,360
+So to make this little bit more accurate,
+
+346
+00:15:26,360 --> 00:15:28,020
+we would then start rotating these wheels
+
+347
+00:15:28,020 --> 00:15:30,553
+and actually using the
+force of that rotation.
+
+348
+00:15:31,890 --> 00:15:33,530
+Four things that might help,
+
+349
+00:15:33,530 --> 00:15:35,910
+definitely check out the documentation,
+
+350
+00:15:35,910 --> 00:15:38,360
+Unity Answers, and the Unity forums
+
+351
+00:15:38,360 --> 00:15:41,980
+to see what centerOfMass does,
+
+352
+00:15:41,980 --> 00:15:44,450
+and to see what our wheel colliders do,
+
+353
+00:15:44,450 --> 00:15:47,870
+and get a better understanding
+of how you can use them.
+
+354
+00:15:47,870 --> 00:15:48,820
+Now it's your turn.
+
