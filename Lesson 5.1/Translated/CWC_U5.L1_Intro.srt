@@ -1,186 +1,185 @@
-ï»¿1
+1
 00:00:01,299 --> 00:00:04,216
-(futuristic music)
+(fütüristik müzik)
 
 2
 00:00:05,630 --> 00:00:08,960
-- In this prototype, objects
-will be tossed into the air,
+- Bu prototipte nesneler havaya
+fýrlatýlacak ve kullanýcýnýn onlarý
 
 3
 00:00:08,960 --> 00:00:11,860
-and the user has to click
-on them to destroy them.
+yok etmesi için üzerlerine
+týklamasý gerekecek.
 
 4
 00:00:11,860 --> 00:00:13,830
-So, the first thing you'll do is decide
+Bu yüzden yapacaðýnýz ilk þey,
+ne tür nesneleri
 
 5
 00:00:13,830 --> 00:00:16,780
-what kind of objects
-you want to obliterate.
+yok etmek istediðinize
+karar vermek olacaktýr.
 
 6
 00:00:16,780 --> 00:00:18,610
-You could choose between sports balls.
+Spor toplarý arasýnda seçim yapabilirsiniz.
 
 7
 00:00:18,610 --> 00:00:20,970
-You could choose fruits and veggies.
+Meyve ve sebzeleri tercih edebilirsiniz.
 
 8
 00:00:20,970 --> 00:00:22,250
-You could even choose the ingredients
+En sevdiðim saðlýklý kahvaltý,
 
 9
 00:00:22,250 --> 00:00:24,380
-from my favorite healthy breakfast,
+pizza kurabiye ve enerji içeceklerinden
 
 10
 00:00:24,380 --> 00:00:27,130
-pizza, cookies, and energy drinks.
+malzemeleri bile seçebilirsiniz.
 
 11
 00:00:27,130 --> 00:00:28,400
-Whatever you choose,
+Hangisini seçerseniz seçin,
 
 12
 00:00:28,400 --> 00:00:30,800
-by the end of this lesson
-the objects you want
+bu dersin sonunda
+istediðiniz nesneler
 
 13
 00:00:30,800 --> 00:00:32,580
-will be launched into the air,
+havaya fýrlatýlacak ve
 
 14
 00:00:32,580 --> 00:00:35,030
-and when you click on
-them, they'll be destroyed.
+üzerlerine týkladýðýnýzda
+yok edilecekler.
 
 15
 00:00:36,640 --> 00:00:40,540
-To make this game as fun
-and fast-paced as possible,
+Bu oyunu olabildiðince
+eðlenceli ve hýzlý yapmak için
 
 16
 00:00:40,540 --> 00:00:43,600
-we're going to give these
-objects not one, not two,
+bu nesnelere,
+bir deðil, iki deðil
 
 17
 00:00:43,600 --> 00:00:46,500
-but three randomized variables.
+üç adet rastgele deðiþken vereceðiz.
 
 18
 00:00:46,500 --> 00:00:48,440
-The position along the
-bottom of the screen
+Ekranýn alt kýsmýndaki konum, nesnelerin
 
 19
 00:00:48,440 --> 00:00:52,310
-will be randomized so the
-objects can appear from anywhere.
+herhangi bir yerden ortaya
+çýkabilmesi için rastgele olacak.
 
 20
 00:00:52,310 --> 00:00:54,390
-The upward force will be randomized
+Yukarý doðru kuvvet, nesnelerin
+rastgele yüksekliklere
 
 21
 00:00:54,390 --> 00:00:57,830
-so that the objects fly
-up to random heights.
+uçmasý için rastgele olacak.
 
 22
 00:00:57,830 --> 00:01:00,120
-And the spin or torque we apply
+Ve uyguladýðýmýz dönüþ veya
+tork kuvveti de rastgele olacak,
 
 23
 00:01:00,120 --> 00:01:03,360
-will also be randomized so that
-some objects spin this way,
+böylece bazý nesneler bu þekilde dönecek,
 
 24
 00:01:03,360 --> 00:01:04,560
-some spin that way,
+bazýlarý bu þekilde dönecek,
 
 25
 00:01:04,560 --> 00:01:06,930
-and some barely spin at all.
+ve bazýlarý neredeyse hiç dönmeyecek.
 
 26
 00:01:06,930 --> 00:01:07,980
-As you can imagine,
+Tahmin edebileceðiniz üzere,
 
 27
 00:01:07,980 --> 00:01:11,500
-our old friend Random.Range is
-going to be heavily involved
+eski dostumuz Random.Range
 
 28
 00:01:11,500 --> 00:01:12,860
-in all of this.
+bunlarýn tamamýna dahil olacak.
 
 29
 00:01:12,860 --> 00:01:13,860
-To destroy the objects,
+Nesneleri yok etmek için,
 
 30
 00:01:13,860 --> 00:01:17,630
-we'll also be testing for a
-brand new type of user input,
+daha önce görmemiþ olduðumuz
+bir kullanýcý giriþi türü olan
 
 31
 00:01:17,630 --> 00:01:18,463
-the mouse.
+fareyi de test edeceðiz.
 
 32
 00:01:19,580 --> 00:01:21,290
-Unity can easily detect
+Unity, oyununuzda farenin
+nerede ve ne zaman
 
 33
 00:01:21,290 --> 00:01:24,410
-where and when a mouse has
-been clicked in your game.
+týklandýðýný kolayca tespit edebilir.
 
 34
 00:01:24,410 --> 00:01:26,330
-You can tell when the
-mouse enters an area.
+Farenin bir alana ne zaman
+girdiðini anlayabilirsiniz.
 
 35
 00:01:26,330 --> 00:01:28,840
-You can tell when the mouse
-button has been pressed down.
+Fare düðmesine ne zaman
+basýldýðýný anlayabilirsiniz.
 
 36
 00:01:28,840 --> 00:01:32,240
-You can even tell when the
-mouse button has been released.
+Fare düðmesinin ne zaman býrakýldýðýný
+bile anlayabilirsiniz.
 
 37
 00:01:32,240 --> 00:01:34,560
-All you have to do is
-detect if a user has clicked
+Tek yapmanýz gereken, bir kullanýcýnýn
+nesnelerimizden birine
 
 38
 00:01:34,560 --> 00:01:36,020
-one of our objects,
+týklayýp týklamadýðýný tespit etmek
 
 39
 00:01:36,020 --> 00:01:38,233
-and if they have, we'll destroy it.
+ve eðer týkladýysa, onu yok edeceðiz.
 
 40
 00:01:39,260 --> 00:01:41,130
-So, to make all that happen,
+Tüm bunlarý gerçekleþtirmek için
 
 41
 00:01:41,130 --> 00:01:42,363
-I'll see you in Unity.
+Unity'de görüþmek üzere.
 
 42
 00:01:44,036 --> 00:01:46,953
-(futuristic music)
+(fütüristik müzik)
 
