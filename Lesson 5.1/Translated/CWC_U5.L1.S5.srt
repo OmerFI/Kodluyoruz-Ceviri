@@ -1,350 +1,357 @@
-ï»¿1
+1
 00:00:00,520 --> 00:00:03,353
-(electronic tone)
+(elektronik ton)
 
 2
 00:00:05,650 --> 00:00:07,420
-- [Instructor] We have
-all of our prefab set up
+- [Eðitmen] Tüm prefab
+kurulumlarýmýz rastgele
 
 3
 00:00:07,420 --> 00:00:09,980
-so they're randomly spawned
-in different positions.
+farklý pozisyonlarda ortaya
+çýkýyor.
 
 4
 00:00:09,980 --> 00:00:11,700
-They have different forces applied to them
+Ekranda uçabilmeleri için
+kendilerine uygulanan
 
 5
 00:00:11,700 --> 00:00:13,423
-so that they fly up the screen.
+farklý kuvvetler vardýr.
 
 6
 00:00:15,390 --> 00:00:17,910
-Now we're going to use
-a list to keep track
+Þimdi onlarý spawnlamak,
+tüm bu nesneleri
 
 7
 00:00:17,910 --> 00:00:20,540
-of all of these objects to spawn them.
+takip etmek için bir liste kullanacaðýz.
 
 8
 00:00:20,540 --> 00:00:22,300
-But instead of using a spawn manager,
+Ancak bir spawn yöneticisi kullanmak yerine
 
 9
 00:00:22,300 --> 00:00:24,890
-we're actually going to
-create a game manager,
+aslýnda bir oyun yöneticisi oluþtur,
 
 10
 00:00:24,890 --> 00:00:27,620
-since we're also going
-to use the game manager
+çünkü biz de daha sonra
+oyunumuzun durumlarýný
 
 11
 00:00:27,620 --> 00:00:30,340
-to control the states of our game later.
+kontrol etmek için oyun
+yöneticisini kullanýyoruz.
 
 12
 00:00:30,340 --> 00:00:35,340
-In your project hierarchy, if
-you click the create button
+Proje hierarchy'nizde, oluþtur
+düðmesine týklayýn
 
 13
 00:00:36,090 --> 00:00:40,320
-and create an empty for
-creating an empty game object,
+ve empty game object
+oluþturarak boþ bir
 
 14
 00:00:40,320 --> 00:00:43,763
-we'll rename the scheme
-object as game manager.
+oluþturarak game manager olarak
+nesneyi yeniden adlandýracaðýz
 
 15
 00:00:45,210 --> 00:00:47,830
-And then we need a game manager script
+Ve sonra onu gerçekten
+kullanabilmek için
 
 16
 00:00:47,830 --> 00:00:49,810
-to be able to actually use it.
+bir game manager
+scriptine ihtiyacýmýz var.
 
 17
 00:00:49,810 --> 00:00:52,360
-So in our scripts folder,
-if we right-click,
+Yani scripts klasörümüzde,
+sað týklarsaki bir C#
 
 18
 00:00:52,360 --> 00:00:56,153
-create a C# script and
-call it game manager.
+scripti oluþturun ve
+buna game manager diyoruz.
 
 19
 00:00:57,270 --> 00:00:59,810
-We'll now apply our game manager script
+Þimdi game manager scriptimizi
 
 20
 00:00:59,810 --> 00:01:01,823
-to our game manager object,
+game manager nesnemize uyguluyoruz
 
 21
 00:01:02,900 --> 00:01:04,600
-and you can see that it's applied.
+ve uygulandýðýný görebilirsiniz.
 
 22
 00:01:05,930 --> 00:01:07,460
-A cool thing you might notice is
+Fark edebileceðiniz harika bir þey,
 
 23
 00:01:07,460 --> 00:01:11,010
-that on the script, instead
-of having the little C# icon
+script üzerinde küçük C# simgesinin olmasý
 
 24
 00:01:11,010 --> 00:01:13,100
-on it, it actually has a gear icon.
+gerekirken,aslýnda diþli
+simgesinin olmasýdýr.
 
 25
 00:01:13,100 --> 00:01:15,640
-So in Unity, it actually tries to help you
+Yani Unity'de aslýnda size birçok
+yönden yardýmcý olmaya çalýþýyor,
 
 26
 00:01:15,640 --> 00:01:17,800
-in a lot of ways, and in this case,
+ve bu durumda game manager
 
 27
 00:01:17,800 --> 00:01:19,830
-because game manager is a script
+insanlarýn çok sýk kullandýðý bir script
 
 28
 00:01:19,830 --> 00:01:22,220
-that people use very often,
+Unity aslýnda sadece bunun için
 
 29
 00:01:22,220 --> 00:01:25,710
-Unity actually creates a
-special icon just for it,
+özel bir simge ekler,
+bu þekilde
 
 30
 00:01:25,710 --> 00:01:28,950
-so then that way, you know
-that this is actually something
+aslýnda oyunumuz için farklý ayarlarý
 
 31
 00:01:28,950 --> 00:01:31,880
-that we'll use to control
-the different settings
+kontrol etmek için kullanacaðýmýz
 
 32
 00:01:31,880 --> 00:01:33,090
-for our game.
+bir þey olduðunu bilirsiniz.
 
 33
 00:01:33,090 --> 00:01:36,200
-If we open up the game manager script,
+Game manager scripti açarsak,
 
 34
 00:01:36,200 --> 00:01:38,280
-now we're going to do something similar
+þimdi kullanacaðýmýz nesnelerin
+listesini almak için
 
 35
 00:01:38,280 --> 00:01:41,720
-in our game manager script to get the list
+scriptimizde
 
 36
 00:01:41,720 --> 00:01:43,350
-of all the objects we're gonna use.
+benzer birþey yapacaðýz.
 
 37
 00:01:43,350 --> 00:01:47,090
-So we're going to public so
-we can apply the references.
+Yani public alacaðýz yani
+referanslarý uygulayabiliriz.
 
 38
 00:01:47,090 --> 00:01:49,940
-But instead of using an array,
+Ancak bir dizi kullanmak yerine,
 
 39
 00:01:49,940 --> 00:01:54,450
-we can use a very similar
-data structure called a list.
+liste adý verilen çok benzer
+bir veri yapýsý kullanabiliriz.
 
 40
 00:01:54,450 --> 00:01:56,790
-And then with a list, we actually need
+Ve sonra bir listeyle,
 
 41
 00:01:56,790 --> 00:01:59,010
-to give it the type of something,
+aslýnda ona bir þeyin türünü
+vermemiz gerekiyor,
 
 42
 00:01:59,010 --> 00:02:03,880
-so we'll create game object
-and we'll call this targets.
+bu yüzden gameobject oluþturacaðýz
+ve buna targets diyeceðiz.
 
 43
 00:02:03,880 --> 00:02:06,090
-Now a list is extremely similar
+Þimdi bir liste bir diziye
+son derece benzer,
 
 44
 00:02:06,090 --> 00:02:10,470
-to an array, so if we were
-to create our own array,
+bu yüzden kendi dizimizi yaratacak olsaydýk,
 
 45
 00:02:10,470 --> 00:02:15,470
-we could call it game
-object and then targets two.
+ona gameobject ve
+sonra hedefler2 diyebilirdik.
 
 46
 00:02:18,940 --> 00:02:22,623
-And you can see I actually
-misspelled game objects.
+Ve aslýnda beni görebilirsin
+yanlýþ yazýlmýþ gameObjects.
 
 47
 00:02:23,560 --> 00:02:28,060
-So the notation is very similar,
-but with the list itself,
+Yani gösterim çok benzer,
+ama listenin kendisiyle
 
 48
 00:02:28,060 --> 00:02:32,110
-we can actually pass it in the
-type of thing that we want,
+aslýnda onu istediðimiz türde
+iletebiliriz,
 
 49
 00:02:32,110 --> 00:02:36,040
-versus with an array, we
-have to tell the array
+bir dizi ile
+karþýlaþtýrýldýðýnda,diziyi
 
 50
 00:02:36,040 --> 00:02:39,746
-what that thing is before
-we make the array itself.
+oluþturmadan önce diziye o þeyin
+ne olduðunu söylemeliyiz.
 
 51
 00:02:39,746 --> 00:02:43,970
-Lists and arrays have slightly
-different functionality
+Listeler ve diziler biraz
 
 52
 00:02:43,970 --> 00:02:45,992
-in terms of the ways that they work.
+çalýþma biçimleri açýsýndan
+farklý iþlevselliðe sahip.
 
 53
 00:02:45,992 --> 00:02:48,457
-Overall, lists and arrays have
+Genel olarak, listeler ve diziler
 
 54
 00:02:48,457 --> 00:02:52,650
-slightly different
-functionality, so there are times
+biraz farklý iþlevselliðe sahiptir,
+bu nedenle bir listenin bir
 
 55
 00:02:52,650 --> 00:02:55,590
-where a list is more useful than an array,
+diziden daha kullanýþlý olduðu
+zamanlar vardýr,ancak bu
 
 56
 00:02:55,590 --> 00:02:57,810
-but for the purpose of this project,
+bu projenin amacý için,
 
 57
 00:02:57,810 --> 00:02:59,130
-we'll just use a list for now
+bir þekilde alýþabilmemiz için
 
 58
 00:02:59,130 --> 00:03:00,410
-so that we can kind of get used to it
+þimdilik bir liste kullanacaðýz.
 
 59
 00:03:00,410 --> 00:03:03,030
-and see how it works
-and how similar it is.
+nasýl çalýþtýðýný ve ne
+kadar benzer olduðunu görün.
 
 60
 00:03:03,030 --> 00:03:06,820
-Now when we save, when we go into Unity,
+Þimdi kaydettiðimizde,
+Unity'ye girdiðimizde,
 
 61
 00:03:06,820 --> 00:03:09,540
-you can see our game manager script.
+gamemanager scriptimizi görebilirsiniz.
 
 62
 00:03:09,540 --> 00:03:11,630
-It has the name of the targets.
+Targets adý var.
 
 63
 00:03:11,630 --> 00:03:14,570
-We can create a size, very similar
+Bir boyut oluþturabiliriz,
 
 64
 00:03:14,570 --> 00:03:16,440
-to how made a size for our array.
+dizimiz için boyut
+oluþturmaya çok benzer.
 
 65
 00:03:16,440 --> 00:03:17,773
-So we'll set this to four.
+Bu yüzden bunu dörde ayarlayacaðýz.
 
 66
 00:03:18,970 --> 00:03:21,120
-And we have four elements
-that we can give it.
+Verebileceðimiz dört
+elementimiz var.
 
 67
 00:03:21,120 --> 00:03:23,523
-So we'll give it the bad object,
+Bu yüzden ona bad nesneyi,
 
 68
 00:03:24,560 --> 00:03:29,560
-the good object, the second
-one, and the third one.
+iyi objeyi, ikinciyi
+ve üçüncüyü vereceðiz.
 
 69
 00:03:31,060 --> 00:03:35,600
-So what you're gonna do, is
-in your project hierarchy,
+Yani ne yapacaksýnýz,
+proje hierarchy'nizde,
 
 70
 00:03:35,600 --> 00:03:38,840
-you're going to create a new empty object,
+yeni bir boþ nesne yaratacaksýnýz,
 
 71
 00:03:38,840 --> 00:03:40,450
-call it game manager.
+buna oyun yöneticisi diyeceksiniz.
 
 72
 00:03:40,450 --> 00:03:44,000
-You're going to create a new
-script called game manager,
+Yeni bir game manager adlý
+script yaratacaksýnýz
 
 73
 00:03:44,000 --> 00:03:47,600
-apply that script to
-the game manager object.
+bu scripti game manager
+nesnesine uygulayýn.
 
 74
 00:03:47,600 --> 00:03:52,040
-In your game manager script,
-create a new public list
+Game manager scriptinizde
+yeni bir public
 
 75
 00:03:52,040 --> 00:03:55,340
-of game objects, and then
-in your game manager,
+game object listesi oluþturun
+ve ardýndan game manager'inizde
 
 76
 00:03:55,340 --> 00:03:57,870
-just make sure that you apply the prefabs
+farklý ögelerin her biirne hazýr yapýlarý
 
 77
 00:03:57,870 --> 00:03:59,670
-onto each of the different elements.
+uyguladýðýnýzdan emin olun.
 
 78
 00:04:01,760 --> 00:04:02,710
-Now it's your turn.
+Þimdi senin sýran!
 
 79
 00:04:03,621 --> 00:04:06,454
-(electronic tone)
+(elektronik ton)
 
