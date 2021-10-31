@@ -1,496 +1,495 @@
-ï»¿1
+1
 00:00:00,437 --> 00:00:02,937
 (logo chimes)
 
 2
 00:00:05,560 --> 00:00:07,342
-- [Instructor] So, we have each of our
+- [Eðitmen] þuanda, birbirinden farklý,
+istediðimiz componentlerin
 
 3
 00:00:07,342 --> 00:00:10,073
-different prefabs
-created and we've applied
+kendilerine uygulandýðý
 
 4
 00:00:10,073 --> 00:00:11,609
-our components to them.
+prefablerimiz var
 
 5
 00:00:11,609 --> 00:00:14,390
-So now we're actually going to use
+Þimdi, havada hareket etmelerini
+saðlayan kuvveti,
 
 6
 00:00:14,390 --> 00:00:15,748
-our target script to control
+sahnenin altýndan baþladýklarý
+rastgele konumu
 
 7
 00:00:15,748 --> 00:00:19,090
-the force that they move in the air,
+ve ardýndan nesneyi döndürebilmek için
 
 8
 00:00:19,090 --> 00:00:20,520
-the random position that they start
+gereken torku kontrol etmek için
 
 9
 00:00:20,520 --> 00:00:21,892
-off at the bottom of the scene,
+Target scriptini
 
 10
 00:00:21,892 --> 00:00:25,630
-and then torque to be
-able to rotate the object.
+kullanacaðýz.
 
 11
 00:00:25,630 --> 00:00:27,566
-If you double-click on your target script
+Target scripti üzerine çift týklayýn.
 
 12
 00:00:27,566 --> 00:00:31,321
-now with our target script open
+Target scriptimiz açýk iken,
 
 13
 00:00:31,321 --> 00:00:33,454
-we're going to create some variables.
+birkaç yeni deðiþken oluþturacaðýz.
 
 14
 00:00:33,454 --> 00:00:37,040
-So we're going to create
-a private variable
+RigidBody'miz için
 
 15
 00:00:37,040 --> 00:00:38,840
-for our rigid body
+private bir deðiþken oluþturuyoruz.
 
 16
 00:00:38,840 --> 00:00:41,945
-so that we can just find
-it using get component.
+Onu, GetComponent kullanarak bulabiliriz.
 
 17
 00:00:41,945 --> 00:00:44,889
-And we'll call this targetRb since
+Bunu "targetRb" olarak isimlendiriyoruz.
 
 18
 00:00:44,889 --> 00:00:46,720
-each one of our different objects
+çünkü her bir farklý objemiz,
 
 19
 00:00:46,720 --> 00:00:49,620
-are the different targets
-we're trying to hit.
+kendilerini vurmaya çalýþtýðýmýz
+farklý birer target'lar.
 
 20
 00:00:49,620 --> 00:00:51,930
-And our start method we're going to take
+Start metodumuzda, targetRb'yi kullanacaðýz
 
 21
 00:00:51,930 --> 00:00:55,385
-targetRb and we'll set it to be
+ve onu RigidBody'miz olan nesnemizin
 
 22
 00:00:55,385 --> 00:01:00,223
-the component on our object
-which is our rigid body.
+component'ý olarak ayarlayacaðýz.
 
 23
 00:01:01,358 --> 00:01:04,220
-Now that we have our rigid body component,
+Artýk RigidBody component'imiz
+olduðuna göre,
 
 24
 00:01:04,220 --> 00:01:06,265
-we need to apply a force on our object
+nesnemize bir kuvvet uygulamamýz gerekiyor,
 
 25
 00:01:06,265 --> 00:01:08,057
-so that when it spawns it moves up
+böylece, oluþtuðu zaman sahnemizde
 
 26
 00:01:08,057 --> 00:01:10,574
-in our scene so that it can fall down.
+yukarý hareket edip düþebilir hale gelir.
 
 27
 00:01:10,574 --> 00:01:13,732
-So using our target rigid body
+Target RigidBody'i kullanarak
 
 28
 00:01:13,732 --> 00:01:16,889
-we're going to add a force
+bir kuvvet ekleyeceðiz,
 
 29
 00:01:16,889 --> 00:01:19,240
-in this case our force is going
+bu durumda kuvvetimiz
 
 30
 00:01:19,240 --> 00:01:22,000
-to be in the up direction
+yukarý yönde olacak
 
 31
 00:01:22,921 --> 00:01:26,230
-and we'll multiply this
-by a random value for now
+ve bunu þimdilik
+rastgele bir deðerle çarpacaðýz,
 
 32
 00:01:26,230 --> 00:01:27,260
-so we're actually going to use
+bu yüzden,
 
 33
 00:01:27,260 --> 00:01:30,290
-our random range method
+Random.Range metodumuzu kullanacaðýz,
 
 34
 00:01:31,250 --> 00:01:33,690
-and we'll set it just to task,
+ve onu, en düþük deðer 12
 
 35
 00:01:33,690 --> 00:01:36,870
-we'll use 12 as the lowest
-value that it could be
+en yüksek deðer ise 16
 
 36
 00:01:36,870 --> 00:01:39,630
-and 16 as the highest.
+olabilecek þekilde ayarlayacaðýz.
 
 37
 00:01:39,630 --> 00:01:41,465
-We actually want this
-force applied instantly
+Biz bu kuvvetin anlýk olarak
+uygulanmasýný istiyoruz,
 
 38
 00:01:41,465 --> 00:01:43,690
-so we'll use a force mode
+bu yüzden
 
 39
 00:01:46,910 --> 00:01:48,210
-and we'll use our impulse.
+ForceMode.Impulse u kullanýyoruz.
 
 40
 00:01:49,810 --> 00:01:50,930
-Another thing that we wanna do
+Yapmak istediðimiz baþka bir þey de,
 
 41
 00:01:50,930 --> 00:01:52,610
-is we actually want this object to
+bu nesnenin sahnemizden geçerken
 
 42
 00:01:52,610 --> 00:01:56,680
-rotate and move as it
-gets through our scene.
+dönmesini ve hareket etmesini istiyoruz.
 
 43
 00:01:56,680 --> 00:01:58,532
-So we're gonna use our rigid body again,
+Bu yüzden yine RigidBody'mizi kullanacaðýz,
 
 44
 00:01:58,532 --> 00:02:02,073
-this time we're actually
-going to use torque.
+bu sefer aslýnda torku kullanacaðýz.
 
 45
 00:02:02,073 --> 00:02:06,468
-So add torque and so torque will actually
+"AddTorque" yazýyoruz,
 
 46
 00:02:06,468 --> 00:02:10,140
-apply the force for our objects to rotate.
+tork nesnelerimizin dönmesi için
+kuvvet uygulayacak
 
 47
 00:02:10,140 --> 00:02:12,320
-In this case we just need the directions
+Þuanki durumda, sadece
 
 48
 00:02:12,320 --> 00:02:14,480
-that the torque will be applied in
+torkun uygulanacaðý yönlere ihtiyacýmýz var,
 
 49
 00:02:14,480 --> 00:02:16,160
-so we'll use random ranges for
+bu yüzden, x, y ve z için
 
 50
 00:02:16,160 --> 00:02:18,635
-our x, our y, and our z.
+Random.Range kullanacaðýz.
 
 51
 00:02:18,635 --> 00:02:23,635
-So we're randomly generate a value
+Verdiðimiz aralýklarda döneceði
 
 52
 00:02:24,110 --> 00:02:25,750
-that it will rotate in
+rastgele deðerler üretiyoruz.
 
 53
 00:02:27,420 --> 00:02:28,610
-say negative ten and ten,
+-10 ve 10 olarak ayarlayalým,
 
 54
 00:02:28,610 --> 00:02:30,210
-so that's on the x.
+bu yaptýðýmýz x içindi.
 
 55
 00:02:30,210 --> 00:02:32,295
-We need to generate another random value
+Baþka bir rastgele deðer daha
+üretmemiz gerekiyor,
 
 56
 00:02:32,295 --> 00:02:34,730
-I'm just going to actually reuse this bit
+Bu kodu bir daha kullanacaðým,
 
 57
 00:02:34,730 --> 00:02:37,143
-of code so I'm actually
-just gonna copy this.
+bu yüzden bunu kopyalayalým
 
 58
 00:02:38,652 --> 00:02:41,297
-I'll paste it into our Y value
+ve Y deðerimiz için yapýþtýralým
 
 59
 00:02:41,297 --> 00:02:43,516
-and then I'll paste it into our Z value
+ayný þekilde Z deðerimiz
+için de yapýþtýralým
 
 60
 00:02:43,516 --> 00:02:45,550
-so our x, our y, and our z
+þuanda x, y ve z deðerleri
 
 61
 00:02:45,550 --> 00:02:47,484
-are all calculating
-different random values
+-10 ve 10 arasýnda
 
 62
 00:02:47,484 --> 00:02:49,910
-between negative ten and ten.
+rastgele oluþturuluyor
 
 63
 00:02:49,910 --> 00:02:52,020
-Again, we want this
-force applied instantly
+Yine, biz buna anlýk olarak
+kuvvetin uygulanmasýný istiyoruz
 
 64
 00:02:52,020 --> 00:02:54,133
-so I'll actually use another force mode.
+o yüzden ForceMode.Impulse kullanýyoruz.
 
 65
 00:02:56,430 --> 00:02:58,705
-And then we want to set the position
+Nesnemizin konumunu da x üzerinde
 
 66
 00:02:58,705 --> 00:03:03,432
-of our object randomly on our x.
+rastgele ayarlamak istiyoruz.
 
 67
 00:03:03,432 --> 00:03:05,575
-Finally, what we're gonna do is
+Son olarak,
 
 68
 00:03:05,575 --> 00:03:07,111
-we're going to create a random
+her bir nesnemizin oluþup fýrlamasý için
 
 69
 00:03:07,111 --> 00:03:11,040
-place for our different object to spawn.
+sahne altýndan çýkacaðý
+rastgele yeri oluþturacaðýz.
 
 70
 00:03:11,040 --> 00:03:12,810
-So we're going to get the position
+Bu yüzden, mevcut objenin
 
 71
 00:03:14,750 --> 00:03:16,610
-of our current object and we'll set
+konumunu alýp, bunu
 
 72
 00:03:16,610 --> 00:03:19,271
-this to be a new vector three
+new Vector3 kullanarak eþitliyoruz
 
 73
 00:03:19,271 --> 00:03:23,000
-and for the x it'll be a random range
+x konumu, Random.Range
+kullanýlarak hesaplancak,
 
 74
 00:03:26,860 --> 00:03:28,401
-so I'll try and keep it between
+deðerini -4 ile 4
 
 75
 00:03:28,401 --> 00:03:31,573
-negative four and four.
+arasýnda tutacaðým.
 
 76
 00:03:34,060 --> 00:03:35,620
-This way it stays between the
+Bu þekilde ekranýmýzýn sol ve sað tarafý
 
 77
 00:03:35,620 --> 00:03:37,233
-left and right side of our screen
+arasýnda kalacak,
 
 78
 00:03:37,233 --> 00:03:39,623
-for our y value, we'll set it to
+onu sahnenin altýnda
 
 79
 00:03:39,623 --> 00:03:41,650
-something like negative six
+ortaya çýkacak þekilde
 
 80
 00:03:41,650 --> 00:03:43,840
-that way it spawns underneath the scene
+eksi altý gibi bir þeye ayarlayacaðýz
 
 81
 00:03:43,840 --> 00:03:46,633
-and then for our z value
-we can set it to zero.
+z deðeri için ise,
+0 olarak ayarlayabiliriz.
 
 82
 00:03:47,480 --> 00:03:50,983
-Now if we wanna test
-and see how this looks,
+Þimdi, bunun nasýl göründüðünü test etmek
+ve görmek istiyorsak,
 
 83
 00:03:53,010 --> 00:03:54,530
-we can actually drag our prefabs
+Prefab'lerimizi Hierarchy üzerine
 
 84
 00:03:54,530 --> 00:03:56,520
-into our hierarchy and it'll randomly
+býrakabiliriz, ve o,
 
 85
 00:03:56,520 --> 00:03:58,883
-create those effects.
+bu efektleri rastgele oluþturacaktýr.
 
 86
 00:04:00,420 --> 00:04:01,690
-So it has a random position,
+Þuanda rastgele bir konumu var,
 
 87
 00:04:01,690 --> 00:04:03,783
-it's got the random force applied.
+rastgele kuvvet uygulanýyor.
 
 88
 00:04:07,635 --> 00:04:10,900
-Now one little bit of clarity
+Bir þeye
 
 89
 00:04:10,900 --> 00:04:12,020
-that we can actually add,
+küçük bir netlik getirelim,
 
 90
 00:04:12,020 --> 00:04:13,500
-so since we're not actually using
+bunu aslýnda kaldýrabiliriz,
 
 91
 00:04:13,500 --> 00:04:15,640
-the z value here,
+z deðerini kullanmadýðýmýz için,
 
 92
 00:04:15,640 --> 00:04:17,490
-we can actually remove this
+ve genel olarak z üzerinde hiçbir þeyi
 
 93
 00:04:18,820 --> 00:04:20,199
-and since we're not really moving
+hareket ettirmediðimiz için,
 
 94
 00:04:20,199 --> 00:04:23,697
-anything on the z in general,
+bu durumda X'i
 
 95
 00:04:23,697 --> 00:04:27,540
-in this case it'll set the
-x to be a random range,
+rastgele bir aralýk olarak ayarlayacak,
 
 96
 00:04:27,540 --> 00:04:29,530
-the Y will be negative six
+Y, oyuncumuzun görebildiði alanýn altýnda
 
 97
 00:04:29,530 --> 00:04:31,036
-underneath what our player can see
+-6 olacak,
 
 98
 00:04:31,036 --> 00:04:33,810
-and our z is always just gonna be zero.
+ve Z'miz her zaman sýfýr olacak.
 
 99
 00:04:33,810 --> 00:04:35,175
-So what you're gonna do is
+Dolayýsýyla yapmanýz gereken þey,
 
 100
 00:04:35,175 --> 00:04:39,130
-in your target script you're going to
+Target scriptinizde
 
 101
 00:04:39,130 --> 00:04:41,248
-create a rigid body variable,
+bir RigidBody deðiþkeni oluþturacaksýnýz,
 
 102
 00:04:41,248 --> 00:04:42,741
-you're gonna get the reference
+bu RigidBody component'i için
+referansý alacaksýnýz,
 
 103
 00:04:42,741 --> 00:04:45,330
-for that rigid body component,
+bunun sayesinde
 
 104
 00:04:45,330 --> 00:04:47,240
-now that you have your
-rigid body component
+RigidBody component'iniz yukarýya doðru
 
 105
 00:04:47,240 --> 00:04:49,419
-add a force in the up direction
+12 ile 16 arasýnda
 
 106
 00:04:49,419 --> 00:04:53,710
-using a random strength between 12 an 16
+rastgele bir kuvvet eklemiþ olacak.
 
 107
 00:04:54,580 --> 00:04:55,630
-and make sure that you apply
+Ve ForceMode.Impulse kullandýðýnýzdan
 
 108
 00:04:55,630 --> 00:04:57,660
-the force with an impulse.
+emin olunuz.
 
 109
 00:04:57,660 --> 00:04:59,640
-In our next line of code
+Bir sonraki kod satýrýmýzda,
 
 110
 00:04:59,640 --> 00:05:01,480
-we're going to add torque to apply
+objemize döndürme uygulamak için
 
 111
 00:05:01,480 --> 00:05:03,090
-rotation to our object
+tork ekleyeceðiz ve
 
 112
 00:05:03,090 --> 00:05:04,096
-and we're just going to use
+her bir x, y ve z için
 
 113
 00:05:04,096 --> 00:05:06,784
-randomly generated values for all
+rastgele oluþturulmuþ
 
 114
 00:05:06,784 --> 00:05:09,387
-the different x, y, and z.
+deðerleri kullanacaðýz.
 
 115
 00:05:09,387 --> 00:05:12,203
-Then we're going to set the position
+Ardýndan nesnemizin konumunu X'imiz için
 
 116
 00:05:12,203 --> 00:05:16,427
-of our object to be a random range
+rastgele bir deðer olacak ve
 
 117
 00:05:16,427 --> 00:05:19,080
-on our x and just below what our player
+oyuncumuzun y'de görebildiðinin
 
 118
 00:05:19,080 --> 00:05:20,550
-can see on the y.
+hemen altýnda olacak
+þekilde ayarlayacaðýz.
 
 119
 00:05:20,550 --> 00:05:22,101
-Now it's your turn.
+Þimdi sizin sýranýz.
 
 120
 00:05:22,101 --> 00:05:24,601
