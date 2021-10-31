@@ -1,285 +1,282 @@
-ï»¿1
+1
 00:00:00,879 --> 00:00:03,796
-(electronic music)
+(elektronik müzik)
 
 2
 00:00:05,600 --> 00:00:07,020
-- [Instructor] Now, the
-first thing that we'll need
+- [Eðitmen] Þimdi, bu küçük oyun için
 
 3
 00:00:07,020 --> 00:00:09,530
-for this little game is three objects
+ihtiyacýmýz olan ilk þey,
 
 4
 00:00:09,530 --> 00:00:10,420
-that we're gonna collect
+toplayacaðýmýz üç nesne ve ardýndan
 
 5
 00:00:10,420 --> 00:00:12,720
-and then a bad object to avoid.
+kaçýnmamýz gereken kötü bir nesne.
 
 6
 00:00:12,720 --> 00:00:16,263
-So we're going to go
-into our project window.
+Project penceremize gelelim.
 
 7
 00:00:17,270 --> 00:00:19,510
-We're going to, under our assets folder,
+Assets klasörünün altýndaki
 
 8
 00:00:19,510 --> 00:00:21,930
-expand our course library
+Course Library kýsmýný geniþletelim
 
 9
 00:00:21,930 --> 00:00:23,290
-and then in our course library,
+ardýndan Course Library altýndaki
 
 10
 00:00:23,290 --> 00:00:25,220
-we're going to expand our props.
+Props kýsmýný geniþletelim.
 
 11
 00:00:25,220 --> 00:00:27,760
-Now you can see we have a
-bunch of different options here
+Görebileceðiniz üzere birsürü farklý
 
 12
 00:00:27,760 --> 00:00:31,170
-from bad things we don't
-wanna collide with.
+seçeneðimiz bulunmakta örneðin
 
 13
 00:00:31,170 --> 00:00:33,130
-We have different balls we can use.
+kendilerine çarpmak istemediðimiz
+Bad (kötü) nesneler,
 
 14
 00:00:33,130 --> 00:00:35,060
-We have food.
+kullanabileceðimiz farklý toplar,
+food (yiyecek),
 
 15
 00:00:35,060 --> 00:00:37,410
-There's other types of things.
+daha farklý türde olanlar da var.
 
 16
 00:00:37,410 --> 00:00:39,710
-So I think I'm just going to use
+Ben sadece, bu Other kýsmý altýndaki
 
 17
 00:00:39,710 --> 00:00:41,883
-some of these other objects here.
+nesneleri kullanacaðým.
 
 18
 00:00:44,730 --> 00:00:47,480
-So I like the look of all
-of these different crates
+Ben tüm bu farklý Crate'lerin (kasalarýn)
+görünüþünü beðendim,
 
 19
 00:00:47,480 --> 00:00:51,173
-so I'm gonna go and drag
-them into my hierarchy.
+bu yüzden onlarý Hierarchy
+üzerine sürükleyeceðim.
 
 20
 00:00:53,320 --> 00:00:55,530
-And you can kinda see they're
-stacking on top of each other
+Birbirlerinin üzerine
+yýðýldýklarýný görebilirsiniz,
 
 21
 00:00:55,530 --> 00:00:58,520
-so we'll just go and
-we'll use our move tool
+Bu yüzden gidip Move (hareket)
+aracýmýzý kullanacaðýz
 
 22
 00:00:58,520 --> 00:01:01,470
-and we'll just drag them onto
-our scene so we can see them.
+onlarý görebilmemiz için
+onlarý sahnemize sürükleyeceðiz.
 
 23
 00:01:10,680 --> 00:01:13,640
-And then we need a bad prop to use
+Ayný zamanda bir Bad
+objesine de ihtiyacýmýz var
 
 24
 00:01:13,640 --> 00:01:17,790
-so we'll go into props, bad
-and we'll just click and drag.
+bu yüzden Props > Bad altýna girip,
+sürükleyip býrakýyoruz.
 
 25
 00:01:17,790 --> 00:01:19,860
-I'll use a skull as one of my bad props.
+Bad objelerimden biri için
+Skull (kafatasý) kullanacaðým.
 
 26
 00:01:19,860 --> 00:01:22,040
-That way it's very clear
-which ones are good.
+Bu þekilde hangilerinin iyi olduðu çok açýk hale geldi.
 
 27
 00:01:22,040 --> 00:01:24,800
-All of these different crates over here
+Buradaki tüm bu farklý kasalar ve
 
 28
 00:01:24,800 --> 00:01:25,950
-and then we have our skull
+kesinlikle üstüne týklamak
 
 29
 00:01:25,950 --> 00:01:28,500
-which we definitely don't wanna press.
+istemediðimiz kafatasýmýz var.
 
 30
 00:01:28,500 --> 00:01:30,580
-Now, we're going to
-rename all of our props
+Þimdi, tüm Prop'larýmýzý (objelerimizi)
+yeniden isimlendireceðiz,
 
 31
 00:01:30,580 --> 00:01:32,570
-so that way it's easier to manage them.
+böylece onlarý yönetmek daha kolay olacak.
 
 32
 00:01:32,570 --> 00:01:35,620
-So we'll name the skull and
-we'll just make this very simple
+Ýskeletimizi daha kolay olacak
+þekilde isimlendireceðiz
 
 33
 00:01:35,620 --> 00:01:38,773
-so we'll call this Bad 1
-for the first bad prop.
+Ýlk objemiz için "Bad 1" olarak
+isimlendiriyoruz.
 
 34
 00:01:40,630 --> 00:01:43,680
-And our crate, we'll name this Good 1,
+Ve kutumuz için, "Good 1"
+olarak isimlendiriyoruz,
 
 35
 00:01:43,680 --> 00:01:45,063
-so this is the first one.
+bu birinci olan.
 
 36
 00:01:46,160 --> 00:01:47,580
-We have Good 2
+Ayný þekilde "Good 2",
 
 37
 00:01:49,740 --> 00:01:53,203
-and then our last cube will be Good 3.
+Ve son küpümüzü ise "Good 3"
+olarak isimlendiriyoruz.
 
 38
 00:01:54,600 --> 00:01:56,030
-Now on all of our props,
+Tüm objelerimiz üzerinde
 
 39
 00:01:56,030 --> 00:01:59,600
-we actually need rigid
-bodies and box colliders
+RigidBody ve Box Collider'lara
+ihtiyacýmýz var
 
 40
 00:01:59,600 --> 00:02:01,690
-because this game is gonna
-be a bunch of objects
+çünkü bu oyunda bir çok obje
 
 41
 00:02:01,690 --> 00:02:03,510
-being thrown up in the
-air and then falling
+havaya fýrlatýlacak ve düþecek,
 
 42
 00:02:03,510 --> 00:02:04,440
-and we need the physics for that.
+bu yüzden fiziðe ihtiyacýmýz var.
 
 43
 00:02:04,440 --> 00:02:07,380
-And then we need colliders
-because we're actually going to
+Ayný þekilde Collider'lara da
+ihtiyacýmýz var çünkü
 
 44
 00:02:07,380 --> 00:02:10,440
-add triggers to each
-of these boxes as well.
+her bir kutuya
+Trigger (tetikleyici) ekleyeceðiz
 
 45
 00:02:10,440 --> 00:02:12,010
-So I'm going to select the first box
+Ýlk kutuyu seçeceðim ve ardýndan
 
 46
 00:02:12,010 --> 00:02:15,000
-and then I'll select the
-last item on the list
+listedeki son öðeyi seçeceðim,
 
 47
 00:02:15,000 --> 00:02:16,810
-and I'm just going to add components
+ve bunlara Component ekleyeceðim
 
 48
 00:02:16,810 --> 00:02:18,160
-so I'll add a box collider
+bir Box Collider ekleyeceðim,
 
 49
 00:02:18,160 --> 00:02:20,410
-so hopefully it works
-on all of them properly
+umarým hepsinde düzgün çalýþýr,
 
 50
 00:02:21,420 --> 00:02:25,523
-and then I'll add a rigid body.
+RigidBody ekleyeceðim.
 
 51
 00:02:28,030 --> 00:02:29,260
-So now we have box colliders
+Þuanda Box Collider'lar ve RigidBody'ler
 
 52
 00:02:29,260 --> 00:02:31,260
-and rigid bodies applied to all of them.
+hepsine uygulanmakta.
 
 53
 00:02:32,990 --> 00:02:35,120
-Just make sure they work properly
+Düzgün çalýþtýklarýndan emin olun,
 
 54
 00:02:35,120 --> 00:02:37,853
-so you can see the box looks pretty close.
+kutunun oldukça yakýn
+olduðunu görebiliyorsunuz.
 
 55
 00:02:38,820 --> 00:02:40,683
-Cube also looks good.
+Cube also looks good. Küp de iyi görünüyor.
 
 56
 00:02:41,980 --> 00:02:42,813
-That one looks good.
+Bu da ayný þekilde güzel görünüyor.
 
 57
 00:02:42,813 --> 00:02:44,370
-Let's see what happens with the bad.
+Bakalým Bad nasýl görükücek,
 
 58
 00:02:44,370 --> 00:02:45,733
-Yeah, pretty well lined up.
+Güzel, oldukça iyi sýralý halde.
 
 59
 00:02:46,820 --> 00:02:49,010
-Now, what we're gonna do
-is in our assets folder,
+Þimdi yapacaðýmýz þey,
 
 60
 00:02:49,010 --> 00:02:50,440
-we're going to right-click on it
+Assets klasörümüze gelip sað týklýyoruz
 
 61
 00:02:50,440 --> 00:02:52,080
-and create a new folder
+ve yeni bir klasör oluþturuyoruz.
 
 62
 00:02:52,920 --> 00:02:54,603
-and this will be for our scripts.
+Bu bizim script'lerimiz için olacak.
 
 63
 00:02:56,270 --> 00:02:57,730
-And then in our scripts folder,
+Ve Scripts klasörümüz içerisinde
 
 64
 00:02:57,730 --> 00:03:02,003
-we're just going to make
-a script called target.
+Target isimli yeni
+bir script oluþturuyoruz.
 
 65
 00:03:03,930 --> 00:03:05,400
-And then we're going to select
+Tüm farklý objleremizi seçiyoruz,
 
 66
 00:03:05,400 --> 00:03:07,980
@@ -287,176 +284,172 @@ all of our different objects as well
 
 67
 00:03:07,980 --> 00:03:11,830
-and they'll all use the same
-target script in general
+hepsi ayný Target script'ini kullanacaklar,
 
 68
 00:03:11,830 --> 00:03:14,793
-so we don't need to get
-very fancy with this.
+o yüzden öyle çok uðraþmamýza gerek yok.
 
 69
 00:03:18,090 --> 00:03:21,120
-So now you can see they all
-have the target script applied.
+Hepsine Target scriptinin
+uygulandýðýný görebilirsiniz.
 
 70
 00:03:21,120 --> 00:03:22,840
-Now, in our assets folder,
+Assets klasörümüzde, prefablerimiz için
 
 71
 00:03:22,840 --> 00:03:26,170
-we'll create a new
-folder for our pre-fabs.
+yeni bir klasör oluþturacaðýz.
 
 72
 00:03:26,170 --> 00:03:28,150
-Now we're gonna take each
-of our different objects
+Her bir objeyi tutup
 
 73
 00:03:28,150 --> 00:03:30,533
-and we'll drag them into
-our pre-fabs folder.
+Prefabs klasörümüze sürüklüyoruz.
 
 74
 00:03:32,720 --> 00:03:34,853
-Make sure you create original pre-fabs.
+"Original Prefab" seçeneðini
+seçtiðinizden emin olun.
 
 75
 00:03:49,096 --> 00:03:52,320
-And now, since we have
-all of our pre-fabs,
+Ve þimdi, prefablerimiz olduðu için,
+sahneden bu objelerin
 
 76
 00:03:52,320 --> 00:03:53,260
-I'll just go and delete
+her birini siliyoruz,
 
 77
 00:03:53,260 --> 00:03:55,620
-all of these objects in our scene now
+çünkü daha sonradan
 
 78
 00:03:55,620 --> 00:03:57,780
-'cause I don't think we'll
-need to edit them much later
+onlarý düzenlememiz
+gerekeceðini sanmýyorum,
 
 79
 00:03:57,780 --> 00:04:00,600
-so delete and now we're good to go.
+o yüzden silin,
+þimdi ilerlemeye hazýrýz
 
 80
 00:04:00,600 --> 00:04:01,690
-So what you're gonna do
+Yapmanýz gereken þey,
 
 81
 00:04:01,690 --> 00:04:04,680
-is you're going to go into
-your course library folder,
+Course Library ve onun altýnda
+Props klasörüne girip,
 
 82
 00:04:04,680 --> 00:04:07,420
-underneath props, you can pick a bad prop
+oyunumuz için
 
 83
 00:04:07,420 --> 00:04:09,490
-that you're gonna use for your game
+bir Bad obje,
 
 84
 00:04:09,490 --> 00:04:11,260
-and then choose three other props.
+diðerlerinden ise 3 tane seçebilirsiniz.
 
 85
 00:04:11,260 --> 00:04:12,120
-They can be balls.
+Balls'tan seçebilirsiniz.
 
 86
 00:04:12,120 --> 00:04:13,100
-They can be food.
+Food'dan seçebilirsiniz.
 
 87
 00:04:13,100 --> 00:04:15,823
-They can be any other kind
-of prop that you wanna use.
+Kullanmak isteyeceðiniz
+herhangi bir obje olabilir.
 
 88
 00:04:17,010 --> 00:04:18,900
-Make sure on all of the props
+Tüm objelere
 
 89
 00:04:18,900 --> 00:04:21,640
-you add a rigid body
+RigidBody ve Collider
 
 90
 00:04:21,640 --> 00:04:22,770
-and a collider
+eklediðizden emin olun,
 
 91
 00:04:24,960 --> 00:04:25,830
-and then just make sure
+ve Collider'ýn kullandýðýnýz
 
 92
 00:04:25,830 --> 00:04:28,400
-that the collider is properly lined up
+orijinal obje ile düzgün bir þekilde
 
 93
 00:04:28,400 --> 00:04:30,863
-with the actual object you're using.
+oturduðundan emin olun.
 
 94
 00:04:32,310 --> 00:04:37,040
-In our project window, create
-a new folder for your scripts
+Project penceresinde, scriptleriniz için
+yeni bir klasör oluþturun,
 
 95
 00:04:37,040 --> 00:04:40,060
-and create a target script
-that you'll then apply
+ve sahnedeki her bir
+farklý objeye uygulamak için
 
 96
 00:04:40,060 --> 00:04:43,150
-to each of your different
-objects on your scene.
+bir Target scripti oluþturun.
 
 97
 00:04:43,150 --> 00:04:44,490
-Once you have the box collider,
+Box Collider ve RigidBoy
+uyguladýðýnýz zaman,
 
 98
 00:04:44,490 --> 00:04:47,100
-the rigid body and your script applied,
+Prefabs klasörü oluþturun,
 
 99
 00:04:47,100 --> 00:04:48,680
-create your pre-fabs folder,
+her bir farklý objeyi
 
 100
 00:04:48,680 --> 00:04:51,820
-drag and drop all of
-your different objects
+sürükleyip
 
 101
 00:04:51,820 --> 00:04:53,040
-into your pre-fabs folder.
+Prefabs klasörüne býrakýn.
 
 102
 00:04:53,040 --> 00:04:55,090
-Create original pre-fabs
+Original Prefabs oluþturun,
 
 103
 00:04:55,090 --> 00:04:57,470
-and then you can see all of
-the different pre-fabs here
+ve her bir prefab üzerinde
 
 104
 00:04:57,470 --> 00:05:00,160
-with all of the components applied.
+istediðimiz componentlarýn
+uygulandýðýný görebilirsiniz.
 
 105
 00:05:00,160 --> 00:05:02,121
-So, now it's your turn.
+Þimdi sizin sýranýz.
 
 106
 00:05:02,121 --> 00:05:05,038
-(electronic music)
+(elektronik müzik)
 
